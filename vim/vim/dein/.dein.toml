@@ -1,0 +1,165 @@
+# tomlファイルのシンタックス
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+# 空白文字の可視化
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+# 作業時間ログ
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
+
+# スニペット
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+# 自動補完 - Neovim
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_source = '''
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#enable_ignore_case = 1
+    let g:deoplete#enable_smart_case = 1
+'''
+
+# 多くの言語のシンタックス対応
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+
+# 括弧
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+# Git
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+# Indent
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+    let g:indentLine_char = '¦'
+    let g:indentLine_leadingSpaceEnabled = 1
+    let g:indentLine_leadingSpaceChar = '･'
+
+    " Vim
+    let g:indentLine_color_term = 241
+
+    "GVim
+    let g:indentLine_color_gui = '#5C6370'
+'''
+
+# File icons
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+hook_add = '''
+    let g:webdevicons_conceal_nerdtree_brackets = 1
+    let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+
+    " Linux      : set guifont=<FONT_NAME> <FONT_SIZE>
+    " macOS(OS X): set guifont=<FONT_NAME>:h<FONT_SIZE>
+    " set guifont=Inconsolata\ for\ Powerline\ Plus\ Nerd\ File\ Types:h13
+'''
+
+# File tree
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+    let g:NERDTreeShowBookmarks=3
+    let g:NERDTreeShowHidden=1
+    let g:NERDTreeDirArrows=1
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+    noremap <C-n> :NERDTreeToggle<CR>
+'''
+
+[[plugins]]
+repo = 'jistr/vim-nerdtree-tabs'
+depends = ['nerdtree']
+
+# File tree highlight
+[[plugins]]
+repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
+depends = ['nerdtree']
+hook_add = '''
+    let s:rspec_red = 'FE405F'
+    let s:git_orange = 'F54D27'
+    let g:NERDTreeExactMatchHighlightColor = {}                            " this line is needed to avoid error
+    let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange    " sets the color for .gitignore files
+    let g:NERDTreePatternMatchHighlightColor = {}                          " this line is needed to avoid error
+    let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
+'''
+
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+
+# Set statusline color
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+    let g:lightline = {
+    \   'colorscheme': 'onedark',
+    \   'active': {
+    \       'left': [ ['mode', 'paste'], ['readonly', 'filename', 'modified'] ],
+    \       'right': [ ['lineinfo'], ['percent', 'ale'], ['fileformat', 'fileencoding', 'filetype'] ]
+    \   },
+    \   'component_function': {
+    \       'mode': 'LightlineMode',
+    \       'modified': 'LightlineModified',
+    \       'readonly': 'LightlineReadonly',
+    \       'fileencoding': 'LightlineFileencoding',
+    \   },
+    \   'component_expand': {
+    \       'ale': 'ALESyntaxCheck'
+    \   },
+    \   'component_type': {
+    \       'ale': 'error'
+    \   },
+    \   'separator': { 'left': '⮀', 'right': '⮂' },
+    \   'subseparator': { 'left': '⮁', 'right': '⮃' }
+    \ }
+
+    function! LightlineMode()
+        return winwidth(0) > 60 ? lightline#mode() : ''
+    endfunction
+
+    function! LightlineFilename()
+        return expand('%:t') != '' ? expand('%:t') : '[No Name]
+    endfunction
+
+    function! LightlineModified()
+        return &ft =~ 'help\|nerdtree' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+    endfunction
+
+    function! LightlineReadonly()
+        return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
+    endfunction
+
+    function! LightlineFileencoding()
+        let e1 = (&fenc != '' ? &fenc : &enc)
+        let e2 = e1 != 'utf-8' ? e1 : ''
+        return winwidth(0) > 70 ? e2 : ''
+    endfunction
+
+    function! LightlineFugitive()
+        if &ft !~? 'nerdtree' && exists("*fugitive#head")
+            let branch = fugitive#head()
+            return branch != '' ? '⭠ '.branch : ''
+        endif
+        return ''
+    endfunction
+
+    function! ALESyntaxCheck()
+        ALEGetStatusLine()
+        call lightline#update()
+    endfunction
+'''
+

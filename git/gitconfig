@@ -1,0 +1,26 @@
+[core]
+	excludesfile = ~/.gitignore_global
+
+[user]
+	email = simorgh3196@gmail.com
+	name  = simorgh3196
+
+[ghq]
+    root = ~/ghq/src
+
+[alias]
+    a   = add
+    b   = branch -a
+    c   = commit
+    cm  = commit -m
+    ch  = checkout
+    chb = checkout -b
+    s   = status
+    ss  = status -s
+    sh  = show
+    ps  = push
+    pso = push origin
+    pl  = pull
+
+    # git log --graph
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative

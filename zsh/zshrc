@@ -1,0 +1,276 @@
+# ===================================================
+# =================  zplug plugins  =================
+# ===================================================
+
+if [ ! -d ~/.zplug ]; then
+    curl -sL zplug.sh/installer | zsh
+fi
+source ~/.zplug/init.zsh
+
+zplug "mollifier/cd-gitroot"
+zplug "peco/peco", as:command, from:gh-r, use:"*amd64*"
+zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
+
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
+zplug "plugins/golang", from:oh-my-zsh
+zplug "mafredri/zsh-async"
+zplug "sindresorhus/pure", defer:3
+zplug "zsh-users/zsh-completions"
+zplug "glidenote/hub-zsh-completion"
+zplug "Tarrasch/zsh-bd"
+zplug "paulirish/git-open", as:command
+zplug "motemen/ghq", from:gh-r, as:command, use:"*darwin*amd64*"
+zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*darwin*amd64*"
+zplug "github/hub", from:gh-r, as:command, use:"*darwin*amd64*"
+zplug "mollifier/anyframe"
+
+#
+# Install if needed
+#
+
+if ! zplug check --verbose; then
+  printf 'Install zsh plugin? [y/N]: '
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+zplug load
+
+
+# ===================================================
+# ================  Custom Settings  ================
+# ===================================================
+
+#
+# Prompt
+#
+
+VIM_PROMPT="❯"
+PROMPT='%(?.%F{green}.%F{red})${VIM_PROMPT}%f '
+
+prompt_pure_update_vim_prompt() {
+    zle || {
+        print "error: pure_update_vim_prompt must be called when zle is active"
+        return 1
+    }
+    VIM_PROMPT=${${KEYMAP/vicmd/❯❯}/(main|viins)/ ❯}
+    zle .reset-prompt
+}
+
+function zle-line-init zle-keymap-select {
+    prompt_pure_update_vim_prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+
+#
+# Autoloadings
+#
+
+autoload -Uz add-zsh-hook             # フック機能を有効にする
+autoload -Uz compinit && compinit -u  # コマンドのオプションや引数を補完する
+autoload -Uz url-quote-magic          # URLをエスケープする
+autoload -Uz vcs_info                 # VCS情報の表示を有効にする
+
+
+#
+# General settings
+#
+
+setopt auto_list            # 補完候補を一覧で表示する
+setopt auto_menu            # 補完キー連打で候補順に自動で補完する
+setopt auto_pushd           # cd 時に自動でディレクトリスタックに追加する
+setopt auto_param_slash     # ディレクトリ名の補完で末尾の / を自動的に付与し、次の補完に備える
+setopt auto_param_keys      # 括弧の対応などを自動的に補完
+setopt mark_dirs            # ファイル名の展開でディレクトリにマッチした場合、末尾に / を追加
+setopt list_types           # 補完候補一覧でファイルの種別を識別マーク表示
+setopt globdots             # 明確なドットの指定なしで、ドットから始まるファイルをマッチ
+setopt extended_history     # コマンド履歴に実行時間も記録する
+setopt hist_ignore_all_dups # 履歴中の重複行をすべて削除する
+setopt hist_ignore_dups     # 直前と重複するコマンドを記録しない
+setopt hist_reduce_blanks   # コマンド中の余分なスペースは削除して履歴に記録する
+setopt hist_save_no_dups    # 履歴と重複するコマンドを記録しない
+setopt ignore_eof           # ^D でシェルを終了しない
+setopt inc_append_history   # 履歴をすぐに追加する（通常はシェル終了時）
+setopt interactive_comments # 以降をコメントとして扱う
+setopt no_beep              # ビープを無効にする
+setopt no_hist_beep
+setopt no_list_beep
+setopt magic_equal_subst    # = 以降も補完する（例：--option=value）
+setopt notify               # バックグラウンド処理の状態変化をすぐに通知する
+setopt print_eight_bit      # 8bit文字を有効にする
+setopt print_exit_value     # 終了ステータスが0以外の場合にステータスを表示する
+setopt prompt_subst         # VCS情報の表示を有効にする
+setopt pushd_ignore_dups    # ディレクトリスタックと重複したディレクトリをスタックに追加しない
+setopt rm_star_wait         # rm * の前に確認をとる
+setopt share_history        # Zsh間で履歴を共有する
+setopt transient_rprompt    # コマンド実行後は右プロンプトを消す
+
+
+#
+# Exports
+#
+
+export CLICOLOR=true
+export LSCOLORS='exfxcxdxbxGxDxabagacad'
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
+export EDITOR=vim  # 標準エディタを設定する
+
+export HISTFILE=~/.zhistory  # コマンド履歴を保存するファイルを指定する
+export HISTSIZE=1000         # メモリに保存する履歴の件数を指定する
+export SAVEHIST=1000000      # ファイルに保存する履歴の件数を指定する
+export LANG=ja_JP.UTF-8      # 文字コードを設定する
+
+
+#
+# Module settings
+#
+
+# Completion
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' use-cache true
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:default' menu select=2
+zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
+zstyle ':completion:*:options' description 'yes'
+
+
+# ================================================
+# ================  Key bindings  ================
+# ================================================
+
+bindkey -v                                      # コマンドラインの編集モードをViにする
+bindkey -v '^?' backward-delete-char            # バックスペースキーで文字を削除する
+bindkey -v '^h' backward-delete-char            # バックスペースキーで文字を削除する
+# bindkey '^P' up-history                         # 履歴↑
+# bindkey '^N' down-history                       # 履歴↓
+bindkey '^@' anyframe-widget-cd-ghq-repository  # ghq で管理しているリポジトリから検索・移動する
+bindkey '^r' anyframe-widget-put-history        # コマンドを履歴から検索・実行する
+
+# Ctrl-PとCtrl-Nで前方一致検索
+autoload -Uz history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey '^p' history-beginning-search-backward-end
+bindkey '^[[A' history-beginning-search-backward-end
+bindkey '^n' history-beginning-search-forward-end
+bindkey '^[[B' history-beginning-search-forward-end
+
+function cd(){
+    builtin cd $@ && ls -G;
+}
+
+function gi() { curl http://www.gitignore.io/api/$@ ;}
+
+
+# ================================================
+# ===================  Alias  ====================
+# ================================================
+
+alias vim='nvim'
+alias tmux='tmux -2'
+alias la='ls -a'
+alias l='ls -la'
+alias be='bundle exec'
+alias mkdir='mkdir -p'
+
+
+# =================================================
+# ====================  PATH  =====================
+# =================================================
+
+# swiftenv
+export SWIFTENV_ROOT="$HOME/.swiftenv"
+export PATH="$SWIFTENV_ROOT/bin:$PATH"
+eval "$(swiftenv init -)"
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+
+# pyenv
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+eval "$(pyenv init -)"
+
+# ruenv
+export RBENV_ROOT=$HOME/.rbenv
+export PATH=$RBENV_ROOT/bin:$PATH
+eval "$(rbenv init -)"
+
+# Node.js
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+# Go
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$GOPATH/bin:$PATH
+
+# Haskell
+export PATH=/Library/Haskell/bin:$PATH
+export PATH=/Library/Frameworks/GHC.framework/Versions/Current/usr/bin:$PATH
+
+# Neovim
+export XDG_CONFIG_HOME=$HOME/.config
+
+# Tex
+export PATH=$PATH:/Library/TeX/texbin
+
+
+
+# =================================================
+# ===============  AUTO RUN TMUX  =================
+# =================================================
+
+function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
+function is_osx() { [[ $OSTYPE == darwin* ]]; }
+function is_screen_running() { [ ! -z "$STY" ]; }
+function is_tmux_runnning() { [ ! -z "$TMUX" ]; }
+function is_screen_or_tmux_running() { is_screen_running || is_tmux_runnning; }
+function shell_has_started_interactively() { [ ! -z "$PS1" ]; }
+function is_ssh_running() { [ ! -z "$SSH_CONECTION" ]; }
+
+function tmux_automatically_attach_session()
+{
+    if ! is_screen_or_tmux_running; then
+        if shell_has_started_interactively && ! is_ssh_running; then
+            if ! is_exists 'tmux'; then
+                echo 'Error: tmux command not found' 2>&1
+                return 1
+            fi
+
+            if tmux has-session >/dev/null 2>&1 && tmux list-sessions | grep -qE '.*]$'; then
+                # detached session exists
+                tmux list-sessions
+                echo -n "Tmux: attach? (y/N/num) "
+                read
+                if [[ "$REPLY" =~ ^[Yy]$ ]] || [[ "$REPLY" == '' ]]; then
+                    tmux attach-session
+                    if [ $? -eq 0 ]; then
+                        echo "$(tmux -V) attached session"
+                        return 0
+                    fi
+                elif [[ "$REPLY" =~ ^[0-9]+$ ]]; then
+                    tmux attach -t "$REPLY"
+                    if [ $? -eq 0 ]; then
+                        echo "$(tmux -V) attached session"
+                        return 0
+                    fi
+                fi
+            fi
+
+            if is_osx && is_exists 'reattach-to-user-namespace'; then
+                # on OS X force tmux's default command
+                # to spawn a shell in the user's namespace
+                tmux_config=$(cat $HOME/.tmux.conf <(echo 'set-option -g default-command "reattach-to-user-namespace -l $SHELL"'))
+                tmux -f <(echo "$tmux_config") new-session && echo "$(tmux -V) created new session supported OS X"
+            else
+                tmux new-session && echo "tmux created new session"
+            fi
+        fi
+    fi
+}
+tmux_automatically_attach_session
+

@@ -1,0 +1,13 @@
+if &compatible
+    set nocompatible
+endif
+
+function! s:source_rc(file_name) abort
+    let path = expand('~/.vim/' . a:file_name)
+    execute 'source ' . path
+endfunction
+
+call s:source_rc('dein/dein.vim')
+call s:source_rc('basic.vim')
+call s:source_rc('color.vim')
+call s:source_rc('ftplugin.vim')
