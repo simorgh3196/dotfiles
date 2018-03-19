@@ -54,18 +54,18 @@ endif
 
 
 " --- ペースト設定 ---
-if &term =~ "xterm"
-    let &t_SI .= "\e[?2004h"
-    let &t_EI .= "\e[?2004l"
-    let &pastetoggle = "\e[201~"
-
-    function XTermPasteBegin(ret)
-        set paste
-        return a:ret
-    endfunction
-
-    inoremoap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-endif
+" if &term =~ 'xterm'
+"     let &t_SI .= '\e[?2004h'
+"     let &t_EI .= '\e[?2004l'
+"     let &pastetoggle = '\e[201~'
+"
+"     function XTermPasteBegin(ret)
+"         set paste
+"         return a:ret
+"     endfunction
+"
+"     inoremoap <special> <expr> <Esc>[200~ XTermPasteBegin('')
+" endif
 
 
 " --- 最後のカーソル位置を復元する ---

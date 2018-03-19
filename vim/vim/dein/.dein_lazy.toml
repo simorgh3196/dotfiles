@@ -1,12 +1,3 @@
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-
-# unite.vim のnvim版
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-depends = ['neomru.vim']
-on_event = 'BufRead'
-
 # 非同期シンタックスチェック
 [[plugins]]
 repo = 'w0rp/ale'
@@ -26,21 +17,9 @@ hook_add = '''
     let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 '''
 
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_source = '''
-  let g:deoplete#enable_at_startup = 1
-'''
-on_i = 1
-
-# [[plugins]]
-# repo = 'Shougo/neosnippet'
-# on_i  = 1
-# on_ft = ['snippet']
-# depends = ['neosnippet-snippets']
-
 
 # ========== Tex ==========
+[[plugins]]
 repo = 'vim-latex/vim-latex'
 on_ft = ['tex']
 hook_source = '''
@@ -91,7 +70,7 @@ hook_add = '''
     " Use deoplete.
     let g:tern_request_timeout = 1
     let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on autocomplete
-    
+
     "Add extra filetypes
     let g:tern#filetypes = [
                     \ 'js',
@@ -119,16 +98,6 @@ hook_add = '''
 ## Color
 [[plugins]]
 repo = 'othree/yajs.vim'
-on_ft = ['javascript']
-
-
-#
-# Riot.js
-#
-
-[[plugins]]
-repo = 'ryym/vim-riot'
-depends = ['vim-javascript']
 on_ft = ['javascript']
 
 
@@ -184,50 +153,6 @@ on_ft = ['ruby']
 repo = 'fishbullet/deoplete-ruby'
 on_ft = ['ruby']
 depends = ['deoplete.nvim']
-
-
-# ========== Haskell ==========
-
-[[plugins]]
-repo = 'neco-ghc'
-on_ft = ['haskell']
-
-[[plugins]]
-repo = 'eagletmt/ghcmod-vim'
-on_ft = ['haskell']
-
-# [[plugins]]
-# repo = 'ujihisa/unite-haskellimport'
-# on_ft = ['haskell']
-
-
-# ========== Markdown ==========
-
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-on_ft = ['markdown']
-hook_add = 'let g:vim_markdown_folding_disabled = 1'
-
-[[plugins]]
-repo = 'kannokanno/previm'
-on_ft = ['markdown']
-
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-on_ft = ['markdown']
-
-
-# ========== Swift ==========
-
-[[plugins]]
-repo = 'landaire/deoplete-swift'
-on_ft = ['swift']
-depends = ['deoplete.nvim']
-hook_source = 'let g:deoplete#sources#swift#daemon_autostart = 1'
-
-[[plugins]]
-repo = 'keith/swift.vim'
-on_ft = ['swift']
 
 
 # ========== Plist ==========

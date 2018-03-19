@@ -1,3 +1,7 @@
+# Color Scheme
+[[plugins]]
+repo = 'joshdick/onedark.vim'
+
 # tomlファイルのシンタックス
 [[plugins]]
 repo = 'cespare/vim-toml'
