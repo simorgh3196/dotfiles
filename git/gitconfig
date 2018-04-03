@@ -3,7 +3,7 @@
 
 [user]
 	email = simorgh3196@gmail.com
-	name  = simorgh3196
+	name = simorgh3196
 
 [ghq]
     root = ~/go/src
