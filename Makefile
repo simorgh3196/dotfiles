@@ -17,3 +17,7 @@ install-git:
 install-tmux:
 	ln -siv `pwd`/tmux/tmux ~/.tmux
 	ln -siv `pwd`/tmux/tmux.conf ~/.tmux.conf
+
+brew-init:
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	brew install carthage exa fish ghq gibo git neovim peco pyenv rbenv watchman yarn
