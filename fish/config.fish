@@ -33,9 +33,18 @@ alias be='bundle exec'
 # PATH
 # ====================
 
+# for nvim
+set -x XDG_CONFIG_HOME $HOME/.config
+
+# for ghq
+set -x GHQ_ROOT $HOME/go/src
+
 # for Golang
 set -x GOPATH $HOME/go
 set -x PATH $GOPATH/bin $PATH
+
+# for Google Cloud SDK
+set -x PATH $HOME/google-cloud-sdk/bin $PATH
 
 
 # ====================
@@ -47,3 +56,6 @@ rbenv init - | source
 
 # for pyenv
 pyenv init - | source
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc'; else; . '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc'; end; end
