@@ -98,6 +98,12 @@ set directory=~/.cache/vim
 set backupdir=~/.cache/vim
 
 
+" --- neovim用の設定 ---
+if has('nvim')
+    tnoremap <ESC> <C-\><C-n>
+endif
+
+
 " --- その他 ---
 set title      " ファイル名表示
 set showmatch  " 対応括弧を強調

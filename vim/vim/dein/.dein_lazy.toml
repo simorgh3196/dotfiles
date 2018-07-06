@@ -155,6 +155,27 @@ on_ft = ['ruby']
 depends = ['deoplete.nvim']
 
 
+# ========== Rust ==========
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = ['rust']
+hook_source = '''
+    let g:rustfmt_autosave = 1
+'''
+
+[[plugins]]
+repo = 'sebastianmarkow/deoplete-rust'
+on_ft = ['rust']
+depends = ['deoplete.nvim']
+hook_source = '''
+    let g:deoplete#sources#rust#racer_binary = '~/.cargo/bin/racer'
+    let g:deoplete#sources#rust#rust_source_path = '~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+    let g:deoplete#sources#rust#disable_keymap = 1
+    nmap <buffer> gd <plug>DeopleteRustGoToDefinitionDefault
+    nmap <buffer> K  <plug>DeopleteRustShowDocumentation
+'''
+
+
 # ========== Plist ==========
 
 [[plugins]]

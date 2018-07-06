@@ -9,7 +9,7 @@ $ make install  # install all
 or
 
 ```sh
-$ make install-nvim  # install selection dotfiles
+$ make install/nvim  # install selection dotfiles
 $ make install-...
 ```
 

@@ -24,6 +24,7 @@ zplug "motemen/ghq", from:gh-r, as:command, use:"*darwin*amd64*"
 zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*darwin*amd64*"
 zplug "github/hub", from:gh-r, as:command, use:"*darwin*amd64*"
 zplug "mollifier/anyframe"
+zplug "b4b4r07/enhancd", use:init.sh
 
 #
 # Install if needed
@@ -120,7 +121,7 @@ export EDITOR=vim  # 標準エディタを設定する
 
 export HISTFILE=~/.zhistory  # コマンド履歴を保存するファイルを指定する
 export HISTSIZE=1000         # メモリに保存する履歴の件数を指定する
-export SAVEHIST=1000000      # ファイルに保存する履歴の件数を指定する
+export SAVEHIST=5000         # ファイルに保存する履歴の件数を指定する
 export LANG=ja_JP.UTF-8      # 文字コードを設定する
 
 
@@ -132,9 +133,11 @@ export LANG=ja_JP.UTF-8      # 文字コードを設定する
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' '+m:{a-z}={A-Z}'
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*' verbose yes
+zstyle ':completion:*:processes' command 'ps au'
+zstyle ':completion:*:processes' menu yes select=2
 zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
 zstyle ':completion:*:options' description 'yes'
@@ -164,8 +167,6 @@ bindkey '^[[B' history-beginning-search-forward-end
 function cd(){
     builtin cd $@ && ls -G;
 }
-
-function gi() { curl http://www.gitignore.io/api/$@ ;}
 
 
 # ================================================
@@ -217,6 +218,12 @@ export XDG_CONFIG_HOME=$HOME/.config
 
 # Tex
 export PATH=$PATH:/Library/TeX/texbin
+
+# Java SDK Manager
+[ -s "$HOME/.jabba/jabba.sh" ] && source "$HOME/.jabba/jabba.sh"
+
+# enhancd
+export ENHANCD_FILTER="/usr/local/bin/peco:non-existing-filter"
 
 
 
@@ -273,4 +280,3 @@ function tmux_automatically_attach_session()
     fi
 }
 tmux_automatically_attach_session
-
