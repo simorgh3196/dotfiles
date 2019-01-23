@@ -1,7 +1,12 @@
 PWD:=`pwd`
 
-install:
-	install/nvim install/fish install/git install/tmux
+install: install/brew install/nvim install/fish install/git install/tmux install/vscode
+
+install/brew:
+	@if [ ! -x "`command -v brew 2>/dev/null`" ]; then \
+		$(shell /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"); \
+	fi
+	brew bundle --file=${PWD}/brew/Brewfile
 
 install/nvim:
 	ln -siv ${PWD}/vim/vim ~/.vim

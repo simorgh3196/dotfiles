@@ -1,0 +1,56 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "kyoshidajp/ghkw"
+tap "mono0926/license-plist"
+tap "tidwall/jj"
+tap "zaquestion/tap"
+brew "bat"
+brew "bitrise"
+brew "fontconfig"
+brew "carthage"
+brew "clang-format"
+brew "dep"
+brew "exa"
+brew "ffmpeg"
+brew "fish"
+brew "ghq"
+brew "gibo"
+brew "giflossy"
+brew "git"
+brew "hub"
+brew "hugo"
+brew "imagemagick", args: ["with-fontconfig"]
+brew "jq"
+brew "mas"
+brew "mysql"
+brew "neovim"
+brew "peco"
+brew "pyenv"
+brew "rbenv"
+brew "ripgrep"
+brew "swiftlint"
+brew "thefuck", link: false
+brew "tmux"
+brew "watchman"
+brew "yarn"
+brew "yq"
+brew "zplug"
+brew "kyoshidajp/ghkw/ghkw"
+brew "mono0926/license-plist/license-plist"
+brew "tidwall/jj/jj"
+brew "zaquestion/tap/lab"
+cask "cakebrew"
+cask "gifcapture"
+mas "1Password 7", id: 1333542190
+mas "Bear", id: 1091189122
+mas "CotEditor", id: 1024640650
+mas "GIPHY CAPTURE", id: 668208984
+mas "Just Color Picker", id: 886547068
+mas "Kaomoji Lover", id: 914708191
+mas "Keynote", id: 409183694
+mas "LastPass", id: 926036361
+mas "LINE", id: 539883307
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Spark", id: 1176895641
