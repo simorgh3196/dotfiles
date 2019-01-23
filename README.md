@@ -1,32 +1,21 @@
 # Dotfiles
 
-## Installation
+## Command
 
-```sh
-$ make install  # install all
+```shell
+make install  # install all
+make install/nvim  # install selected settings
+make export # export local settings
 ```
-
-or
-
-```sh
-$ make install/nvim  # install selection dotfiles
-$ make install-...
-```
-
-## Dependencies
-
-fish depends on
-- peco
-- ghq
-- gh-open
-
 
 ## Install list
 
-- git
-- tmux
-- nvim
-- fish
+* brew
+* git
+* tmux
+* nvim
+* fish
+* vscode
 
 ## Screen Shot
 
