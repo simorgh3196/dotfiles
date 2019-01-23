@@ -27,13 +27,14 @@ install/tmux:
 
 install/vscode:
 	ln -siv ${PWD}/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+	@cat ${PWD}/vscode/list-extensions | while read line; do \
+		code --install-extension $$line; \
+	done
 
-install/vscode-extensions:
-	@cat ${PWD}/vscode/list-extensions | while read line; do echo $$line; done
+export: export/brew export/vscode
 
-export/vscode-extensions:
+export/brew:
+	brew bundle dump --force --file=${PWD}/brew/Brewfile
+
+export/vscode:
 	code --list-extensions > ${PWD}/vscode/list-extensions
-
-brew/init:
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	brew install carthage exa fish ghq gibo git neovim peco pyenv rbenv watchman yarn
