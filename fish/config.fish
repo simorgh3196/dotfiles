@@ -34,6 +34,8 @@ alias rn='react-native'
 # PATH
 # ====================
 
+set -x PATH $HOME/.local/bin $PATH
+
 # for nvim
 set -x XDG_CONFIG_HOME $HOME/.config
 
@@ -48,7 +50,9 @@ set -x PATH $GOPATH/bin $PATH
 set -x PATH $HOME/.cargo/bin $PATH
 
 # for AndroidSDK
-set -x PATH $HOME/Library/Android/sdk/platform-tools $PATH
+# install by AndroidStudio
+set -x ANDROID_HOME $HOME/Library/Android/sdk
+set -x PATH $ANDROID_HOME/platform-tools $PATH
 
 # for Google Cloud SDK
 set -x PATH $HOME/google-cloud-sdk/bin $PATH
@@ -64,11 +68,8 @@ rbenv init - | source
 # for pyenv
 pyenv init - | source
 
-# for thefuck
-thefuck --alias | source
-set -x THEFUCK_OVERRIDDEN_ALIASES 'mkdir,l,ls,la,vim,be,rn'
+# for jabba(env for Java)
+[ -s $HOME/.jabba/jabba.fish ]; and source $HOME/.jabba/jabba.fish
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc'; else; . '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc'; end; end
-
-[ -s "/Users/t-hayakawa/.jabba/jabba.fish" ]; and source "/Users/t-hayakawa/.jabba/jabba.fish"
