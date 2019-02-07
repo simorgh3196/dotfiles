@@ -1,5 +1,10 @@
 PWD:=`pwd`
 
+#
+# Install
+#
+
+.PHONY: install install/brew install/nvim install/fish install/git install/tmux install/vscode
 install: install/brew install/nvim install/fish install/git install/tmux install/vscode
 
 install/brew:
@@ -31,6 +36,11 @@ install/vscode:
 		code --install-extension $$line; \
 	done
 
+#
+# Export
+#
+
+.PHONY: exoprt export/brew export/vscode
 export: export/brew export/vscode
 
 export/brew:

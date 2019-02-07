@@ -40,6 +40,7 @@ brew "kyoshidajp/ghkw/ghkw"
 brew "mono0926/license-plist/license-plist"
 brew "tidwall/jj/jj"
 brew "zaquestion/tap/lab"
+cask "agenda"
 cask "cakebrew"
 cask "gifcapture"
 mas "1Password 7", id: 1333542190

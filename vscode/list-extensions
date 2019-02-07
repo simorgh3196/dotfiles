@@ -1,4 +1,3 @@
-Zignd.html-css-class-completion
 abusaidm.html-snippets
 alefragnani.project-manager
 bungcip.better-toml
@@ -10,12 +9,14 @@ esbenp.prettier-vscode
 formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
 gamunu.vscode-yarn
+GitHub.vscode-pull-request-github
 MS-CEINTL.vscode-language-pack-ja
 ms-vscode.Go
 octref.vetur
 Orta.vscode-ios-common-files
 PeterJausovec.vscode-docker
 rbbit.typescript-hero
+satokaz.vscode-bs-ctrlchar-remover
 sgryjp.japanese-word-handler
 shd101wyy.markdown-preview-enhanced
 taichi.vscode-textlint
@@ -25,3 +26,4 @@ WakaTime.vscode-wakatime
 xabikos.JavaScriptSnippets
 yzhang.markdown-all-in-one
 zhuangtongfa.Material-theme
+Zignd.html-css-class-completion

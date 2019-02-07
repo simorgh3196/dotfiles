@@ -36,4 +36,9 @@
         "statusBar.noFolderBackground": "#005f5f",
         "statusBar.debuggingBackground": "#005f5f"
     },
+    "editor.renderControlCharacters": true,
+    "breadcrumbs.enabled": false,
+    "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+    "markdown.extension.toc.unorderedList.marker": "*",
+    "vim.statusBarColors.visualline": "#5f00af",
 }
