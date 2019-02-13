@@ -21,6 +21,7 @@ brew "git"
 brew "hub"
 brew "hugo"
 brew "imagemagick", args: ["with-fontconfig"]
+brew "infer"
 brew "jq"
 brew "mas"
 brew "mysql"

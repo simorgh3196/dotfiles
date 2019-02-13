@@ -41,4 +41,5 @@
     "markdown-preview-enhanced.previewTheme": "atom-dark.css",
     "markdown.extension.toc.unorderedList.marker": "*",
     "vim.statusBarColors.visualline": "#5f00af",
+    "workbench.iconTheme": "material-icon-theme",
 }
