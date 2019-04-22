@@ -1,45 +1,70 @@
 {
-    "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 12.5,
-    "editor.fontLigatures": true,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#5f0000",
+    "statusBar.noFolderBackground": "#5f0000",
+    "statusBar.debuggingBackground": "#5f0000"
+  },
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.iconTheme": "material-icon-theme",
+  "window.zoomLevel": 0,
+
+  "files.associations": {
+    "*.podspec.*": "ruby"
+  },
+
+  // Editor
+  "editor.renderWhitespace": "boundary",
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+
+  // Git
+  "git.autofetch": true,
+
+  // Ruby
+  "ruby.useLanguageServer": true,
+  "ruby.useBundler": true,
+  "ruby.intellisense": "rubyLocate",
+  "ruby.format": "rubocop",
+  "ruby.codeCompletion": "rcodetools",
+
+  // JavaScript
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.eslintIntegration": true,
+
+  // Go
+  "go.lintTool": "golangci-lint",
+  "go.useLanguageServer": true,
+  "go.languageServerFlags": ["-trace", "-logfile"],
+  "go.buildOnSave": "off",
+  "go.vetOnSave": "off",
+  "go.toolsGopath": "~/go",
+  "go.alternateTools": {
+    "go-langserver": "gopls"
+  },
+  "go.languageServerExperimentalFeatures": {
+    "format": true,
+    "autoComplete": true,
+    "rename": true,
+    "goToDefinition": true,
+    "hover": true,
+    "signatureHelp": true,
+    "goToTypeDefinition": true,
+    "goToImplementation": true,
+    "documentSymbols": true,
+    "workspaceSymbols": true,
+    "findReferences": true
+  },
+  "[go]": {
+    "editor.snippetSuggestions": "none",
+    "editor.insertSpaces": false,
     "editor.formatOnSave": true,
-    "editor.renderWhitespace": "boundary",
-    "editor.minimap.enabled": false,
-    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?、。「」【】『』（）！？　てにをはがのともへでや",
-    "git.autofetch": true,
-    "eslint.packageManager": "yarn",
-    "vim.enableNeovim": true,
-    "go.autocompleteUnimportedPackages": true,
-    "go.gopath": "~/go",
-    "go.inferGopath": true,
-    "workbench.colorTheme": "One Dark Pro",
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true
-    },
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "editor.tabSize": 2,
-    "tslint.jsEnable": true,
-    "tslint.packageManager": "yarn",
-    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
-    "vim.statusBarColorControl": true,
-    "vim.neovimPath": "/usr/local/bin/nvim",
-    "prettier.arrowParens": "always",
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#005f5f",
-        "statusBar.noFolderBackground": "#005f5f",
-        "statusBar.debuggingBackground": "#005f5f"
-    },
-    "editor.renderControlCharacters": true,
-    "breadcrumbs.enabled": false,
-    "markdown-preview-enhanced.previewTheme": "atom-dark.css",
-    "markdown.extension.toc.unorderedList.marker": "*",
-    "vim.statusBarColors.visualline": "#5f00af",
-    "workbench.iconTheme": "material-icon-theme",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+  "php-cs-fixer.lastDownload": 1554371024228,
+  "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true
 }

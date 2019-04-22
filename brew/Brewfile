@@ -20,20 +20,23 @@ brew "giflossy"
 brew "git"
 brew "hub"
 brew "hugo"
-brew "imagemagick", args: ["with-fontconfig"]
+brew "imagemagick"
 brew "infer"
 brew "jq"
 brew "mas"
 brew "mysql"
 brew "neovim"
 brew "peco"
+brew "php-cs-fixer"
 brew "pyenv"
 brew "rbenv"
 brew "ripgrep"
+brew "sourcekitten"
 brew "swiftlint"
-brew "thefuck", link: false
+brew "thefuck"
 brew "tmux"
 brew "watchman"
+brew "xcodegen"
 brew "yarn"
 brew "yq"
 brew "zplug"
@@ -44,7 +47,6 @@ brew "zaquestion/tap/lab"
 cask "agenda"
 cask "cakebrew"
 cask "gifcapture"
-mas "1Password 7", id: 1333542190
 mas "Bear", id: 1091189122
 mas "CotEditor", id: 1024640650
 mas "GIPHY CAPTURE", id: 668208984

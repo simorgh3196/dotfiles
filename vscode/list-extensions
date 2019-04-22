@@ -1,5 +1,6 @@
 abusaidm.html-snippets
 alefragnani.project-manager
+alexcvzz.vscode-sqlite
 bmewburn.vscode-intelephense-client
 bungcip.better-toml
 codezombiech.gitignore
@@ -7,7 +8,6 @@ CoenraadS.bracket-pair-colorizer
 DavidAnson.vscode-markdownlint
 dbaeumer.vscode-eslint
 eamodio.gitlens
-eg2.tslint
 emilast.LogFileHighlighter
 esbenp.prettier-vscode
 felixfbecker.php-debug
@@ -15,8 +15,11 @@ formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
 gamunu.vscode-yarn
 GitHub.vscode-pull-request-github
+hollowtree.vue-snippets
+ICS.japanese-proofreading
 junstyle.php-cs-fixer
 MS-CEINTL.vscode-language-pack-ja
+ms-mssql.mssql
 ms-vscode.Go
 neilbrayfield.php-docblocker
 octref.vetur
@@ -24,6 +27,7 @@ Orta.vscode-ios-common-files
 PeterJausovec.vscode-docker
 PKief.material-icon-theme
 rbbit.typescript-hero
+rebornix.ruby
 satokaz.vscode-bs-ctrlchar-remover
 sgryjp.japanese-word-handler
 shd101wyy.markdown-preview-enhanced
