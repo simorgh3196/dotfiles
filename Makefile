@@ -4,13 +4,12 @@ PWD:=`pwd`
 # Install
 #
 
-.PHONY: install install/brew install/nvim install/fish install/git install/tmux install/vscode
+.PHONY: install install/*
+
 install: install/brew install/nvim install/fish install/git install/tmux install/vscode
 
 install/brew:
-	@if [ ! -x "`command -v brew 2>/dev/null`" ]; then \
-		$(shell /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"); \
-	fi
+	which brew || /usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew bundle --file=${PWD}/brew/Brewfile
 
 install/nvim:
@@ -40,7 +39,7 @@ install/vscode:
 # Export
 #
 
-.PHONY: exoprt export/brew export/vscode
+.PHONY: exoprt export/*
 export: export/brew export/vscode
 
 export/brew:
