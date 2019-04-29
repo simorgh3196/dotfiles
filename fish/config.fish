@@ -54,6 +54,9 @@ set -x PATH $HOME/.cargo/bin $PATH
 set -x ANDROID_HOME $HOME/Library/Android/sdk
 set -x PATH $ANDROID_HOME/platform-tools $PATH
 
+# for Flutter
+set -x PATH $HOME/flutter/bin $PATH
+
 # for Google Cloud SDK
 set -x PATH $HOME/google-cloud-sdk/bin $PATH
 
