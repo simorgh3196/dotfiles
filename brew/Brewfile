@@ -1,5 +1,7 @@
+tap "caskroom/versions"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "kyoshidajp/ghkw"
 tap "mono0926/license-plist"
@@ -20,8 +22,13 @@ brew "giflossy"
 brew "git"
 brew "hub"
 brew "hugo"
+brew "usbmuxd", args: ["HEAD"]
+brew "libimobiledevice", args: ["HEAD"]
+brew "ideviceinstaller"
 brew "imagemagick"
 brew "infer"
+brew "ios-deploy"
+brew "jenv"
 brew "jq"
 brew "mas"
 brew "mysql"
@@ -42,6 +49,7 @@ brew "kyoshidajp/ghkw/ghkw"
 brew "tidwall/jj/jj"
 brew "zaquestion/tap/lab"
 cask "agenda"
+cask "font-fira-code"
 mas "Bear", id: 1091189122
 mas "CotEditor", id: 1024640650
 mas "GIPHY CAPTURE", id: 668208984
