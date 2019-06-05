@@ -23,7 +23,7 @@ install/fish:
 
 install/git:
 	ln -siv ${PWD}/git/gitconfig ~/.gitconfig
-	ln -siv ${PWD}/git/gitignore_global ~/.gitignore_blobal
+	ln -siv ${PWD}/git/gitignore_global ~/.gitignore_global
 
 install/tmux:
 	ln -siv ${PWD}/tmux/tmux ~/.tmux
