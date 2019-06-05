@@ -71,8 +71,10 @@ rbenv init - | source
 # for pyenv
 pyenv init - | source
 
-# for jabba(env for Java)
-[ -s $HOME/.jabba/jabba.fish ]; and source $HOME/.jabba/jabba.fish
+# for jenv
+set -x PATH $HOME/.jenv/bin:$PATH
+jenv init - | source
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc'; else; . '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc'; end; end

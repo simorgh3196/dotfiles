@@ -33,28 +33,18 @@ brew "rbenv"
 brew "ripgrep"
 brew "sourcekitten"
 brew "swiftlint"
-brew "thefuck"
 brew "tmux"
 brew "watchman"
-brew "xcodegen"
 brew "yarn"
 brew "yq"
 brew "zplug"
 brew "kyoshidajp/ghkw/ghkw"
-brew "mono0926/license-plist/license-plist"
 brew "tidwall/jj/jj"
 brew "zaquestion/tap/lab"
 cask "agenda"
-cask "cakebrew"
-cask "gifcapture"
 mas "Bear", id: 1091189122
 mas "CotEditor", id: 1024640650
 mas "GIPHY CAPTURE", id: 668208984
 mas "Just Color Picker", id: 886547068
-mas "Kaomoji Lover", id: 914708191
-mas "Keynote", id: 409183694
-mas "LastPass", id: 926036361
 mas "LINE", id: 539883307
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
 mas "Spark", id: 1176895641

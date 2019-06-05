@@ -30,6 +30,7 @@ install/tmux:
 	ln -siv ${PWD}/tmux/tmux.conf ~/.tmux.conf
 
 install/vscode:
+	mkdir -p ~/Library/Application\ Support/Code/User/
 	ln -siv ${PWD}/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 	@cat ${PWD}/vscode/list-extensions | while read line; do \
 		code --install-extension $$line; \
