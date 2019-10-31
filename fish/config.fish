@@ -11,6 +11,7 @@ function fish_user_key_bindings
     bind -M $mode \cf nextd-or-forward-word
     bind -M $mode \ce accept-autosuggestion
   end
+
   fish_vi_key_bindings --no-erase
 end
 
@@ -46,6 +47,9 @@ set -x GHQ_ROOT $HOME/go/src
 set -x GOPATH $HOME/go
 set -x PATH $GOPATH/bin $PATH
 
+# for Composer
+set -x PATH $HOME/.config/composer/vendor/bin $PATH
+
 # for Rust
 set -x PATH $HOME/.cargo/bin $PATH
 
@@ -56,6 +60,9 @@ set -x PATH $ANDROID_HOME/platform-tools $PATH
 
 # for Flutter
 set -x PATH $HOME/flutter/bin $PATH
+
+# for jenv
+set -x PATH $HOME/.jenv/bin $PATH
 
 # for Google Cloud SDK
 set -x PATH $HOME/google-cloud-sdk/bin $PATH
@@ -72,7 +79,6 @@ rbenv init - | source
 pyenv init - | source
 
 # for jenv
-set -x PATH $HOME/.jenv/bin:$PATH
 jenv init - | source
 
 

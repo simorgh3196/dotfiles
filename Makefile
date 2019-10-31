@@ -40,7 +40,8 @@ install/vscode:
 # Export
 #
 
-.PHONY: exoprt export/*
+.PHONY: export export/*
+
 export: export/brew export/vscode
 
 export/brew:

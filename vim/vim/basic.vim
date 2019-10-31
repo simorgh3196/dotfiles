@@ -15,6 +15,7 @@ set tabstop=4 " 画面上でタブ文字が占める幅
 set autoindent " 開業時に前の行のインデントを継続
 set smartindent " 開業時に前の行の構文をチェックして次の行のインデントを増減する
 set shiftwidth=4 " smartindentで増減する幅
+filetype plugin on " ftpluginを有効にする
 
 
 " --- 文字列検索 ---
@@ -134,3 +135,4 @@ inoremap <C-p> <Up>
 inoremap <C-n> <Down>
 
 
+autocmd BufNewFile,BufRead Rakefile, Podfile, *.podspec, Fastfile, Appfile, Deliverfile setlocal tabstop=2 softtabstop=2 shiftwidth=2 filetype=ruby

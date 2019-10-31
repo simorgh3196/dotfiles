@@ -65,6 +65,17 @@
   },
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
   "php-cs-fixer.lastDownload": 1554371024228,
-  "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontLigatures": true
+  "editor.fontFamily": "Fira Code, Roboto, Menlo",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "markdown.extension.toc.githubCompatibility": true,
+  "markdown.extension.toc.unorderedList.marker": "*",
+  "prettier.disableLanguages": [
+    "vue",
+    "markdown"
+  ],
+  "[ruby]": {
+    "editor.defaultFormatter": "rebornix.ruby"
+  },
+  "gitlens.codeLens.enabled": false
 }

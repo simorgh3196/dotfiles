@@ -1,10 +1,12 @@
 tap "caskroom/versions"
+tap "git-chglog/git-chglog"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "kyoshidajp/ghkw"
 tap "mono0926/license-plist"
+tap "peripheryapp/periphery"
 tap "tidwall/jj"
 tap "zaquestion/tap"
 brew "bat"
@@ -12,6 +14,7 @@ brew "bitrise"
 brew "fontconfig"
 brew "carthage"
 brew "clang-format"
+brew "composer"
 brew "dep"
 brew "exa"
 brew "ffmpeg"
@@ -45,14 +48,22 @@ brew "watchman"
 brew "yarn"
 brew "yq"
 brew "zplug"
+brew "git-chglog/git-chglog/git-chglog"
 brew "kyoshidajp/ghkw/ghkw"
+brew "mono0926/license-plist/license-plist"
 brew "tidwall/jj/jj"
 brew "zaquestion/tap/lab"
 cask "agenda"
 cask "font-fira-code"
+cask "peripheryapp/periphery/periphery"
+mas "1Password", id: 443987910
 mas "Bear", id: 1091189122
 mas "CotEditor", id: 1024640650
+mas "DesiGN Templates for Keynote", id: 555935825
 mas "GIPHY CAPTURE", id: 668208984
 mas "Just Color Picker", id: 886547068
+mas "Keynote", id: 409183694
 mas "LINE", id: 539883307
+mas "PicGIF Lite", id: 844918735
 mas "Spark", id: 1176895641
+mas "Toolbox for Keynote -Templates", id: 582635628
