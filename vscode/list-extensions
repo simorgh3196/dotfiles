@@ -1,6 +1,7 @@
 abusaidm.html-snippets
 alefragnani.project-manager
 alexcvzz.vscode-sqlite
+bajdzis.vscode-database
 bmewburn.vscode-intelephense-client
 bungcip.better-toml
 codezombiech.gitignore
@@ -22,6 +23,7 @@ ms-azuretools.vscode-docker
 MS-CEINTL.vscode-language-pack-ja
 ms-mssql.mssql
 ms-vscode.Go
+mtxr.sqltools
 neilbrayfield.php-docblocker
 octref.vetur
 Orta.vscode-ios-common-files
@@ -34,9 +36,10 @@ shd101wyy.markdown-preview-enhanced
 taichi.vscode-textlint
 vscodevim.vim
 WakaTime.vscode-wakatime
+wingrunr21.vscode-ruby
 xabikos.JavaScriptSnippets
 yokoe.vscode-postfix-go
 yzhang.markdown-all-in-one
-zhuangtongfa.Material-theme
+zhuangtongfa.material-theme
 Zignd.html-css-class-completion
 ziyasal.vscode-open-in-github
