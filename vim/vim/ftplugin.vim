@@ -11,5 +11,8 @@ augroup fileTypeSetting
     autocmd BufNewFile,BufRead *.rb,*.js,*.html setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.hs setlocal tabstop=2 softtabstop=2 shiftwidth=2 filetype=haskell
     autocmd BufNewFile,BufRead *.md setlocal tabstop=2 softtabstop=2 shiftwidth=2 filetype=markdown
-    autocmd BufNewFile,BufRead Rakefile,Podfile,*.podspec,Fastfile,Appfile,Deliverfile setlocal tabstop=2 softtabstop=2 shiftwidth=2 filetype=ruby
+    autocmd BufNewFile,BufRead *file,*.podspec setlocal tabstop=2 softtabstop=2 shiftwidth=2 filetype=ruby
+    autocmd BufNewFile,BufRead Makefile setlocal tabstop=4 softtabstop=4 shiftwidth=4 filetype=make
+    autocmd BufNewFile,BufRead Romefile setlocal tabstop=4 softtabstop=4 shiftwidth=4 filetype=yaml
+    autocmd BufNewFile,BufRead Rakefile, Podfile, *.podspec, Fastfile, Appfile, Deliverfile setlocal tabstop=2 softtabstop=2 shiftwidth=2 filetype=ruby
 augroup END

@@ -53,6 +53,9 @@ set -x PATH $HOME/.config/composer/vendor/bin $PATH
 # for Rust
 set -x PATH $HOME/.cargo/bin $PATH
 
+# for Aleph.js
+set -x PATH $HOME/.deno/bin $PATH
+
 # for AndroidSDK
 # install by AndroidStudio
 set -x ANDROID_HOME $HOME/Library/Android/sdk
@@ -64,23 +67,47 @@ set -x PATH $HOME/flutter/bin $PATH
 # for jenv
 set -x PATH $HOME/.jenv/bin $PATH
 
+# for rails
+set -x LDFLAGS -L/usr/local/opt/openssl/lib
+set -x CPPFLAGS -I/usr/local/opt/openssl/include
+
+# for flutter
+set -x PATH $HOME/.pub-cache/bin $PATH
+
 # for Google Cloud SDK
 set -x PATH $HOME/google-cloud-sdk/bin $PATH
+
+# for nodebrew
+set -x PATH $HOME/.nodebrew/current/bin $PATH
 
 
 # ====================
 # Settings
 # ====================
 
+# for iTerm2
+#echo -e "\033]6;1;bg;red;brightness;40\a"
+#echo -e "\033]6;1;bg;green;brightness;44\a"
+#echo -e "\033]6;1;bg;blue;brightness;52\a"
+
 # for rbenv
 rbenv init - | source
 
 # for pyenv
+status is-interactive; and pyenv init --path | source
 pyenv init - | source
 
 # for jenv
 jenv init - | source
 
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc'; else; . '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc'; end; end
+
+# Remove duplicate PATH
+set -x PATH (echo $PATH | tr ' ' '\n' | sort -u)
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /Users/tomoya-hayakawa/opt/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+

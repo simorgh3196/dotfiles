@@ -19,7 +19,7 @@ install/nvim:
 
 install/fish:
 	mkdir -p ~/.config/
-	ln -siv ${PWD}/fish ~/.config/fish
+	ln -siv ${PWD}/fish ~/.config
 
 install/git:
 	ln -siv ${PWD}/git/gitconfig ~/.gitconfig

@@ -1,4 +1,39 @@
 {
+  // Editor
+  "editor.fontFamily": "Fira Code, Roboto, Menlo",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 11,
+  "editor.renderWhitespace": "boundary",
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.accessibilitySupport": "off",
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "$(capture).js",
+    "*.js": "$(capture).js.map, $(capture).min.js, $(capture).d.ts",
+    "*.jsx": "$(capture).js",
+    "*.tsx": "$(capture).ts",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json, yarn.lock",
+    "pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, .packages, pubspec.lock, build.yaml, analysis_options.yaml, all_lint_rules.yaml",
+    "*.dart": "$(capture).g.dart, $(capture).freezed.dart",
+  },
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "*.podspec.*": "ruby"
+  },
+  "terminal.external.osxExec": "Alacritty.app",
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.copyOnSelection": true,
+  "window.zoomLevel": 1,
+  // Workbench
   "workbench.colorCustomizations": {
     "statusBar.background": "#5f0000",
     "statusBar.noFolderBackground": "#5f0000",
@@ -6,54 +41,37 @@
   },
   "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "material-icon-theme",
-  "window.zoomLevel": 0,
-
-  "files.associations": {
-    "*.podspec.*": "ruby"
-  },
-
-  // Editor
-  "editor.renderWhitespace": "boundary",
-  "editor.minimap.enabled": false,
-  "editor.formatOnSave": true,
-
   // Git
   "git.autofetch": true,
-
   // Ruby
   "ruby.useLanguageServer": true,
   "ruby.useBundler": true,
   "ruby.intellisense": "rubyLocate",
   "ruby.format": "rubocop",
+  "ruby.lint": {
+    "rubocop": true
+  },
   "ruby.codeCompletion": "rcodetools",
-
-  // JavaScript
-  "prettier.singleQuote": true,
-  "prettier.jsxSingleQuote": true,
-  "prettier.eslintIntegration": true,
-
+  "solargraph.externalServer": {
+    "host": "localhost",
+    "port": 7658
+  },
+  "[ruby]": {
+    "editor.defaultFormatter": "rebornix.ruby"
+  },
   // Go
   "go.lintTool": "golangci-lint",
   "go.useLanguageServer": true,
-  "go.languageServerFlags": ["-trace", "-logfile"],
+  "go.toolsManagement.autoUpdate": true,
+  "go.languageServerFlags": [
+    "-trace",
+    "-logfile"
+  ],
   "go.buildOnSave": "off",
   "go.vetOnSave": "off",
   "go.toolsGopath": "~/go",
   "go.alternateTools": {
     "go-langserver": "gopls"
-  },
-  "go.languageServerExperimentalFeatures": {
-    "format": true,
-    "autoComplete": true,
-    "rename": true,
-    "goToDefinition": true,
-    "hover": true,
-    "signatureHelp": true,
-    "goToTypeDefinition": true,
-    "goToImplementation": true,
-    "documentSymbols": true,
-    "workspaceSymbols": true,
-    "findReferences": true
   },
   "[go]": {
     "editor.snippetSuggestions": "none",
@@ -63,19 +81,93 @@
       "source.organizeImports": true
     }
   },
+  // PHP
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
   "php-cs-fixer.lastDownload": 1554371024228,
-  "editor.fontFamily": "Fira Code, Roboto, Menlo",
-  "editor.fontLigatures": true,
-  "editor.fontSize": 13,
-  "markdown.extension.toc.githubCompatibility": true,
-  "markdown.extension.toc.unorderedList.marker": "*",
-  "prettier.disableLanguages": [
-    "vue",
-    "markdown"
-  ],
-  "[ruby]": {
-    "editor.defaultFormatter": "rebornix.ruby"
+  // JavaScript / TypeScript
+  "eslint.packageManager": "npm",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "gitlens.codeLens.enabled": false
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // Markdown
+  "markdown.extension.toc.unorderedList.marker": "*",
+  "gitlens.codeLens.enabled": false,
+  // NeoVim
+  "vscode-neovim.mouseSelectionStartVisualMode": true,
+  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+  "vscode-neovim.neovimInitVimPaths.darwin": "~/.vim/init.vim",
+  "vscode-neovim.neovimWidth": 500,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": true,
+    "markdown": true,
+    "dart": true
+  },
+  // flutter / dart
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [
+      80
+    ],
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": false,
+    "editor.defaultFormatter": "Dart-Code.dart-code"
+  },
+  "dart.openDevTools": "flutter",
+  "dart.debugExternalPackageLibraries": false,
+  "dart.debugSdkLibraries": false,
+  "dart.devToolsBrowser": "default",
+  "dart.previewFlutterUiGuides": true,
+  "dart.previewFlutterUiGuidesCustomTracking": true,
+  "dart.previewHotReloadOnSaveWatcher": true,
+  "dart.additionalAnalyzerFileExtensions": [
+    "drift"
+  ],
+  "dart.sdkPath": null,
+  "dart.flutterSdkPaths": [
+    "/Users/usr/fvm/versions"
+  ],
+  // SonarLint
+  "sonarlint.pathToNodeExecutable": "/Users/tomoya-hayakawa/.nodebrew/current/bin/node",
+  "sonarlint.ls.javaHome": "/Library/Java/JavaVirtualMachines/jdk-13.0.2.jdk/Contents/Home ",
+  "sonarlint.rules": {
+    "typescript:S2819": {
+      "level": "off"
+    }
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "html.format.endWithNewline": true,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "deno.suggest.completeFunctionCalls": true,
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "solargraph.autoformat": true,
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true,
+  "solargraph.useBundler": true,
 }

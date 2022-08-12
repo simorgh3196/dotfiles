@@ -1,7 +1,6 @@
 set encoding=utf8
 scriptencoding utf-8
 
-
 " --- 文字コード ---
 set fileencoding=utf-8
 set fileencodings=utf-8,ucs-boms,enc-jp,cp932 " 読み込み時の文字コードの自動判別, 左優先
@@ -36,11 +35,11 @@ set showcmd " コマンドを最下部に表示
 set ruler " 右下に行・列番号を表示
 set number " show line num
 
+
 " --- Color Scheme ---
 set t_ut=
 set termguicolors
 colorscheme onedark
-let g:onedark_termcolors=256
 
 
 " --- コマンド補完 ---
@@ -57,9 +56,9 @@ endif
 " --- 最後のカーソル位置を復元する ---
 if has("autocmd")
     autocmd BufReadPost *
-    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-    \   exe "normal! g'\"" |
-    \ endif
+                \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+                \   exe "normal! g'\"" |
+                \ endif
 endif
 
 
@@ -134,5 +133,3 @@ nnoremap <Up>   gk
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
 
-
-autocmd BufNewFile,BufRead Rakefile, Podfile, *.podspec, Fastfile, Appfile, Deliverfile setlocal tabstop=2 softtabstop=2 shiftwidth=2 filetype=ruby

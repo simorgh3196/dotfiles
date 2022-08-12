@@ -2,168 +2,275 @@
 [[plugins]]
 repo = 'joshdick/onedark.vim'
 
-# tomlファイルのシンタックス
-[[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = ['toml']
-
-# 空白文字の可視化
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
 
-# 作業時間ログ
-[[plugins]]
-repo = 'wakatime/vim-wakatime'
-
-# スニペット
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-# 自動補完 - Neovim
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_source = '''
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#enable_ignore_case = 1
-    let g:deoplete#enable_smart_case = 1
-'''
-
-# 多くの言語のシンタックス対応
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
 
-# 括弧
 [[plugins]]
 repo = 'cohama/lexima.vim'
-
-# Git
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-# Indent
-[[plugins]]
-repo = 'Yggdroot/indentLine'
-hook_add = '''
-    let g:indentLine_char = '¦'
-    let g:indentLine_leadingSpaceEnabled = 1
-    let g:indentLine_leadingSpaceChar = '･'
-
-    " Vim
-    let g:indentLine_color_term = 241
-
-    "GVim
-    let g:indentLine_color_gui = '#5C6370'
-'''
-
-# File icons
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
-hook_add = '''
-    let g:webdevicons_conceal_nerdtree_brackets = 1
-    let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-
-    " Linux      : set guifont=<FONT_NAME> <FONT_SIZE>
-    " macOS(OS X): set guifont=<FONT_NAME>:h<FONT_SIZE>
-    " set guifont=Inconsolata\ for\ Powerline\ Plus\ Nerd\ File\ Types:h13
-'''
-
-# File tree
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-hook_add = '''
-    let g:NERDTreeShowBookmarks=3
-    let g:NERDTreeShowHidden=1
-    let g:NERDTreeDirArrows=1
-    autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-    noremap <C-n> :NERDTreeToggle<CR>
-'''
-
-[[plugins]]
-repo = 'jistr/vim-nerdtree-tabs'
-depends = ['nerdtree']
-
-# File tree highlight
-[[plugins]]
-repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
-depends = ['nerdtree']
-hook_add = '''
-    let s:rspec_red = 'FE405F'
-    let s:git_orange = 'F54D27'
-    let g:NERDTreeExactMatchHighlightColor = {}                            " this line is needed to avoid error
-    let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange    " sets the color for .gitignore files
-    let g:NERDTreePatternMatchHighlightColor = {}                          " this line is needed to avoid error
-    let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
-'''
-
-
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-
 
 [[plugins]]
 repo = 'tpope/vim-surround'
 
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+let g:indentLine_char = '¦'
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '･'
 
-# Set statusline color
+" Vim
+let g:indentLine_color_term = 241
+
+" GVim
+let g:indentLine_color_gui = '#5C6370'
+'''
+
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+# === ddu.vim ===
+
+[[plugins]]
+repo = 'Shougo/ddu-ui-ff'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-file_rec'
+
+[[plugins]]
+repo = 'shun/ddu-source-rg'
+
+[[plugins]]
+repo = 'Shougo/ddu-filter-matcher_substring'
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-file'
+
+[[plugins]]
+repo = 'Shougo/ddu.vim'
+hook_add = '''
+call ddu#custom#patch_global({
+\   'ui': 'ff',
+\   'sources': [
+\     {
+\       'name': 'file_rec',
+\       'params': {
+\         'ignoredDirectories': ['.git', 'node_modules', 'vendor', '.next']
+\       }
+\     }
+\   ],
+\   'sourceOptions': {
+\     '_': {
+\       'matchers': ['matcher_substring'],
+\     },
+\   },
+\   'filterParams': {
+\     'matcher_substring': {
+\       'highlightMatched': 'Title',
+\     },
+\   },
+\   'kindOptions': {
+\     'file': {
+\       'defaultAction': 'open',
+\     },
+\   },
+\   'uiParams': {
+\     'ff': {
+\       'startFilter': v:true,
+\       'prompt': '> ',
+\       'split': 'floating',
+\     }
+\   },
+\ })
+
+call ddu#custom#patch_local('grep', {
+\   'sourceParams' : {
+\     'rg' : {
+\       'args': ['--column', '--no-heading', '--color', 'never'],
+\     },
+\   },
+\   'uiParams': {
+\     'ff': {
+\       'startFilter': v:false,
+\     }
+\   },
+\ })
+
+
+autocmd FileType ddu-ff call s:ddu_my_settings()
+function! s:ddu_my_settings() abort
+  nnoremap <buffer><silent> <CR>
+    \ <Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'vsplit'}})<CR>
+
+  nnoremap <buffer><silent> <Space>
+    \ <Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'split'}})<CR>
+
+  nnoremap <buffer><silent> a
+    \ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+
+  nnoremap <buffer><silent> p
+    \ <Cmd>call ddu#ui#ff#do_action('preview')<CR>
+
+  nnoremap <buffer><silent> <Esc>
+    \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+endfunction
+
+autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
+function! s:ddu_filter_my_settings() abort
+  inoremap <buffer><silent> <CR>
+    \ <Esc><Cmd>close<CR>
+
+  inoremap <buffer><silent> <Esc>
+    \ <Esc><Cmd>close<CR>
+
+  nnoremap <buffer><silent> <CR>
+    \ <Cmd>close<CR>
+
+  nnoremap <buffer><silent> <Esc>
+    \ <Cmd>close<CR>
+endfunction
+
+nmap <silent> ;f <Cmd>call ddu#start({})<CR>
+nmap <silent> ;g <Cmd>call ddu#start({
+\   'name': 'grep',
+\   'sources':[
+\     {'name': 'rg', 'params': {'input': expand('<cword>')}}
+\   ],
+\ })<CR>
+'''
+
+# === ddc.vim ===
+
+[[plugins]]
+repo = 'Shougo/ddc-around'
+
+[[plugins]]
+repo = 'Shougo/ddc-nvim-lsp'
+
+[[plugins]]
+repo = 'tani/ddc-fuzzy'
+
+[[plugins]]
+repo = 'Shougo/ddc-matcher_head'
+
+[[plugins]]
+repo = 'Shougo/ddc-sorter_rank'
+
+[[plugins]]
+repo = 'Shougo/ddc.vim'
+hook_add = '''
+" Customize global settings
+" Use around source.
+" https://github.com/Shougo/ddc-around
+call ddc#custom#patch_global('sources', ['around', 'nvim-lsp'])
+
+call ddc#custom#patch_global('sourceOptions', {
+\ '_': {
+\   'matchers': ['matcher_fuzzy'],
+\   'sorters': ['sorter_fuzzy'],
+\   'converters': ['converter_fuzzy'],
+\ },
+\ 'around': {'mark': 'A'},
+\ 'nvim-lsp': {
+\   'mark': 'L',
+\   'forceCompletionPattern': '\.\w*|:\w*|->\w*'},
+\ })
+
+call ddc#custom#patch_global('sourceParams', {
+\ 'around': {'maxSize': 500},
+\ })
+
+call ddc#custom#patch_global('sourceParams', {
+\ 'nvim-lsp': { 'kindLabels': { 'Class': 'c' } },
+\ })
+
+
+call ddc#custom#patch_global('completionMenu', 'pum.vim')
+
+" Mappings
+
+" <TAB>: completion.
+inoremap <silent><expr> <TAB>
+    \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
+    \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+    \ '<TAB>' : ddc#manual_complete()
+inoremap <S-Tab>  <Cmd>call pum#map#insert_relative(-1)<CR>
+imap <silent><expr> <Down>
+    \ pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' :
+    \ '<Down>'
+imap <silent><expr><Up>
+    \ pum#visible() ? '<Cmd>call pum#map#select_relative(-1)<CR>' :
+    \ '<Up>'
+imap <silent><expr> <CR>
+    \ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' :
+    \ '<CR>'
+
+" Use ddc.
+call ddc#enable()
+'''
+
+# === Line Theme ===
+
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
-    let g:lightline = {
-    \   'colorscheme': 'onedark',
-    \   'active': {
-    \       'left': [ ['mode', 'paste'], ['readonly', 'filename', 'modified'] ],
-    \       'right': [ ['lineinfo'], ['percent', 'ale'], ['fileformat', 'fileencoding', 'filetype'] ]
-    \   },
-    \   'component_function': {
-    \       'mode': 'LightlineMode',
-    \       'modified': 'LightlineModified',
-    \       'readonly': 'LightlineReadonly',
-    \       'fileencoding': 'LightlineFileencoding',
-    \   },
-    \   'component_expand': {
-    \       'ale': 'ALESyntaxCheck'
-    \   },
-    \   'component_type': {
-    \       'ale': 'error'
-    \   },
-    \   'separator': { 'left': '⮀', 'right': '⮂' },
-    \   'subseparator': { 'left': '⮁', 'right': '⮃' }
-    \ }
+let g:lightline = {
+\   'active': {
+\       'left': [ ['mode', 'paste'], ['readonly', 'filename', 'modified'] ],
+\       'right': [ ['lineinfo'], ['percent', 'ale'], ['fileformat', 'fileencoding', 'filetype'] ]
+\   },
+\   'component_function': {
+\       'mode': 'LightlineMode',
+\       'modified': 'LightlineModified',
+\       'readonly': 'LightlineReadonly',
+\       'fileencoding': 'LightlineFileencoding',
+\   },
+\   'component_expand': {
+\       'ale': 'ALESyntaxCheck'
+\   },
+\   'component_type': {
+\       'ale': 'error'
+\   }
+\ }
 
-    function! LightlineMode()
-        return winwidth(0) > 60 ? lightline#mode() : ''
-    endfunction
+function! LightlineMode()
+    return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
 
-    function! LightlineFilename()
-        return expand('%:t') != '' ? expand('%:t') : '[No Name]
-    endfunction
+function! LightlineFilename()
+    return expand('%:t') != '' ? expand('%:t') : '[No Name]
+endfunction
 
-    function! LightlineModified()
-        return &ft =~ 'help\|nerdtree' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-    endfunction
+function! LightlineModified()
+    return &ft =~ 'help\|nerdtree' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
 
-    function! LightlineReadonly()
-        return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
-    endfunction
+function! LightlineReadonly()
+    return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
+endfunction
 
-    function! LightlineFileencoding()
-        let e1 = (&fenc != '' ? &fenc : &enc)
-        let e2 = e1 != 'utf-8' ? e1 : ''
-        return winwidth(0) > 70 ? e2 : ''
-    endfunction
+function! LightlineFileencoding()
+    let e1 = (&fenc != '' ? &fenc : &enc)
+    let e2 = e1 != 'utf-8' ? e1 : ''
+    return winwidth(0) > 70 ? e2 : ''
+endfunction
 
-    function! LightlineFugitive()
-        if &ft !~? 'nerdtree' && exists("*fugitive#head")
-            let branch = fugitive#head()
-            return branch != '' ? '⭠ '.branch : ''
-        endif
-        return ''
-    endfunction
+function! LightlineFugitive()
+    if &ft !~? 'nerdtree' && exists("*fugitive#head")
+        let branch = fugitive#head()
+        return branch != '' ? '⭠ '.branch : ''
+    endif
+    return ''
+endfunction
 
-    function! ALESyntaxCheck()
-        ALEGetStatusLine()
-        call lightline#update()
-    endfunction
+function! ALESyntaxCheck()
+    ALEGetStatusLine()
+    call lightline#update()
+endfunction
 '''
 

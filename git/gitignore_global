@@ -29,3 +29,7 @@ Temporary Items
 .apdisk
 
 .netrwhist
+
+.env
+
+node_modules
