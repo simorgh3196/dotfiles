@@ -47,14 +47,8 @@ set -x GHQ_ROOT $HOME/go/src
 set -x GOPATH $HOME/go
 set -x PATH $GOPATH/bin $PATH
 
-# for Composer
-set -x PATH $HOME/.config/composer/vendor/bin $PATH
-
 # for Rust
 set -x PATH $HOME/.cargo/bin $PATH
-
-# for Aleph.js
-set -x PATH $HOME/.deno/bin $PATH
 
 # for AndroidSDK
 # install by AndroidStudio
@@ -77,9 +71,6 @@ set -x PATH $HOME/.pub-cache/bin $PATH
 # for Google Cloud SDK
 set -x PATH $HOME/google-cloud-sdk/bin $PATH
 
-# for nodebrew
-set -x PATH $HOME/.nodebrew/current/bin $PATH
-
 
 # ====================
 # Settings
@@ -90,24 +81,43 @@ set -x PATH $HOME/.nodebrew/current/bin $PATH
 #echo -e "\033]6;1;bg;green;brightness;44\a"
 #echo -e "\033]6;1;bg;blue;brightness;52\a"
 
+# for homebrew at M1
+set -gx HOMEBREW_PREFIX "/opt/homebrew";
+set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar";
+set -gx HOMEBREW_REPOSITORY "/opt/homebrew";
+set -q PATH; or set PATH ''; set -gx PATH "/opt/homebrew/bin" "/opt/homebrew/sbin" $PATH;
+set -q MANPATH; or set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MANPATH;
+set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
+
 # for rbenv
-rbenv init - | source
+set -x OPENSSL_ROOT $(brew --prefix openssl@1.1)
+set -x PATH $OPENSSL_ROOT/bin $PATH
+set -x LDFLAGS "-L$OPENSSL_ROOT/lib"
+set -x CPPFLAGS "-I$OPENSSL_ROOT/include"
+set -x PKG_CONFIG_PATH "$OPENSSL_ROOT/lib/pkgconfig"
+
+set -x LIBFFI_ROOT $(brew --prefix libffi)
+set -x PATH $LIBFFI_ROOT/bin $PATH
+set -x LDFLAGS "-L$LIBFFI_ROOT/lib" $LDFLAGS
+set -x PKG_CONFIG_PATH "$LIBFFI_ROOT/lib/pkgconfig" $PKG_CONFIG_PATH
+
+set -x RUBY_CONFIGURE_OPTS "--with-openssl-dir=$OPENSSL_ROOT"
+set -x RBENV_ROOT "$(brew --prefix rbenv)"
+set -x PATH "$RBENV_ROOT/bin" $PATH
+status --is-interactive; and rbenv init - fish | source
 
 # for pyenv
-status is-interactive; and pyenv init --path | source
-pyenv init - | source
+status --is-interactive; and pyenv init --path | source
 
 # for jenv
-jenv init - | source
+status --is-interactive; and jenv init - fish | source
+
+# for asdf (version manager)
+source $(brew --prefix asdf)/libexec/asdf.fish
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc'; else; . '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc'; end; end
+#if [ -f '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/Users/t-hayakawa/#google-cloud-sdk/path.fish.inc'; else; . '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc'; end; end
 
 # Remove duplicate PATH
 set -x PATH (echo $PATH | tr ' ' '\n' | sort -u)
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval /Users/tomoya-hayakawa/opt/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-# <<< conda initialize <<<
 
