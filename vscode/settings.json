@@ -8,7 +8,6 @@
   "editor.formatOnSave": true,
   "editor.inlineSuggest.enabled": true,
   "editor.bracketPairColorization.enabled": true,
-  "editor.accessibilitySupport": "off",
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
@@ -26,7 +25,7 @@
   "files.associations": {
     "*.podspec.*": "ruby"
   },
-  "terminal.external.osxExec": "Alacritty.app",
+  "terminal.external.osxExec": "WezTerm.app",
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
   },
@@ -43,21 +42,17 @@
   "workbench.iconTheme": "material-icon-theme",
   // Git
   "git.autofetch": true,
-  // Ruby
-  "ruby.useLanguageServer": true,
-  "ruby.useBundler": true,
-  "ruby.intellisense": "rubyLocate",
-  "ruby.format": "rubocop",
-  "ruby.lint": {
-    "rubocop": true
-  },
-  "ruby.codeCompletion": "rcodetools",
   "solargraph.externalServer": {
     "host": "localhost",
     "port": 7658
   },
   "[ruby]": {
-    "editor.defaultFormatter": "rebornix.ruby"
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.semanticHighlighting.enabled": true
   },
   // Go
   "go.lintTool": "golangci-lint",
@@ -106,7 +101,7 @@
   "gitlens.codeLens.enabled": false,
   // NeoVim
   "vscode-neovim.mouseSelectionStartVisualMode": true,
-  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "~/.vim/init.vim",
   "vscode-neovim.neovimWidth": 500,
   "github.copilot.enable": {
@@ -144,9 +139,6 @@
   "dart.flutterSdkPaths": [
     "/Users/usr/fvm/versions"
   ],
-  // SonarLint
-  "sonarlint.pathToNodeExecutable": "/Users/tomoya-hayakawa/.nodebrew/current/bin/node",
-  "sonarlint.ls.javaHome": "/Library/Java/JavaVirtualMachines/jdk-13.0.2.jdk/Contents/Home ",
   "sonarlint.rules": {
     "typescript:S2819": {
       "level": "off"
@@ -155,7 +147,6 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "html.format.endWithNewline": true,
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
@@ -170,4 +161,61 @@
   "solargraph.diagnostics": true,
   "solargraph.formatting": true,
   "solargraph.useBundler": true,
+  "solargraph.completion": true,
+  "solargraph.references": true,
+  "solargraph.rename": true,
+  "solargraph.bundlerPath": "/Users/hayakawa/.asdf/shims/bundler",
+  "editor.linkedEditing": true,
+  "sonarlint.pathToNodeExecutable": "/Users/hayakawa/.asdf/shims/node",
+  "terminal.integrated.windowsEnableConpty": false,
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "ruby.interpreter.commandPath": "/Users/hayakawa/.asdf/shims/ruby",
+  "ruby.pathToBundler": "/Users/hayakawa/.asdf/shims/bundler",
+  "ruby.locate": {
+    "exclude": "{**/@(test|spec|tmp|.*),**/@(test|spec|tmp|.*)/**,**/*_spec.rb}",
+    "include": "**/*.rb"
+  },
+  "ruby.languageServer": {},
+  "prettier.jsxSingleQuote": true,
+  "prettier.prettierPath": "/Users/hayakawa/.asdf/shims/prettier",
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "redhat.telemetry.enabled": false,
+  "cSpell.userWords": [
+    "byesig",
+    "epub",
+    "esbenp",
+    "hayakawa",
+    "mozjpeg",
+    "neovim",
+    "nvim",
+    "solargraph",
+    "sonarlint",
+    "TASKEY",
+    "taskeystudio",
+    "webtoon"
+  ],
+  "rubyLsp.enabledFeatures": {
+    "codeActions": true,
+    "diagnostics": true,
+    "documentHighlights": true,
+    "documentLink": true,
+    "documentSymbols": true,
+    "foldingRanges": true,
+    "formatting": true,
+    "hover": true,
+    "inlayHint": true,
+    "onTypeFormatting": true,
+    "selectionRanges": true,
+    "semanticHighlighting": true
+  },
+  "byesig.fold": false,
+  "byesig.enabled": true,
+  "byesig.opacity": 0.5,
+  "byesig.showIcon": false,
+  "editor.rulers": [
+    120
+  ],
+  "solargraph.commandPath": "/Users/hayakawa/.asdf/shims/solargraph",
+  "sorbet.enabled": true,
 }

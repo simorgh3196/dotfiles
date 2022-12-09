@@ -58,16 +58,6 @@ set -x PATH $ANDROID_HOME/platform-tools $PATH
 # for Flutter
 set -x PATH $HOME/flutter/bin $PATH
 
-# for jenv
-set -x PATH $HOME/.jenv/bin $PATH
-
-# for rails
-set -x LDFLAGS -L/usr/local/opt/openssl/lib
-set -x CPPFLAGS -I/usr/local/opt/openssl/include
-
-# for flutter
-set -x PATH $HOME/.pub-cache/bin $PATH
-
 # for Google Cloud SDK
 set -x PATH $HOME/google-cloud-sdk/bin $PATH
 
@@ -89,31 +79,25 @@ set -q PATH; or set PATH ''; set -gx PATH "/opt/homebrew/bin" "/opt/homebrew/sbi
 set -q MANPATH; or set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MANPATH;
 set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
 
-# for rbenv
+# for ruby
 set -x OPENSSL_ROOT $(brew --prefix openssl@1.1)
 set -x PATH $OPENSSL_ROOT/bin $PATH
 set -x LDFLAGS "-L$OPENSSL_ROOT/lib"
 set -x CPPFLAGS "-I$OPENSSL_ROOT/include"
 set -x PKG_CONFIG_PATH "$OPENSSL_ROOT/lib/pkgconfig"
-
 set -x LIBFFI_ROOT $(brew --prefix libffi)
 set -x PATH $LIBFFI_ROOT/bin $PATH
 set -x LDFLAGS "-L$LIBFFI_ROOT/lib" $LDFLAGS
 set -x PKG_CONFIG_PATH "$LIBFFI_ROOT/lib/pkgconfig" $PKG_CONFIG_PATH
-
 set -x RUBY_CONFIGURE_OPTS "--with-openssl-dir=$OPENSSL_ROOT"
-set -x RBENV_ROOT "$(brew --prefix rbenv)"
-set -x PATH "$RBENV_ROOT/bin" $PATH
-status --is-interactive; and rbenv init - fish | source
 
-# for pyenv
-status --is-interactive; and pyenv init --path | source
-
-# for jenv
-status --is-interactive; and jenv init - fish | source
+# for python
+set -x GRPC_PYTHON_BUILD_SYSTEM_OPENSSL 1
+set -x GRPC_PYTHON_BUILD_SYSTEM_ZLIB 1
 
 # for asdf (version manager)
 source $(brew --prefix asdf)/libexec/asdf.fish
+set -x FLUTTER_ROOT $(asdf where flutter)
 
 # The next line updates PATH for the Google Cloud SDK.
 #if [ -f '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/Users/t-hayakawa/#google-cloud-sdk/path.fish.inc'; else; . '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc'; end; end
@@ -121,3 +105,12 @@ source $(brew --prefix asdf)/libexec/asdf.fish
 # Remove duplicate PATH
 set -x PATH (echo $PATH | tr ' ' '\n' | sort -u)
 
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval $HOME/.asdf/installs/python/anaconda3-2022.05/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/hayakawa/google-cloud-sdk/path.fish.inc' ]; . '/Users/hayakawa/google-cloud-sdk/path.fish.inc'; end
