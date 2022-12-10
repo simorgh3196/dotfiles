@@ -10,7 +10,7 @@ function global:load_variables()
 	local path_sep = self.is_windows and "\\" or "/"
 	local home = self.is_windows and os.getenv("USERPROFILE") or os.getenv("HOME")
 	self.cache_dir = home .. path_sep .. ".cache" .. path_sep .. "nvim" .. path_sep
-	self.modules_dir = self.vim_path .. path_sep .. "modules"
+	self.modules_dir = self.vim_path .. path_sep .. "/lua/modules"
 	self.home = home
 	self.data_dir = string.format("%s/site/", vim.fn.stdpath("data"))
 end

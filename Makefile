@@ -13,9 +13,8 @@ install/brew:
 	brew bundle --file=${PWD}/brew/Brewfile
 
 install/nvim:
-	ln -siv ${PWD}/vim/vim ~/.vim
-	mkdir -p ~/.config/nvim
-	ln -siv ${PWD}/vim/vim/vimrc ~/.config/nvim/init.vim
+	mkdir -p ~/.config/
+	ln -siv ${PWD}/nvim ~/.config
 
 install/fish:
 	mkdir -p ~/.config/

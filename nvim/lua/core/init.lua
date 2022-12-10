@@ -100,22 +100,23 @@ local clipboard_config = function()
 end
 
 local load_core = function()
-	-- local pack = require("core.pack")
+	-- local pack = require("core.jetpack")
+	local pack = require("core.pack")
 	createdir()
 	disable_distribution_plugins()
 	leader_map()
 
-	-- pack.ensure_plugins()
+	pack.ensure_plugins()
 	clipboard_config()
 
 	require("core.options")
 	require("core.mapping")
-	-- require("keymap")
+	require("keymap")
 	require("core.event")
-	-- pack.load_compile()
+	pack.load_compile()
 
 	-- vim.api.nvim_command([[set background=light]])
-	-- vim.api.nvim_command([[colorscheme catppuccin]])
+	vim.cmd([[colorscheme tokyonight-night]])
 end
 
 load_core()
