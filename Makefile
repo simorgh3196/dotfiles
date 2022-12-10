@@ -9,7 +9,7 @@ PWD:=`pwd`
 install: install/brew install/nvim install/fish install/git install/tmux install/vscode
 
 install/brew:
-	which brew || /usr/bin/ruby -e "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	which brew || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew bundle --file=${PWD}/brew/Brewfile
 
 install/nvim:
