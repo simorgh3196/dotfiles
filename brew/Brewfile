@@ -2,7 +2,6 @@ tap "artemnovichkov/projects"
 tap "danger/tap"
 tap "git-chglog/git-chglog"
 tap "github/gh"
-tap "helix-editor/helix"
 tap "heroku/brew"
 tap "homebrew-ffmpeg/ffmpeg"
 tap "homebrew/bundle"
@@ -108,10 +107,5 @@ cask "visual-studio-code"
 cask "wezterm"
 cask "xcodes"
 cask "zoom"
-mas "GIPHY CAPTURE", id: 668208984
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
 mas "Quick View Calendar", id: 1087080039
 mas "Spark", id: 1176895641
