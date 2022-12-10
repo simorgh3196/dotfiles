@@ -10,6 +10,11 @@ ui["catppuccin/nvim"] = {
 	as = "catppuccin",
 	config = conf.catppuccin,
 }
+ui["zbirenbaum/neodim"] = {
+	opt = true,
+	event = "LspAttach",
+	config = conf.neodim,
+}
 ui["rcarriga/nvim-notify"] = {
 	opt = false,
 	config = conf.notify,
