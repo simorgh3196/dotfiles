@@ -104,7 +104,7 @@ M.setup = function()
     M.push(fg, bg, { Intensity = "Bold" }, GLYPH_SEMI_CIRCLE_LEFT)
 
     -- Tab number
-    M.push(bg, fg, { Intensity = "Bold" }, "" .. (tab.tab_id + 1) .. ".")
+    M.push(bg, fg, { Intensity = "Bold" }, "" .. (tab.tab_index + 1) .. ".")
 
     -- Admin Icon
     if is_admin then
