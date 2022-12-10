@@ -21,6 +21,10 @@ install/fish:
 	mkdir -p ~/.config/
 	ln -siv ${PWD}/fish ~/.config
 
+install/wezterm:
+	mkdir -p ~/.config/
+	ln -siv ${PWD}/wezterm ~/.config
+
 install/git:
 	ln -siv ${PWD}/git/gitconfig ~/.gitconfig
 	ln -siv ${PWD}/git/gitignore_global ~/.gitignore_global
