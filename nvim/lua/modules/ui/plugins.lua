@@ -4,7 +4,13 @@ local conf = require("modules.ui.config")
 ui["kyazdani42/nvim-web-devicons"] = { opt = false }
 ui["shaunsingh/nord.nvim"] = { opt = false, config = conf.nord }
 ui["sainnhe/edge"] = { opt = false, config = conf.edge }
-ui["folke/tokyonight.nvim"] = { opt = false, as = "tokyonight" }
+-- ui["folke/tokyonight.nvim"] = { opt = false, as = "tokyonight" }
+ui["monsonjeremy/onedark.nvim"] = {
+	branch = "treesitter",
+	opt = false,
+	as = "onedark",
+	config = conf.onedark,
+}
 ui["catppuccin/nvim"] = {
 	opt = false,
 	as = "catppuccin",

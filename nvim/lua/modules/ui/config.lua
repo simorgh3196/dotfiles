@@ -100,6 +100,10 @@ function config.nord()
 	vim.g.nord_italic = true
 end
 
+function config.onedark()
+	require("onedark").setup()
+end
+
 function config.catppuccin()
 	require("catppuccin").setup({
 		flavour = "mocha", -- Can be one of: latte, frappe, macchiato, mocha
@@ -460,7 +464,7 @@ function config.lualine()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = "catppuccin",
+			theme = "onedark",
 			disabled_filetypes = {},
 			component_separators = "|",
 			section_separators = { left = "", right = "" },

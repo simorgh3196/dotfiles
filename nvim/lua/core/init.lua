@@ -116,7 +116,7 @@ local load_core = function()
 	pack.load_compile()
 
 	-- vim.api.nvim_command([[set background=light]])
-	vim.cmd([[colorscheme tokyonight-night]])
+	vim.cmd.colorscheme("onedark")
 end
 
 load_core()
