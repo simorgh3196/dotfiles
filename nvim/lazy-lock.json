@@ -1,0 +1,6 @@
+{
+  "edge": { "branch": "master", "commit": "9fce6983f90c06e4fcf40754d5a187e142167d5a" },
+  "lazy.nvim": { "branch": "main", "commit": "9ab61b3479391694a00435c581f9e404802af120" },
+  "lualine.nvim": { "branch": "master", "commit": "32a7382a75a52e8ad05f4cec7eeb8bbfbe80d461" },
+  "which-key.nvim": { "branch": "main", "commit": "8682d3003595017cd8ffb4c860a07576647cc6f8" }
+}

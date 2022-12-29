@@ -52,6 +52,11 @@ function config.telescope()
 				override_file_sorter = true,
 				case_mode = "smart_case",
 			},
+			project = {
+				base_dirs = {
+					{ "$GOPATH/src", max_depth = 3 },
+				},
+			},
 			frecency = {
 				show_scores = true,
 				show_unindexed = true,

@@ -11,25 +11,43 @@ function config.nvim_treesitter()
 			"bash",
 			"c",
 			"cpp",
-			"lua",
+			"css",
+			"dart",
+			"dockerfile",
+			"fish",
+			"gitignore",
 			"go",
 			"gomod",
-			"json",
-			"yaml",
-			"latex",
-			"make",
-			"python",
-			"rust",
+			"graphql",
 			"html",
 			"javascript",
+			"json",
+			"kotlin",
+			"lua",
+			"make",
+			"markdown",
+			"markdown_inline",
+			"php",
+			"python",
+			"ruby",
+			"rust",
+			"scss",
+			"sql",
+			"swift",
+			"tsx",
 			"typescript",
+			"vim",
 			"vue",
-			"css",
+			"yaml",
 		},
+		auto_install = true,
 		highlight = {
 			enable = true,
 			disable = { "vim" },
 			additional_vim_regex_highlighting = false,
+		},
+		indent = {
+			enable = true,
 		},
 		textobjects = {
 			select = {
@@ -68,7 +86,7 @@ function config.nvim_treesitter()
 			max_file_lines = 2000, -- Do not enable for files with more than 2000 lines, int
 		},
 		context_commentstring = { enable = true, enable_autocmd = false },
-		matchup = { enable = true },
+		-- matchup = { enable = true },
 	})
 	require("nvim-treesitter.install").prefer_git = true
 	-- if use_ssh then
@@ -116,45 +134,11 @@ function config.hop()
 end
 
 function config.autotag()
-	require("nvim-ts-autotag").setup({
-		filetypes = {
-			"html",
-			"xml",
-			"javascript",
-			"typescriptreact",
-			"javascriptreact",
-			"vue",
-		},
-	})
+	require("nvim-ts-autotag").setup()
 end
 
 function config.nvim_colorizer()
 	require("colorizer").setup()
-end
-
-function config.neoscroll()
-	require("neoscroll").setup({
-		-- All these keys will be mapped to their corresponding default scrolling animation
-		mappings = {
-			"<C-u>",
-			"<C-d>",
-			"<C-b>",
-			"<C-f>",
-			"<C-y>",
-			"<C-e>",
-			"zt",
-			"zz",
-			"zb",
-		},
-		hide_cursor = true, -- Hide cursor while scrolling
-		stop_eof = true, -- Stop at <EOF> when scrolling downwards
-		use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
-		respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-		cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-		easing_function = nil, -- Default easing function
-		pre_hook = nil, -- Function to run before the scrolling animation starts
-		post_hook = nil, -- Function to run after the scrolling animation ends
-	})
 end
 
 function config.auto_session()
@@ -296,7 +280,7 @@ function config.dap()
 
 	dap.adapters.lldb = {
 		type = "executable",
-		command = "/usr/bin/lldb-vscode",
+		command = "/usr/bin/lldb",
 		name = "lldb",
 	}
 	dap.configurations.cpp = {
@@ -413,24 +397,6 @@ function config.dap()
 	}
 end
 
-function config.specs()
-	require("specs").setup({
-		show_jumps = true,
-		min_jump = 10,
-		popup = {
-			delay_ms = 0, -- delay before popup displays
-			inc_ms = 10, -- time increments used for fade/resize effects
-			blend = 10, -- starting blend, between 0-100 (fully transparent), see :h winblend
-			width = 10,
-			winhl = "PMenu",
-			fader = require("specs").pulse_fader,
-			resizer = require("specs").shrink_resizer,
-		},
-		ignore_filetypes = {},
-		ignore_buftypes = { nofile = true },
-	})
-end
-
 function config.tabout()
 	require("tabout").setup({
 		tabkey = "<A-l>",
@@ -467,19 +433,6 @@ function config.imselect()
       ]],
 		}, { true, true, true })
 	end
-end
-
-function config.better_escape()
-	require("better_escape").setup({
-		mapping = { "jk", "jj" }, -- a table with mappings to use
-		timeout = 500, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
-		clear_empty_lines = false, -- clear line after escaping if there is only whitespace
-		keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
-		-- example(recommended)
-		-- keys = function()
-		--   return vim.api.nvim_win_get_cursor(0)[2] > 1 and '<esc>l' or '<esc>'
-		-- end,
-	})
 end
 
 function config.accelerated_jk()

@@ -38,10 +38,10 @@ editor["windwp/nvim-ts-autotag"] = {
 	after = "nvim-treesitter",
 	config = conf.autotag,
 }
-editor["andymass/vim-matchup"] = {
-	opt = true,
-	after = "nvim-treesitter",
-}
+-- editor["andymass/vim-matchup"] = {
+-- 	opt = true,
+-- 	after = "nvim-treesitter",
+-- }
 editor["rainbowhxch/accelerated-jk.nvim"] = {
 	opt = true,
 	event = "BufWinEnter",
@@ -62,11 +62,6 @@ editor["phaazon/hop.nvim"] = {
 	event = "BufReadPost",
 	config = conf.hop,
 }
-editor["karb94/neoscroll.nvim"] = {
-	opt = true,
-	event = "BufReadPost",
-	config = conf.neoscroll,
-}
 editor["akinsho/toggleterm.nvim"] = {
 	opt = true,
 	event = "UIEnter",
@@ -81,11 +76,6 @@ editor["rmagatti/auto-session"] = {
 	opt = true,
 	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
 	config = conf.auto_session,
-}
-editor["max397574/better-escape.nvim"] = {
-	opt = true,
-	event = "BufReadPost",
-	config = conf.better_escape,
 }
 editor["mfussenegger/nvim-dap"] = {
 	opt = true,
@@ -112,11 +102,6 @@ editor["tpope/vim-fugitive"] = { opt = true, cmd = { "Git", "G" } }
 editor["famiu/bufdelete.nvim"] = {
 	opt = true,
 	cmd = { "Bdelete", "Bwipeout", "Bdelete!", "Bwipeout!" },
-}
-editor["edluffy/specs.nvim"] = {
-	opt = true,
-	event = "CursorMoved",
-	config = conf.specs,
 }
 editor["abecodes/tabout.nvim"] = {
 	opt = true,

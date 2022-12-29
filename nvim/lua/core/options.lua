@@ -77,7 +77,8 @@ local function load_options()
 		laststatus = 2,
 		display = "lastline",
 		showbreak = "↳  ",
-		listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←",
+		-- listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←",
+		listchars = "tab:>-,trail:-,extends:>,precedes:<,nbsp:%,eol:↲",
 		-- pumblend = 10,
 		-- winblend = 10,
 		autoread = true,
@@ -95,12 +96,13 @@ local function load_options()
 		wrap = false,
 		linebreak = true,
 		number = true,
-		relativenumber = true,
+		relativenumber = false,
 		foldenable = true,
 		signcolumn = "yes",
 		conceallevel = 0,
 		concealcursor = "niv",
 	}
+
 	local function isempty(s)
 		return s == nil or s == ""
 	end
@@ -120,6 +122,16 @@ local function load_options()
 
 	for name, value in pairs(global_local) do
 		vim.o[name] = value
+	end
+
+	if vim.fn.has("nvim-0.8") == 1 then
+		vim.opt.cmdheight = 0
+		vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
+	end
+
+	if vim.fn.has("nvim-0.9.0") == 1 then
+		vim.opt.splitkeep = "screen"
+		vim.o.shortmess = "filnxtToOFWIcC"
 	end
 end
 
