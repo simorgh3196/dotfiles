@@ -20,4 +20,4 @@ make export # export local settings
 
 | terminal | nvim |
 | --- | --- |
-| ![screenshot-terminal](/docs/screenshot-terminal) | ![screenshot-nvim](/docs/screenshot-nvim) |
+| ![screenshot-terminal](/docs/screenshot-terminal.png) | ![screenshot-nvim](/docs/screenshot-nvim.png) |
