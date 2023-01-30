@@ -1,8 +1,11 @@
-PWD:=`pwd`
+PWD:=$(shell pwd)
 
 #
 # Install
 #
+
+test:
+	@echo $(PWD)
 
 .PHONY: install install/*
 
