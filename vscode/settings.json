@@ -102,7 +102,7 @@
   // NeoVim
   "vscode-neovim.mouseSelectionStartVisualMode": true,
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
-  "vscode-neovim.neovimInitVimPaths.darwin": "~/.vim/init.vim",
+  "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
   "vscode-neovim.neovimWidth": 500,
   "github.copilot.enable": {
     "*": true,
@@ -175,7 +175,6 @@
     "exclude": "{**/@(test|spec|tmp|.*),**/@(test|spec|tmp|.*)/**,**/*_spec.rb}",
     "include": "**/*.rb"
   },
-  "ruby.languageServer": {},
   "prettier.jsxSingleQuote": true,
   "prettier.prettierPath": "/Users/hayakawa/.asdf/shims/prettier",
   "prettier.semi": false,
@@ -189,26 +188,14 @@
     "mozjpeg",
     "neovim",
     "nvim",
+    "simorgh",
     "solargraph",
     "sonarlint",
     "TASKEY",
     "taskeystudio",
+    "Tomoya",
     "webtoon"
   ],
-  "rubyLsp.enabledFeatures": {
-    "codeActions": true,
-    "diagnostics": true,
-    "documentHighlights": true,
-    "documentLink": true,
-    "documentSymbols": true,
-    "foldingRanges": true,
-    "formatting": true,
-    "hover": true,
-    "inlayHint": true,
-    "onTypeFormatting": true,
-    "selectionRanges": true,
-    "semanticHighlighting": true
-  },
   "byesig.fold": false,
   "byesig.enabled": true,
   "byesig.opacity": 0.5,
@@ -218,4 +205,7 @@
   ],
   "solargraph.commandPath": "/Users/hayakawa/.asdf/shims/solargraph",
   "sorbet.enabled": true,
+  "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+  "Lua.telemetry.enable": true,
+  "tabnine.experimentalAutoImports": true,
 }
