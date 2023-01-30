@@ -66,10 +66,8 @@ set -x PATH $HOME/google-cloud-sdk/bin $PATH
 # Settings
 # ====================
 
-# for iTerm2
-#echo -e "\033]6;1;bg;red;brightness;40\a"
-#echo -e "\033]6;1;bg;green;brightness;44\a"
-#echo -e "\033]6;1;bg;blue;brightness;52\a"
+# prompt
+starship init fish | source
 
 # for homebrew at M1
 set -gx HOMEBREW_PREFIX "/opt/homebrew";
@@ -98,9 +96,6 @@ set -x GRPC_PYTHON_BUILD_SYSTEM_ZLIB 1
 # for asdf (version manager)
 source $(brew --prefix asdf)/libexec/asdf.fish
 set -x FLUTTER_ROOT $(asdf where flutter)
-
-# The next line updates PATH for the Google Cloud SDK.
-#if [ -f '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/Users/t-hayakawa/#google-cloud-sdk/path.fish.inc'; else; . '/Users/t-hayakawa/google-cloud-sdk/path.fish.inc'; end; end
 
 # Remove duplicate PATH
 set -x PATH (echo $PATH | tr ' ' '\n' | sort -u)
