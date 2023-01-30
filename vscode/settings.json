@@ -1,118 +1,9 @@
 {
-  // Editor
-  "editor.fontFamily": "Fira Code, Roboto, Menlo",
-  "editor.fontLigatures": true,
-  "editor.fontSize": 11,
-  "editor.renderWhitespace": "boundary",
-  "editor.minimap.enabled": false,
-  "editor.formatOnSave": true,
-  "editor.inlineSuggest.enabled": true,
-  "editor.bracketPairColorization.enabled": true,
-  "explorer.fileNesting.enabled": true,
-  "explorer.fileNesting.expand": false,
-  "explorer.fileNesting.patterns": {
-    "*.ts": "$(capture).js",
-    "*.js": "$(capture).js.map, $(capture).min.js, $(capture).d.ts",
-    "*.jsx": "$(capture).js",
-    "*.tsx": "$(capture).ts",
-    "tsconfig.json": "tsconfig.*.json",
-    "package.json": "package-lock.json, yarn.lock",
-    "pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, .packages, pubspec.lock, build.yaml, analysis_options.yaml, all_lint_rules.yaml",
-    "*.dart": "$(capture).g.dart, $(capture).freezed.dart",
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
   },
-  "files.insertFinalNewline": true,
-  "files.trimTrailingWhitespace": true,
-  "files.associations": {
-    "*.podspec.*": "ruby"
-  },
-  "terminal.external.osxExec": "WezTerm.app",
-  "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1"
-  },
-  "security.workspace.trust.untrustedFiles": "open",
-  "terminal.integrated.copyOnSelection": true,
-  "window.zoomLevel": 1,
-  // Workbench
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#5f0000",
-    "statusBar.noFolderBackground": "#5f0000",
-    "statusBar.debuggingBackground": "#5f0000"
-  },
-  "workbench.colorTheme": "One Dark Pro",
-  "workbench.iconTheme": "material-icon-theme",
-  // Git
-  "git.autofetch": true,
-  "solargraph.externalServer": {
-    "host": "localhost",
-    "port": 7658
-  },
-  "[ruby]": {
-    "editor.defaultFormatter": "Shopify.ruby-lsp",
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-    "editor.semanticHighlighting.enabled": true
-  },
-  // Go
-  "go.lintTool": "golangci-lint",
-  "go.useLanguageServer": true,
-  "go.toolsManagement.autoUpdate": true,
-  "go.languageServerFlags": [
-    "-trace",
-    "-logfile"
-  ],
-  "go.buildOnSave": "off",
-  "go.vetOnSave": "off",
-  "go.toolsGopath": "~/go",
-  "go.alternateTools": {
-    "go-langserver": "gopls"
-  },
-  "[go]": {
-    "editor.snippetSuggestions": "none",
-    "editor.insertSpaces": false,
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": true
-    }
-  },
-  // PHP
-  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
-  "php-cs-fixer.lastDownload": 1554371024228,
-  // JavaScript / TypeScript
-  "eslint.packageManager": "npm",
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  // Markdown
-  "markdown.extension.toc.unorderedList.marker": "*",
-  "gitlens.codeLens.enabled": false,
-  // NeoVim
-  "vscode-neovim.mouseSelectionStartVisualMode": true,
-  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
-  "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
-  "vscode-neovim.neovimWidth": 500,
-  "github.copilot.enable": {
-    "*": true,
-    "yaml": true,
-    "plaintext": true,
-    "markdown": true,
-    "dart": true
-  },
-  // flutter / dart
   "[dart]": {
+    "editor.defaultFormatter": "Dart-Code.dart-code",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.rulers": [
@@ -122,90 +13,207 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": false,
-    "editor.defaultFormatter": "Dart-Code.dart-code"
+    "editor.wordBasedSuggestions": false
   },
-  "dart.openDevTools": "flutter",
-  "dart.debugExternalPackageLibraries": false,
-  "dart.debugSdkLibraries": false,
-  "dart.devToolsBrowser": "default",
-  "dart.previewFlutterUiGuides": true,
-  "dart.previewFlutterUiGuidesCustomTracking": true,
-  "dart.previewHotReloadOnSaveWatcher": true,
-  "dart.additionalAnalyzerFileExtensions": [
-    "drift"
-  ],
-  "dart.sdkPath": null,
-  "dart.flutterSdkPaths": [
-    "/Users/usr/fvm/versions"
-  ],
-  "sonarlint.rules": {
-    "typescript:S2819": {
-      "level": "off"
-    }
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "[go]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": false,
+    "editor.snippetSuggestions": "none"
   },
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
-  "[css]": {
-    "editor.defaultFormatter": "vscode.css-language-features"
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "deno.suggest.completeFunctionCalls": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.insertSpaces": true,
+    "editor.semanticHighlighting.enabled": true,
+    "editor.tabSize": 2
+  },
   "[scss]": {
     "editor.defaultFormatter": "vscode.css-language-features"
   },
-  "solargraph.autoformat": true,
-  "solargraph.diagnostics": true,
-  "solargraph.formatting": true,
-  "solargraph.useBundler": true,
-  "solargraph.completion": true,
-  "solargraph.references": true,
-  "solargraph.rename": true,
-  "solargraph.bundlerPath": "/Users/hayakawa/.asdf/shims/bundler",
-  "editor.linkedEditing": true,
-  "sonarlint.pathToNodeExecutable": "/Users/hayakawa/.asdf/shims/node",
-  "terminal.integrated.windowsEnableConpty": false,
-  "terminal.integrated.defaultProfile.osx": "fish",
-  "ruby.interpreter.commandPath": "/Users/hayakawa/.asdf/shims/ruby",
-  "ruby.pathToBundler": "/Users/hayakawa/.asdf/shims/bundler",
-  "ruby.locate": {
-    "exclude": "{**/@(test|spec|tmp|.*),**/@(test|spec|tmp|.*)/**,**/*_spec.rb}",
-    "include": "**/*.rb"
+  "[swift]": {
+    "editor.defaultFormatter": "vknabel.vscode-swiftformat"
   },
-  "prettier.jsxSingleQuote": true,
-  "prettier.prettierPath": "/Users/hayakawa/.asdf/shims/prettier",
-  "prettier.semi": false,
-  "prettier.singleQuote": true,
-  "redhat.telemetry.enabled": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "byesig.enabled": true,
+  "byesig.fold": false,
+  "byesig.opacity": 0.5,
+  "byesig.showIcon": false,
+  "cSpell.language": "en,jp",
   "cSpell.userWords": [
     "byesig",
     "epub",
     "esbenp",
-    "hayakawa",
+    "fflate",
     "mozjpeg",
     "neovim",
     "nvim",
     "simorgh",
     "solargraph",
     "sonarlint",
-    "TASKEY",
+    "sourcekit",
+    "tabnine",
     "taskeystudio",
-    "Tomoya",
     "webtoon"
   ],
-  "byesig.fold": false,
-  "byesig.enabled": true,
-  "byesig.opacity": 0.5,
-  "byesig.showIcon": false,
+  "dart.additionalAnalyzerFileExtensions": [
+    "drift"
+  ],
+  "dart.debugExternalPackageLibraries": false,
+  "dart.debugSdkLibraries": false,
+  "dart.devToolsBrowser": "default",
+  "dart.flutterSdkPaths": [
+    "/Users/usr/fvm/versions"
+  ],
+  "dart.openDevTools": "flutter",
+  "dart.previewFlutterUiGuides": true,
+  "dart.previewFlutterUiGuidesCustomTracking": true,
+  "dart.previewHotReloadOnSaveWatcher": true,
+  "dart.sdkPath": null,
+  "deno.suggest.completeFunctionCalls": true,
+  "editor.accessibilitySupport": "off",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.fontFamily": "Fira Code, Roboto, Menlo",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 11,
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "boundary",
   "editor.rulers": [
     120
   ],
+  "eslint.packageManager": "npm",
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*.dart": "$(capture).g.dart, $(capture).freezed.dart",
+    "*.js": "$(capture).js.map, $(capture).min.js, $(capture).d.ts",
+    "*.jsx": "$(capture).js",
+    "*.ts": "$(capture).js",
+    "*.tsx": "$(capture).ts",
+    "Package.swift": "Package.resolved",
+    "package.json": "package-lock.json, yarn.lock",
+    "pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, .packages, pubspec.lock, build.yaml, analysis_options.yaml, all_lint_rules.yaml",
+    "tsconfig.json": "tsconfig.*.json"
+  },
+  "files.associations": {
+    "*.podspec.*": "ruby",
+    "Package.resolved": "json"
+  },
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "git.autofetch": true,
+  "gitProjectManager.baseProjectsFolders": [
+    "~/go/src"
+  ],
+  "gitlens.codeLens.enabled": false,
+  "go.alternateTools": {
+    "go-langserver": "gopls"
+  },
+  "go.buildOnSave": "off",
+  "go.languageServerFlags": [
+    "-logfile",
+    "-trace"
+  ],
+  "go.lintTool": "golangci-lint",
+  "go.toolsGopath": "~/go",
+  "go.toolsManagement.autoUpdate": true,
+  "go.useLanguageServer": true,
+  "go.vetOnSave": "off",
+  "lldb.library": "/Applications/Xcode-14.2.0.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+  "markdown.extension.toc.unorderedList.marker": "*",
+  "prettier.jsxSingleQuote": true,
+  "prettier.prettierPath": "~/.asdf/shims/prettier",
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "projectManager.git.baseFolders": [
+    "~/go/src/"
+  ],
+  "redhat.telemetry.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "solargraph.bundlerPath": "~/.asdf/shims/bundler",
   "solargraph.commandPath": "/Users/hayakawa/.asdf/shims/solargraph",
+  "solargraph.completion": true,
+  "solargraph.diagnostics": true,
+  "solargraph.externalServer": {
+    "host": "localhost",
+    "port": 7658
+  },
+  "solargraph.formatting": true,
+  "solargraph.references": true,
+  "solargraph.rename": true,
+  "sonarlint.pathToNodeExecutable": "~/.asdf/installs/nodejs/14.21.2/bin/node",
+  "sonarlint.rules": {
+    "typescript:S2819": {
+      "level": "off"
+    }
+  },
   "sorbet.enabled": true,
-  "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
-  "Lua.telemetry.enable": true,
+  "sort-json.settings.sortMode": "Objects Only",
+  "sourcekit-lsp.serverPath": "/usr/bin/sourcekit-lsp",
+  "swift.backgroundCompilation": true,
+  "swift.diagnostics": true,
+  "swiftformat.options": [
+    "--indent",
+    "4",
+    "--self",
+    "init-only",
+    "--patternlet",
+    "inline",
+    "--disable",
+    "wrapMultilineStatementBraces",
+    "--exclude",
+    "Pods,Carthage",
+    "--enable",
+    "acronyms,blankLineAfterImports,blankLinesBetweenImports,blockComments,docComments,isEmpty,wrapSwitchCases"
+  ],
+  "swiftformat.path": [
+    "/usr/bin/env",
+    "swiftformat"
+  ],
+  "swiftlint.path": [
+    "/usr/bin/env",
+    "swiftlint"
+  ],
   "tabnine.experimentalAutoImports": true,
+  "terminal.external.osxExec": "WezTerm.app",
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "terminal.integrated.windowsEnableConpty": false,
+  "textlint.nodePath": "/Users/hayakawa/.asdf/shims/textlint",
+  "vscode-neovim.mouseSelectionStartVisualMode": true,
+  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+  "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
+  "vscode-neovim.neovimWidth": 500,
+  "window.zoomLevel": 1,
+  "workbench.colorTheme": "Tokyo Night Storm",
+  "workbench.iconTheme": "material-icon-theme"
 }
