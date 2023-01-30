@@ -12,11 +12,12 @@ make export # export local settings
 
 * brew
 * git
-* tmux
 * nvim
 * fish
 * vscode
 
 ## Screen Shot
 
-![tmux-vim-screenshot](https://cloud.githubusercontent.com/assets/9880704/25426607/adc116a8-2aaa-11e7-82d9-62fac5883e46.png)
+| terminal | nvim |
+| --- | --- |
+| ![screenshot-terminal](/docs/screenshot-terminal) | ![screenshot-nvim](/docs/screenshot-nvim) |
