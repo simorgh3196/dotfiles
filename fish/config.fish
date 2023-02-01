@@ -20,15 +20,34 @@ end
 # Alias
 # ====================
 
-alias mkdir='mkdir -p'
+# General
+abbr mv "mv -iv"
+abbr cp "cp -riv"
+abbr mkdir "mkdir -vp"
+abbr grep rg
+alias ls="exa --git --color=always --icons --group-directories-first"
+alias la="exa -a --git --color=always --icons --group-directories-first"
+alias ll="exa -hla --git --color=always --icons --group-directories-first"
+abbr l ll
 
-alias l='exa -hla --git'
-alias ls='exa --git'
-alias la='exa -a --git'
+# Editor
+abbr vim nvim
+abbr vi nvim
+abbr v nvim
 
-alias vim='nvim'
-alias be='bundle exec'
-alias rn='react-native'
+# Development
+abbr git hub
+abbr g hub
+abbr gl 'hub l --color | devmoji --log --color | less -rXF'
+abbr st "hub st"
+abbr commit "hub commit"
+abbr fetch "hub fetch"
+abbr push "hub push"
+abbr pull "hub pull"
+
+# Other
+abbr bi "bundle install --jobs 4"
+abbr be "bundle exec"
 
 
 # ====================
@@ -66,8 +85,12 @@ set -x PATH $HOME/google-cloud-sdk/bin $PATH
 # Settings
 # ====================
 
-# prompt
+# fish
 starship init fish | source
+set -U fish_emoji_width 2
+set -gx EDITOR (which nvim)
+set -gx VISUAL $EDITOR
+set -gx SUDO_EDITOR $EDITOR
 
 # for homebrew at M1
 set -gx HOMEBREW_PREFIX "/opt/homebrew";
@@ -76,6 +99,10 @@ set -gx HOMEBREW_REPOSITORY "/opt/homebrew";
 set -q PATH; or set PATH ''; set -gx PATH "/opt/homebrew/bin" "/opt/homebrew/sbin" $PATH;
 set -q MANPATH; or set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MANPATH;
 set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
+
+# for asdf (version manager)
+source $(brew --prefix asdf)/libexec/asdf.fish
+set -x FLUTTER_ROOT $(asdf where flutter)
 
 # for ruby
 set -x OPENSSL_ROOT $(brew --prefix openssl@1.1)
@@ -93,13 +120,13 @@ set -x RUBY_CONFIGURE_OPTS "--with-openssl-dir=$OPENSSL_ROOT"
 set -x GRPC_PYTHON_BUILD_SYSTEM_OPENSSL 1
 set -x GRPC_PYTHON_BUILD_SYSTEM_ZLIB 1
 
-# for asdf (version manager)
-source $(brew --prefix asdf)/libexec/asdf.fish
-set -x FLUTTER_ROOT $(asdf where flutter)
-
 # Remove duplicate PATH
 set -x PATH (echo $PATH | tr ' ' '\n' | sort -u)
 
+
+# ====================
+# Auto generated settings
+# ====================
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
