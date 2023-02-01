@@ -1,7 +1,8 @@
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
-    config = {
+    opts = {
+      close_if_last_window = true,
       default_component_configs = {
         git_status = {
           symbols = {

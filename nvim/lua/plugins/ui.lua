@@ -2,7 +2,17 @@ return {
   {
     "akinsho/bufferline.nvim",
     opts = {
-      options = { always_show_bufferline = true },
+      options = {
+        always_show_bufferline = true,
+        offsets = {
+          {
+            filetype = "neo-tree",
+            text = "File Explorer",
+            highlight = "Directory",
+            text_align = "left",
+          },
+        },
+      },
     },
   },
 
@@ -10,7 +20,7 @@ return {
   {
     "petertriho/nvim-scrollbar",
     event = "BufReadPost",
-    config = function()
+    opts = function()
       local scrollbar = require("scrollbar")
       local colors = require("tokyonight.colors").setup()
       scrollbar.setup({
