@@ -14,6 +14,7 @@ return {
     event = "VeryLazy",
     opts = {
       default_im_select = "com.apple.keylayout.ABC",
+      disable_auto_restore = 1,
     },
   },
 

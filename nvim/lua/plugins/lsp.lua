@@ -114,7 +114,11 @@ return {
         debounce = 150,
         save_after_format = false,
         sources = {
-          nls.builtins.diagnostics.cspell,
+          nls.builtins.diagnostics.cspell.with({
+            diagnostics_postprocess = function(diagnostics)
+              diagnostics.severity = vim.diagnostic.severity["WARN"]
+            end,
+          }),
           nls.builtins.code_actions.cspell,
           nls.builtins.formatting.stylua,
           nls.builtins.formatting.fish_indent,

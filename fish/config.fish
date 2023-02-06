@@ -3,16 +3,16 @@
 # ====================
 
 function fish_user_key_bindings
-  for mode in insert default visual
-    fish_default_key_bindings -M $mode
+    for mode in insert default visual
+        fish_default_key_bindings -M $mode
 
-    bind -M $mode \cr peco_select_ghq_repository
-    bind -M $mode \cg peco_open_gh_repository
-    bind -M $mode \cf nextd-or-forward-word
-    bind -M $mode \ce accept-autosuggestion
-  end
+        bind -M $mode \cr peco_select_ghq_repository
+        bind -M $mode \cg peco_open_gh_repository
+        bind -M $mode \cf nextd-or-forward-word
+        bind -M $mode \ce accept-autosuggestion
+    end
 
-  fish_vi_key_bindings --no-erase
+    fish_vi_key_bindings --no-erase
 end
 
 
@@ -54,32 +54,30 @@ abbr be "bundle exec"
 # PATH
 # ====================
 
-set -x PATH $HOME/.local/bin $PATH
+fish_add_path $HOME/.local/bin
 
 # for nvim
-set -x XDG_CONFIG_HOME $HOME/.config
+set -gx XDG_CONFIG_HOME $HOME/.config
 
 # for ghq
-set -x GHQ_ROOT $HOME/go/src
+set -gx GHQ_ROOT $HOME/go/src
 
 # for Golang
-set -x GOPATH $HOME/go
-set -x PATH $GOPATH/bin $PATH
+fish_add_path $GOPATH/bin
+set -gx GOPATH $HOME/go
 
 # for Rust
-set -x PATH $HOME/.cargo/bin $PATH
+fish_add_path $HOME/.cargo/bin
 
 # for AndroidSDK
-# install by AndroidStudio
-set -x ANDROID_HOME $HOME/Library/Android/sdk
-set -x PATH $ANDROID_HOME/platform-tools $PATH
+fish_add_path $ANDROID_HOME/platform-tools
+set -gx ANDROID_HOME $HOME/Library/Android/sdk
 
 # for Flutter
-set -x PATH $HOME/flutter/bin $PATH
+fish_add_path $HOME/flutter/bin
 
 # for Google Cloud SDK
-set -x PATH $HOME/google-cloud-sdk/bin $PATH
-
+fish_add_path $HOME/google-cloud-sdk/bin
 
 # ====================
 # Settings
@@ -93,35 +91,38 @@ set -gx VISUAL $EDITOR
 set -gx SUDO_EDITOR $EDITOR
 
 # for homebrew at M1
-set -gx HOMEBREW_PREFIX "/opt/homebrew";
-set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar";
-set -gx HOMEBREW_REPOSITORY "/opt/homebrew";
-set -q PATH; or set PATH ''; set -gx PATH "/opt/homebrew/bin" "/opt/homebrew/sbin" $PATH;
-set -q MANPATH; or set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MANPATH;
-set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
+fish_add_path /opt/homebrew/bin
+fish_add_path /opt/homebrew/sbin
+set -gx HOMEBREW_PREFIX /opt/homebrew
+set -gx HOMEBREW_CELLAR /opt/homebrew/Cellar
+set -gx HOMEBREW_REPOSITORY /opt/homebrew
+set -q MANPATH; or set MANPATH ''
+set -gx MANPATH /opt/homebrew/share/man $MANPATH
+set -q INFOPATH; or set INFOPATH ''
+set -gx INFOPATH /opt/homebrew/share/info $INFOPATH
 
 # for asdf (version manager)
 source $(brew --prefix asdf)/libexec/asdf.fish
-set -x FLUTTER_ROOT $(asdf where flutter)
+set -gx FLUTTER_ROOT $(asdf where flutter)
 
 # for ruby
-set -x OPENSSL_ROOT $(brew --prefix openssl@1.1)
-set -x PATH $OPENSSL_ROOT/bin $PATH
-set -x LDFLAGS "-L$OPENSSL_ROOT/lib"
-set -x CPPFLAGS "-I$OPENSSL_ROOT/include"
-set -x PKG_CONFIG_PATH "$OPENSSL_ROOT/lib/pkgconfig"
-set -x LIBFFI_ROOT $(brew --prefix libffi)
-set -x PATH $LIBFFI_ROOT/bin $PATH
-set -x LDFLAGS "-L$LIBFFI_ROOT/lib" $LDFLAGS
-set -x PKG_CONFIG_PATH "$LIBFFI_ROOT/lib/pkgconfig" $PKG_CONFIG_PATH
-set -x RUBY_CONFIGURE_OPTS "--with-openssl-dir=$OPENSSL_ROOT"
+set -gx OPENSSL_ROOT $(brew --prefix openssl@1.1)
+set -gx LDFLAGS "-L$OPENSSL_ROOT/lib"
+set -gx CPPFLAGS "-I$OPENSSL_ROOT/include"
+set -gx PKG_CONFIG_PATH "$OPENSSL_ROOT/lib/pkgconfig"
+set -gx LIBFFI_ROOT $(brew --prefix libffi)
+set -gx LDFLAGS "-L$LIBFFI_ROOT/lib" $LDFLAGS
+set -gx PKG_CONFIG_PATH "$LIBFFI_ROOT/lib/pkgconfig" $PKG_CONFIG_PATH
+set -gx RUBY_CONFIGURE_OPTS "--with-openssl-dir=$OPENSSL_ROOT"
+fish_add_path $OPENSSL_ROOT/bin
+fish_add_path $LIBFFI_ROOT/bin
 
 # for python
-set -x GRPC_PYTHON_BUILD_SYSTEM_OPENSSL 1
-set -x GRPC_PYTHON_BUILD_SYSTEM_ZLIB 1
+set -gx GRPC_PYTHON_BUILD_SYSTEM_OPENSSL 1
+set -gx GRPC_PYTHON_BUILD_SYSTEM_ZLIB 1
 
 # Remove duplicate PATH
-set -x PATH (echo $PATH | tr ' ' '\n' | sort -u)
+set -gx PATH (echo $PATH | tr ' ' '\n' | sort -u)
 
 
 # ====================
@@ -130,9 +131,11 @@ set -x PATH (echo $PATH | tr ' ' '\n' | sort -u)
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-eval $HOME/.asdf/installs/python/anaconda3-2022.05/bin/conda "shell.fish" "hook" $argv | source
+eval $HOME/.asdf/installs/python/anaconda3-2022.05/bin/conda "shell.fish" hook $argv | source
 # <<< conda initialize <<<
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/hayakawa/google-cloud-sdk/path.fish.inc' ]; . '/Users/hayakawa/google-cloud-sdk/path.fish.inc'; end
+if [ -f '/Users/hayakawa/google-cloud-sdk/path.fish.inc' ]
+    . '/Users/hayakawa/google-cloud-sdk/path.fish.inc'
+end

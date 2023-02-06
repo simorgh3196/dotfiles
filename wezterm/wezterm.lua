@@ -1,7 +1,11 @@
 -- Inspired by https://github.com/thanhvule0310/dotfiles/blob/main/config/wezterm/wezterm.lua
 
 local wezterm = require("wezterm")
-local font_primary = "FiraCode Nerd Font"
+
+local font = wezterm.font_with_fallback({
+	"FiraCode Nerd Font",
+	"HackGen35 Console NF",
+})
 
 local function is_vi_process(pane)
 	return pane:get_foreground_process_name():find("n?vim") ~= nil
@@ -145,7 +149,7 @@ end)
 return {
 	color_scheme_dirs = { "/Users/hayakawa/.local/share/nvim/lazy/tokyonight.nvim/extras/wezterm" },
 	color_scheme = "tokyonight_moon",
-	font = wezterm.font(font_primary, { weight = "Light" }),
+	font = font, -- wezterm.font(font_primary, { weight = "Light" }),
 	font_size = 13,
 	line_height = 1.2,
 	use_ime = true,

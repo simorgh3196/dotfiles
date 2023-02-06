@@ -11,6 +11,7 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 if vim.g.vscode then
   require("lazy").setup({
     spec = {
+      { "LazyVim/LazyVim" },
       { import = "plugins.vscode" },
     },
     defaults = {
