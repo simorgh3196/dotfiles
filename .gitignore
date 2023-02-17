@@ -31,4 +31,4 @@ Temporary Items
 
 fish/fishd.*
 tmux/tmux/plugins/*
-
+brew/Brewfile.lock.json
