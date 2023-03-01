@@ -34,6 +34,7 @@ abbr l ll
 abbr vim nvim
 abbr vi nvim
 abbr v nvim
+abbr n nvim
 
 # Development
 abbr git hub

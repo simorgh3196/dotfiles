@@ -121,16 +121,16 @@
     "*.jsx": "$(capture).js",
     "*.ts": "$(capture).js",
     "*.tsx": "$(capture).ts",
+    "Cartfile": "Cartfile.resolved",
     "package.json": "package-lock.json, yarn.lock",
     "Package.swift": "Package.resolved",
-    "Cartfile": "Cartfile.resolved",
     "Podfile": "Podfile.lock",
     "pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, .packages, pubspec.lock, build.yaml, analysis_options.yaml, all_lint_rules.yaml",
     "tsconfig.json": "tsconfig.*.json"
   },
   "files.associations": {
-    "*.podspec.*": "ruby",
     "Podfile": "ruby",
+    "*.podspec.*": "ruby",
     "Package.resolved": "json"
   },
   "files.insertFinalNewline": true,
@@ -202,6 +202,7 @@
   "swiftformat.path": [
     "/opt/homebrew/bin/swiftformat"
   ],
+  "swiftlint.additionalParameters": [],
   "swiftlint.path": [
     "/opt/homebrew/bin/swiftlint"
   ],
@@ -216,6 +217,5 @@
   "vscode-neovim.neovimWidth": 500,
   "window.zoomLevel": 1,
   "workbench.colorTheme": "Tokyo Night Storm",
-  "workbench.iconTheme": "material-icon-theme",
-  "swiftlint.additionalParameters": []
+  "workbench.iconTheme": "material-icon-theme"
 }

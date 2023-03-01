@@ -42,7 +42,7 @@ install/vscode:
 # Export
 #
 
-.PHONY: export export/*
+.PHONY: export export/brew export/vscode
 
 export: export/brew export/vscode
 
