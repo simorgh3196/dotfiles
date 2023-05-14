@@ -93,9 +93,9 @@ return {
     },
     ---@type TSConfig
     opts = {
-      highlight = { enable = true },
-      indent = { enable = true },
-      context_commentstring = { enable = true, enable_autocmd = false },
+      highlight = { enable = false },
+      indent = { enable = false },
+      context_commentstring = { enable = false, enable_autocmd = false },
       ensure_installed = {
         "bash",
         "help",

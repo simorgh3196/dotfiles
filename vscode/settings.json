@@ -3,12 +3,12 @@
     "editor.defaultFormatter": "vscode.css-language-features"
   },
   "[dart]": {
+    "editor.defaultFormatter": "Dart-Code.dart-code",
     "editor.formatOnSave": true,
+    "editor.formatOnType": true,
     "editor.rulers": [
       80
     ],
-    "editor.defaultFormatter": "Dart-Code.dart-code",
-    "editor.formatOnType": true,
     "editor.selectionHighlight": false,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
@@ -16,10 +16,10 @@
     "editor.wordBasedSuggestions": false
   },
   "[go]": {
-    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.organizeImports": true
     },
+    "editor.formatOnSave": true,
     "editor.insertSpaces": false,
     "editor.snippetSuggestions": "none"
   },
@@ -36,8 +36,8 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[ruby]": {
+    // "editor.defaultFormatter": "",
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnType": true,
     "editor.insertSpaces": true,
     "editor.semanticHighlighting.enabled": true,
@@ -60,6 +60,7 @@
   },
   "cSpell.language": "en,jp",
   "cSpell.userWords": [
+    "Autoresizing",
     "byesig",
     "Cartfile",
     "epub",
@@ -78,6 +79,8 @@
     "solargraph",
     "sonarlint",
     "sourcekit",
+    "Subview",
+    "Superview",
     "swiftformat",
     "swiftlint",
     "tabnine",
@@ -98,7 +101,6 @@
   "dart.previewFlutterUiGuidesCustomTracking": true,
   "dart.previewHotReloadOnSaveWatcher": true,
   "dart.sdkPath": null,
-  "deno.suggest.completeFunctionCalls": true,
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.enabled": true,
   "editor.fontFamily": "Fira Code, Roboto, Menlo",
@@ -129,17 +131,14 @@
     "tsconfig.json": "tsconfig.*.json"
   },
   "files.associations": {
-    "Podfile": "ruby",
     "*.podspec.*": "ruby",
-    "Package.resolved": "json"
+    "Package.resolved": "json",
+    "Podfile": "ruby"
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "git.autofetch": true,
   "gitlens.codeLens.enabled": false,
-  "gitProjectManager.baseProjectsFolders": [
-    "~/go/src"
-  ],
   "go.alternateTools": {
     "go-langserver": "gopls"
   },
@@ -181,7 +180,6 @@
       "level": "off"
     }
   },
-  "sort-json.settings.sortMode": "Objects Only",
   "sourcekit-lsp.serverPath": "/usr/bin/sourcekit-lsp",
   "swift.backgroundCompilation": true,
   "swift.diagnostics": true,

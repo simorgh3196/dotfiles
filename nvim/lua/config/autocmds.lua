@@ -1,20 +1,3 @@
--- prefetch tabnine
-local prefetch = vim.api.nvim_create_augroup("prefetch", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-  group = prefetch,
-  pattern = {
-    "lua",
-    "rust",
-    "go",
-    "javascript",
-    "typescript",
-    "swift",
-  },
-  callback = function()
-    require("cmp_tabnine"):prefetch(vim.fn.expand("%:p"))
-  end,
-})
-
 -- create directories when needed, when saving a file
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = vim.api.nvim_create_augroup("auto_create_dir", { clear = true }),

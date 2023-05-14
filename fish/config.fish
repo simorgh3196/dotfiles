@@ -50,6 +50,24 @@ abbr pull "hub pull"
 abbr bi "bundle install --jobs 4"
 abbr be "bundle exec"
 
+function github-copilot_helper
+    set -l TMPFILE (mktemp)
+    trap 'rm -f $TMPFILE' EXIT
+    if github-copilot-cli $argv[1] "$argv[2..]" --shellout $TMPFILE
+        if [ -e "$TMPFILE" ]
+            set -l FIXED_CMD (cat $TMPFILE)
+            eval "$FIXED_CMD"
+        else
+            echo "Apologies! Extracting command failed"
+        end
+    else
+        return 1
+    end
+end
+set -U fish_features qmark-noglob
+alias ??='github-copilot_helper what-the-shell'
+alias git?='github-copilot_helper git-assist'
+alias gh?='github-copilot_helper gh-assist'
 
 # ====================
 # PATH
@@ -79,6 +97,9 @@ fish_add_path $HOME/flutter/bin
 
 # for Google Cloud SDK
 fish_add_path $HOME/google-cloud-sdk/bin
+
+# for maestro (mobile ui testing)
+fish_add_path $HOME/.maestro/bin
 
 # ====================
 # Settings
