@@ -8,23 +8,13 @@
 [ghq]
     root = ~/go/src
 
-[alias]
-    a   = add
-    b   = branch -a
-    c   = commit
-    cm  = commit -m
-    ch  = checkout
-    chb = checkout -b
-    s   = status
-    ss  = status -s
-    sh  = show
-    ps  = push
-    pso = push origin
-    pl  = pull
-
-    # git log --graph
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-[credential]
-	helper = osxkeychain
 [init]
 	defaultBranch = master
+
+[safe]
+	directory = /Users/simorgh3196/.local/share/nvim/lazy/ts-comments.nvim
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true

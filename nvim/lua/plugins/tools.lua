@@ -3,41 +3,57 @@ return {
     {
       "Wansmer/treesj",
       requires = { "nvim-treesitter" },
-      keys = {
-        { "J", "<cmd>TSJToggle<cr>" },
-      },
+      -- keys = {
+      --   { "J", "<cmd>TSJToggle<cr>" },
+      -- },
       config = function()
-        local u = require("treesj.langs.utils")
+        local lang_utils = require("treesj.langs.utils")
 
         require("treesj").setup({
           use_default_keymaps = false,
           langs = {
-            dart = {
-              argument_list = u.set_preset_for_args(),
-              formal_parameters = u.set_preset_for_args(),
-              block = u.set_preset_for_statement(),
-              constructor_body = u.set_preset_for_statement(),
-              array_initializer = u.set_preset_for_list(),
-              annotation_argument_list = u.set_preset_for_args(),
-              enum_body = u.set_preset_for_dict(),
-              enum_declaration = {
-                target_nodes = { "enum_body" },
+            swift = {
+              collection_literal = lang_utils.set_default_preset({
+                both = {
+                  separator = ",",
+                },
+              }),
+              value_arguments = lang_utils.set_default_preset({
+                both = {
+                  separator = ",",
+                },
+              }),
+              statements = lang_utils.set_preset_for_non_bracket({
+                split = {
+                  recursive_ignore = {
+                    "value_arguments",
+                    "function_value_parameters",
+                  },
+                },
+                join = {
+                  force_insert = ";",
+                  no_insert_if = {
+                    lang_utils.helpers.if_penultimate,
+                  },
+                },
+              }),
+              lambda_literal = {
+                target_nodes = {
+                  "statements",
+                },
               },
-              if_statement = {
-                target_nodes = { "block" },
+              function_body = {
+                target_nodes = {
+                  "statements",
+                },
               },
-              annotation = {
-                target_nodes = { "annotation_argument_list" },
+              property_declaration = {
+                target_nodes = {
+                  "collection_literal",
+                  "value_arguments",
+                },
               },
-              method_declaration = {
-                target_nodes = { "block" },
-              },
-              variable_declarator = {
-                target_nodes = { "array_initializer" },
-              },
-              constructor_declaration = {
-                target_nodes = { "constructor_body" },
-              },
+              function_value_parameters = lang_utils.set_preset_for_args(),
             },
           },
         })

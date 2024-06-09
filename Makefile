@@ -32,8 +32,6 @@ install/git:
 	ln -siv $(PWD)/git/gitignore_global ~/.gitignore_global
 
 install/vscode:
-	mkdir -p ~/Library/Application\ Support/Code/User/
-	ln -siv $(PWD)/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 	@cat $(PWD)/vscode/list-extensions | while read line; do \
 		code --install-extension $$line; \
 	done
@@ -48,6 +46,3 @@ export: export/brew export/vscode
 
 export/brew:
 	brew bundle dump --force --file=$(PWD)/brew/Brewfile
-
-export/vscode:
-	code --list-extensions > $(PWD)/vscode/list-extensions

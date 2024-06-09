@@ -13,11 +13,11 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
-    "editor.wordBasedSuggestions": false
+    "editor.wordBasedSuggestions": "off"
   },
   "[go]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.organizeImports": "explicit"
     },
     "editor.formatOnSave": true,
     "editor.insertSpaces": false,
@@ -35,13 +35,22 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
+  "[plaintext]": {
+    "editor.defaultFormatter": "taichi.vscode-textlint"
+  },
   "[ruby]": {
-    // "editor.defaultFormatter": "",
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.insertSpaces": true,
+    "editor.rulers": [
+      120
+    ],
     "editor.semanticHighlighting.enabled": true,
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true
   },
   "[scss]": {
     "editor.defaultFormatter": "vscode.css-language-features"
@@ -58,11 +67,14 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "cmake.configureOnOpen": false,
   "cSpell.language": "en,jp",
   "cSpell.userWords": [
     "Autoresizing",
     "byesig",
     "Cartfile",
+    "Chakra",
+    "cupertino",
     "epub",
     "esbenp",
     "fflate",
@@ -79,12 +91,16 @@
     "solargraph",
     "sonarlint",
     "sourcekit",
+    "stylelint",
     "Subview",
     "Superview",
     "swiftformat",
     "swiftlint",
     "tabnine",
+    "TASKEY",
     "taskeystudio",
+    "textlint",
+    "webp",
     "webtoon"
   ],
   "dart.additionalAnalyzerFileExtensions": [
@@ -93,8 +109,9 @@
   "dart.debugExternalPackageLibraries": false,
   "dart.debugSdkLibraries": false,
   "dart.devToolsBrowser": "default",
+  "dart.flutterSdkPath": "/Users/simorgh3196/fvm/default/bin",
   "dart.flutterSdkPaths": [
-    "/Users/usr/fvm/versions"
+    "/Users/simorgh3196/fvm/versions"
   ],
   "dart.openDevTools": "flutter",
   "dart.previewFlutterUiGuides": true,
@@ -114,7 +131,6 @@
   "editor.rulers": [
     120
   ],
-  "eslint.packageManager": "npm",
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
@@ -124,11 +140,15 @@
     "*.ts": "$(capture).js",
     "*.tsx": "$(capture).ts",
     "Cartfile": "Cartfile.resolved",
+    "Gemfile": "Gemfile.lock",
     "package.json": "package-lock.json, yarn.lock",
     "Package.swift": "Package.resolved",
     "Podfile": "Podfile.lock",
     "pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, .packages, pubspec.lock, build.yaml, analysis_options.yaml, all_lint_rules.yaml",
     "tsconfig.json": "tsconfig.*.json"
+  },
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
   },
   "files.associations": {
     "*.podspec.*": "ruby",
@@ -138,28 +158,20 @@
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "git.autofetch": true,
-  "gitlens.codeLens.enabled": false,
-  "go.alternateTools": {
-    "go-langserver": "gopls"
+  "github.copilot.enable": {
+    "*": true,
   },
-  "go.buildOnSave": "off",
-  "go.languageServerFlags": [
-    "-logfile",
-    "-trace"
-  ],
-  "go.lintTool": "golangci-lint",
+  "gitlens.codeLens.enabled": false,
   "go.toolsGopath": "~/go",
   "go.toolsManagement.autoUpdate": true,
   "go.useLanguageServer": true,
   "go.vetOnSave": "off",
-  "lldb.library": "/Applications/Xcode-14.2.0.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
-  "markdown.extension.toc.unorderedList.marker": "*",
+  "lldb.library": "/Applications/Xcode-15.4.0.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+  "playwright.showTrace": true,
   "prettier.jsxSingleQuote": true,
-  "prettier.prettierPath": "~/.asdf/shims/prettier",
-  "prettier.semi": false,
-  "prettier.singleQuote": true,
+  "prettier.prettierPath": "./node_modules/prettier",
   "projectManager.git.baseFolders": [
-    "~/go/src/"
+    "~/go/src/github.com"
   ],
   "redhat.telemetry.enabled": false,
   "security.workspace.trust.untrustedFiles": "open",
@@ -174,46 +186,29 @@
   "solargraph.formatting": true,
   "solargraph.references": true,
   "solargraph.rename": true,
-  "sonarlint.pathToNodeExecutable": "~/.asdf/installs/nodejs/14.21.2/bin/node",
-  "sonarlint.rules": {
-    "typescript:S2819": {
-      "level": "off"
-    }
-  },
-  "sourcekit-lsp.serverPath": "/usr/bin/sourcekit-lsp",
   "swift.backgroundCompilation": true,
   "swift.diagnostics": true,
-  "swiftformat.options": [
-    "--indent",
-    "4",
-    "--self",
-    "init-only",
-    "--patternlet",
-    "inline",
-    "--disable",
-    "wrapMultilineStatementBraces",
-    "--exclude",
-    "Pods,Carthage",
-    "--enable",
-    "acronyms,blankLineAfterImports,blankLinesBetweenImports,blockComments,docComments,isEmpty,wrapSwitchCases"
-  ],
+  "swift.sourcekit-lsp.serverPath": "/usr/bin/sourcekit-lsp",
+  "swiftformat.onlyEnableWithConfig": true,
   "swiftformat.path": [
     "/opt/homebrew/bin/swiftformat"
   ],
-  "swiftlint.additionalParameters": [],
+  "swiftlint.onlyEnableWithConfig": true,
   "swiftlint.path": [
     "/opt/homebrew/bin/swiftlint"
   ],
-  "tabnine.experimentalAutoImports": true,
   "terminal.external.osxExec": "WezTerm.app",
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.integrated.windowsEnableConpty": false,
-  "vscode-neovim.mouseSelectionStartVisualMode": true,
+  "textlint.trace": "messages",
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
   "vscode-neovim.neovimWidth": 500,
   "window.zoomLevel": 1,
   "workbench.colorTheme": "Tokyo Night Storm",
-  "workbench.iconTheme": "material-icon-theme"
+  "workbench.iconTheme": "material-icon-theme",
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "lldb.launch.expressions": "native"
 }

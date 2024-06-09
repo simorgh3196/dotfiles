@@ -50,6 +50,7 @@ abbr pull "hub pull"
 abbr bi "bundle install --jobs 4"
 abbr be "bundle exec"
 
+# GitHub Copilot
 function github-copilot_helper
     set -l TMPFILE (mktemp)
     trap 'rm -f $TMPFILE' EXIT
@@ -80,6 +81,9 @@ set -gx XDG_CONFIG_HOME $HOME/.config
 
 # for ghq
 set -gx GHQ_ROOT $HOME/go/src
+
+# for swift
+fish_add_path $HOME/.swiftpm/bin
 
 # for Golang
 fish_add_path $GOPATH/bin
@@ -125,7 +129,6 @@ set -gx INFOPATH /opt/homebrew/share/info $INFOPATH
 
 # for asdf (version manager)
 source $(brew --prefix asdf)/libexec/asdf.fish
-set -gx FLUTTER_ROOT $(asdf where flutter)
 
 # for ruby
 set -gx OPENSSL_ROOT $(brew --prefix openssl@1.1)
@@ -143,6 +146,13 @@ fish_add_path $LIBFFI_ROOT/bin
 set -gx GRPC_PYTHON_BUILD_SYSTEM_OPENSSL 1
 set -gx GRPC_PYTHON_BUILD_SYSTEM_ZLIB 1
 
+# for Rust
+fish_add_path $HOME/.cargo/bin
+
+# for flutter
+fish_add_path $HOME/fvm/default/bin
+set -gx FLUTTER_ROOT $(which flutter)
+
 # Remove duplicate PATH
 set -gx PATH (echo $PATH | tr ' ' '\n' | sort -u)
 
@@ -150,12 +160,6 @@ set -gx PATH (echo $PATH | tr ' ' '\n' | sort -u)
 # ====================
 # Auto generated settings
 # ====================
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval $HOME/.asdf/installs/python/anaconda3-2022.05/bin/conda "shell.fish" hook $argv | source
-# <<< conda initialize <<<
-
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/hayakawa/google-cloud-sdk/path.fish.inc' ]
