@@ -52,6 +52,7 @@
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true
   },
+  "rubyLsp.formatter": "rubocop",
   "[scss]": {
     "editor.defaultFormatter": "vscode.css-language-features"
   },
@@ -109,9 +110,9 @@
   "dart.debugExternalPackageLibraries": false,
   "dart.debugSdkLibraries": false,
   "dart.devToolsBrowser": "default",
-  "dart.flutterSdkPath": "/Users/simorgh3196/fvm/default/bin",
+  "dart.flutterSdkPath": "~/fvm/default/bin",
   "dart.flutterSdkPaths": [
-    "/Users/simorgh3196/fvm/versions"
+    "~/fvm/versions"
   ],
   "dart.openDevTools": "flutter",
   "dart.previewFlutterUiGuides": true,
@@ -122,7 +123,6 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.fontFamily": "Fira Code, Roboto, Menlo",
   "editor.fontLigatures": true,
-  "editor.fontSize": 11,
   "editor.formatOnSave": true,
   "editor.inlineSuggest.enabled": true,
   "editor.linkedEditing": true,
@@ -175,20 +175,8 @@
   ],
   "redhat.telemetry.enabled": false,
   "security.workspace.trust.untrustedFiles": "open",
-  "solargraph.bundlerPath": "~/.asdf/shims/bundler",
-  "solargraph.commandPath": "/Users/hayakawa/.asdf/shims/solargraph",
-  "solargraph.completion": true,
-  "solargraph.diagnostics": true,
-  "solargraph.externalServer": {
-    "host": "localhost",
-    "port": 7658
-  },
-  "solargraph.formatting": true,
-  "solargraph.references": true,
-  "solargraph.rename": true,
   "swift.backgroundCompilation": true,
   "swift.diagnostics": true,
-  "swift.sourcekit-lsp.serverPath": "/usr/bin/sourcekit-lsp",
   "swiftformat.onlyEnableWithConfig": true,
   "swiftformat.path": [
     "/opt/homebrew/bin/swiftformat"
@@ -210,5 +198,7 @@
   "workbench.iconTheme": "material-icon-theme",
   "diffEditor.hideUnchangedRegions.enabled": true,
   "github.copilot.editor.enableAutoCompletions": true,
-  "lldb.launch.expressions": "native"
+  "lldb.launch.expressions": "native",
+  "sorbet.enabled": true,
+  "editor.fontSize": 11
 }

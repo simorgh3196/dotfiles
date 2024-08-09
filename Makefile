@@ -31,18 +31,13 @@ install/git:
 	ln -siv $(PWD)/git/gitconfig ~/.gitconfig
 	ln -siv $(PWD)/git/gitignore_global ~/.gitignore_global
 
-install/vscode:
-	@cat $(PWD)/vscode/list-extensions | while read line; do \
-		code --install-extension $$line; \
-	done
-
 #
 # Export
 #
 
-.PHONY: export export/brew export/vscode
+.PHONY: export export/brew
 
-export: export/brew export/vscode
+export: export/brew
 
 export/brew:
 	brew bundle dump --force --file=$(PWD)/brew/Brewfile

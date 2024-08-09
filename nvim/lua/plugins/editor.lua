@@ -24,4 +24,6 @@ return {
   },
 
   { "dstein64/nvim-scrollview", event = "VeryLazy" },
+
+  { "folke/flash.nvim", enabled = false },
 }

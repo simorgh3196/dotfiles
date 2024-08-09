@@ -30,3 +30,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 --     end
 --   end,
 -- })
+
+-- iOS  development
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.podspec", "Podfile", "Appfile", "Fastfile", "Matchfile", "Pluginfile" },
+  command = "set filetype=ruby",
+})

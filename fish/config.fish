@@ -141,6 +141,7 @@ set -gx PKG_CONFIG_PATH "$LIBFFI_ROOT/lib/pkgconfig" $PKG_CONFIG_PATH
 set -gx RUBY_CONFIGURE_OPTS "--with-openssl-dir=$OPENSSL_ROOT"
 fish_add_path $OPENSSL_ROOT/bin
 fish_add_path $LIBFFI_ROOT/bin
+set -gx LIBRARY_PATH "$(brew --prefix zstd)/lib" $LIBRARY_PATH
 
 # for python
 set -gx GRPC_PYTHON_BUILD_SYSTEM_OPENSSL 1
@@ -156,12 +157,7 @@ set -gx FLUTTER_ROOT $(which flutter)
 # Remove duplicate PATH
 set -gx PATH (echo $PATH | tr ' ' '\n' | sort -u)
 
-
-# ====================
-# Auto generated settings
-# ====================
-
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/hayakawa/google-cloud-sdk/path.fish.inc' ]
-    . '/Users/hayakawa/google-cloud-sdk/path.fish.inc'
+if [ -f "~/google-cloud-sdk/path.fish.inc" ]
+    . "~/google-cloud-sdk/path.fish.inc"
 end
