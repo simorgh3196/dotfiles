@@ -5,16 +5,15 @@
 	email = simorgh3196@gmail.com
 	name = simorgh3196
 
+[init]
+	defaultBranch = main
+
 [ghq]
     root = ~/go/src
 
-[init]
-	defaultBranch = master
-
-[safe]
-	directory = /Users/simorgh3196/.local/share/nvim/lazy/ts-comments.nvim
 [credential]
 	helper = 
 	helper = /usr/local/share/gcm-core/git-credential-manager
+
 [credential "https://dev.azure.com"]
 	useHttpPath = true

@@ -25,9 +25,9 @@ abbr mv "mv -iv"
 abbr cp "cp -riv"
 abbr mkdir "mkdir -vp"
 abbr grep rg
-alias ls="exa --git --color=always --icons --group-directories-first"
-alias la="exa -a --git --color=always --icons --group-directories-first"
-alias ll="exa -hla --git --color=always --icons --group-directories-first"
+alias ls="eza --git --color=always --icons --group-directories-first"
+alias la="eza -a --git --color=always --icons --group-directories-first"
+alias ll="eza -hla --git --color=always --icons --group-directories-first"
 abbr l ll
 
 # Editor
@@ -157,7 +157,12 @@ set -gx FLUTTER_ROOT $(which flutter)
 # Remove duplicate PATH
 set -gx PATH (echo $PATH | tr ' ' '\n' | sort -u)
 
+
+# ====================
+# Auto generated settings
+# ====================
+
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f "~/google-cloud-sdk/path.fish.inc" ]
-    . "~/google-cloud-sdk/path.fish.inc"
+if [ -f '/Users/hayakawa/google-cloud-sdk/path.fish.inc' ]
+    . '$HOME/google-cloud-sdk/path.fish.inc'
 end
