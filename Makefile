@@ -26,9 +26,9 @@ install/fish:
 	mkdir -p ~/.config/
 	ln -siv $(PWD)/fish ~/.config
 
-install/wezterm:
-	mkdir -p ~/.config/
-	ln -siv $(PWD)/wezterm ~/.config
+install/ghostty:
+	mkdir -p ~/.config/ghostty/
+	ln -siv $(PWD)/ghostty/config ~/.config/ghostty/config
 
 install/git:
 	ln -siv $(PWD)/git/gitconfig ~/.gitconfig

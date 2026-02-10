@@ -1,0 +1,13 @@
+theme = tokyonight
+
+shell-integration-features = no-cursor
+cursor-style = underline
+cursor-style-blink = false
+
+window-padding-x = 8
+
+clipboard-trim-trailing-spaces = true
+clipboard-paste-protection = true
+
+auto-update = check
+keybind = shift+enter=text:\n
