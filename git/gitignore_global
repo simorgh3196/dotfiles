@@ -29,3 +29,6 @@ Temporary Items
 .env
 
 node_modules
+
+.claude/settings.local.json
+*.backup
