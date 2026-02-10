@@ -6,9 +6,7 @@
     "editor.defaultFormatter": "Dart-Code.dart-code",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.rulers": [
-      80
-    ],
+    "editor.rulers": [80],
     "editor.selectionHighlight": false,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggestSelection": "first",
@@ -33,31 +31,23 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[plaintext]": {
-    "editor.defaultFormatter": "taichi.vscode-textlint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[ruby]": {
     "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnSave": true,
-    "editor.formatOnType": true,
     "editor.insertSpaces": true,
-    "editor.rulers": [
-      120
-    ],
+    "editor.rulers": [120],
     "editor.semanticHighlighting.enabled": true,
     "editor.tabSize": 2,
     "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true
   },
-  "rubyLsp.formatter": "rubocop",
   "[scss]": {
     "editor.defaultFormatter": "vscode.css-language-features"
   },
   "[swift]": {
-    "editor.defaultFormatter": "vknabel.vscode-swiftformat"
+    "editor.defaultFormatter": "swiftlang.swift-vscode"
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -68,26 +58,42 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "biome.suggestInstallingGlobally": false,
+  "bun.debugTerminal.enabled": true,
+  "bun.debugTerminal.stopOnEntry": false,
+  "bun.runtime": "/opt/homebrew/bin/bun",
   "cmake.configureOnOpen": false,
+  "cmake.showOptionsMovedNotification": false,
   "cSpell.language": "en,jp",
   "cSpell.userWords": [
+    "Apng",
     "Autoresizing",
+    "biomejs",
+    "bunx",
     "byesig",
     "Cartfile",
     "Chakra",
+    "corepack",
     "cupertino",
+    "datetime",
     "epub",
     "esbenp",
     "fflate",
     "Gopath",
     "hayakawa",
+    "hyperscript",
+    "idfa",
     "langserver",
+    "lineart",
+    "makimono",
     "mozjpeg",
     "neovim",
     "nvim",
     "Podfile",
     "podspec",
+    "ptype",
     "pubspec",
+    "rubocop",
     "simorgh",
     "solargraph",
     "sonarlint",
@@ -98,22 +104,23 @@
     "swiftformat",
     "swiftlint",
     "tabnine",
+    "tanstack",
     "TASKEY",
     "taskeystudio",
+    "tauri",
     "textlint",
+    "tseslint",
+    "turbopack",
+    "udecode",
     "webp",
     "webtoon"
   ],
-  "dart.additionalAnalyzerFileExtensions": [
-    "drift"
-  ],
+  "dart.additionalAnalyzerFileExtensions": ["drift"],
   "dart.debugExternalPackageLibraries": false,
   "dart.debugSdkLibraries": false,
   "dart.devToolsBrowser": "default",
   "dart.flutterSdkPath": "~/fvm/default/bin",
-  "dart.flutterSdkPaths": [
-    "~/fvm/versions"
-  ],
+  "dart.flutterSdkPaths": ["~/fvm/versions"],
   "dart.openDevTools": "flutter",
   "dart.previewFlutterUiGuides": true,
   "dart.previewFlutterUiGuidesCustomTracking": true,
@@ -123,14 +130,14 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.fontFamily": "Fira Code, Roboto, Menlo",
   "editor.fontLigatures": true,
+  "editor.fontSize": 11,
   "editor.formatOnSave": true,
   "editor.inlineSuggest.enabled": true,
   "editor.linkedEditing": true,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "boundary",
-  "editor.rulers": [
-    120
-  ],
+  "editor.rulers": [120],
+  "evenBetterToml.formatter.allowedBlankLines": 2,
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
@@ -141,7 +148,7 @@
     "*.tsx": "$(capture).ts",
     "Cartfile": "Cartfile.resolved",
     "Gemfile": "Gemfile.lock",
-    "package.json": "package-lock.json, yarn.lock",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml",
     "Package.swift": "Package.resolved",
     "Podfile": "Podfile.lock",
     "pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, .packages, pubspec.lock, build.yaml, analysis_options.yaml, all_lint_rules.yaml",
@@ -158,47 +165,90 @@
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.openRepositoryInParentFolders": "never",
+  "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.editor.temporalContext.enabled": true,
+  "github.copilot.chat.edits.temporalContext.enabled": true,
+  "github.copilot.chat.generateTests.codeLens": true,
+  "github.copilot.chat.languageContext.fix.typescript.enabled": true,
+  "github.copilot.chat.languageContext.inline.typescript.enabled": true,
+  "github.copilot.chat.languageContext.typescript.enabled": true,
+  "github.copilot.chat.localeOverride": "ja",
+  "github.copilot.chat.notebook.followCellExecution.enabled": true,
+  "github.copilot.chat.scopeSelection": true,
   "github.copilot.enable": {
     "*": true,
+    "markdown": false,
+    "plaintext": false,
+    "scminput": false
   },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.nextEditSuggestions.fixes": true,
+  "githubPullRequests.experimental.chat": true,
+  "githubPullRequests.experimental.useQuickChat": true,
+  "githubPullRequests.pullBranch": "never",
+  "githubPullRequests.pullRequestDescription": "Copilot",
   "gitlens.codeLens.enabled": false,
   "go.toolsGopath": "~/go",
   "go.toolsManagement.autoUpdate": true,
   "go.useLanguageServer": true,
   "go.vetOnSave": "off",
-  "lldb.library": "/Applications/Xcode-15.4.0.app/Contents/SharedFrameworks/LLDB.framework/Versions/A/LLDB",
+  "lldb.launch.expressions": "native",
+  "lldb.library": "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/LLDB",
+  "makefile.configureOnOpen": false,
   "playwright.showTrace": true,
   "prettier.jsxSingleQuote": true,
   "prettier.prettierPath": "./node_modules/prettier",
-  "projectManager.git.baseFolders": [
-    "~/go/src/github.com"
-  ],
+  "projectManager.git.baseFolders": ["~/go/src/github.com"],
+  "rdbg.rubyVersionManager": "asdf",
   "redhat.telemetry.enabled": false,
+  "rubyLsp.customRubyCommand": "~/.asdf/shims/ruby",
+  "rubyLsp.rubyExecutablePath": "~/.asdf/shims/ruby",
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "asdf"
+  },
   "security.workspace.trust.untrustedFiles": "open",
-  "swift.backgroundCompilation": true,
-  "swift.diagnostics": true,
-  "swiftformat.onlyEnableWithConfig": true,
-  "swiftformat.path": [
-    "/opt/homebrew/bin/swiftformat"
-  ],
-  "swiftlint.onlyEnableWithConfig": true,
-  "swiftlint.path": [
-    "/opt/homebrew/bin/swiftlint"
-  ],
-  "terminal.external.osxExec": "WezTerm.app",
+  "sweetpad.xcodegen.autogenerate": true,
+  "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.defaultProfile.osx": "fish",
   "terminal.integrated.windowsEnableConpty": false,
-  "textlint.trace": "messages",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vite.browserType": "system",
+  "vitest.nodeExecutable": "~/.asdf/shims/node",
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
   "vscode-neovim.neovimWidth": 500,
   "window.zoomLevel": 1,
   "workbench.colorTheme": "Tokyo Night Storm",
   "workbench.iconTheme": "material-icon-theme",
-  "diffEditor.hideUnchangedRegions.enabled": true,
-  "github.copilot.editor.enableAutoCompletions": true,
-  "lldb.launch.expressions": "native",
-  "sorbet.enabled": true,
-  "editor.fontSize": 11
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "kilo-code.allowedCommands": [
+    "git log",
+    "git diff",
+    "git show",
+    "make",
+    "git",
+    "cargo",
+    "rm -rf .texide-cache",
+    "head",
+    "ls",
+    "cd"
+  ],
+  "kilo-code.deniedCommands": []
 }

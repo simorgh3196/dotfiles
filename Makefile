@@ -9,11 +9,14 @@ test:
 
 .PHONY: install install/*
 
-install: install/brew install/nvim install/fish install/git install/vscode
+install: install/brew install/python install/nvim install/fish install/git
 
 install/brew:
 	which brew || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew bundle --file=$(PWD)/brew/Brewfile
+
+install/python:
+	uv pip install --python "$$(asdf which python)" --system -r $(PWD)/python/requirements.txt
 
 install/nvim:
 	mkdir -p ~/.config/
@@ -37,7 +40,10 @@ install/git:
 
 .PHONY: export export/brew
 
-export: export/brew
+export: export/brew export/python
 
 export/brew:
-	brew bundle dump --force --file=$(PWD)/brew/Brewfile
+	brew bundle dump --force --no-vscode --file=$(PWD)/brew/Brewfile
+
+export/python:
+	uv pip freeze --python "$$(asdf which python)" > $(PWD)/python/requirements.txt
