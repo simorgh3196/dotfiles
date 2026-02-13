@@ -1,4 +1,12 @@
 # ====================
+# Auto-start tmux
+# ====================
+
+if status is-interactive; and not set -q TMUX; and test "$TERM_PROGRAM" = ghostty
+    tmux new-session -A -s main
+end
+
+# ====================
 # Keybinding
 # ====================
 
@@ -155,6 +163,12 @@ set -gx LIBRARY_PATH "$(brew --prefix zstd)/lib" $LIBRARY_PATH
 set -gx GRPC_PYTHON_BUILD_SYSTEM_OPENSSL 1
 set -gx GRPC_PYTHON_BUILD_SYSTEM_ZLIB 1
 
+# for 1Password CLI (tokens)
+source $HOME/.config/op/plugins.sh
+if command -q op
+    set -gx GITHUB_TOKEN (op read "op://Personal/GitHub PAT - MCP/credential" --no-newline 2>/dev/null)
+end
+
 # for Rust
 fish_add_path $HOME/.cargo/bin
 
@@ -162,11 +176,20 @@ fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/fvm/default/bin
 set -gx FLUTTER_ROOT $(which flutter)
 
-# Remove duplicate PATH
-set -gx PATH (echo $PATH | tr ' ' '\n' | sort -u)
-
 # zoxide
 zoxide init fish | source
+
+# Added by Antigravity
+fish_add_path $HOME/.antigravity/antigravity/bin
+
+# Remove duplicate PATH (preserving order)
+set -l unique_path
+for p in $PATH
+    if not contains $p $unique_path
+        set -a unique_path $p
+    end
+end
+set -gx PATH $unique_path
 
 # ====================
 # Auto generated settings
@@ -176,11 +199,3 @@ zoxide init fish | source
 if [ -f '$HOME/google-cloud-sdk/path.fish.inc' ]
     . '$HOME/google-cloud-sdk/path.fish.inc'
 end
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/google-cloud-sdk/path.fish.inc' ]
-    . '$HOME/google-cloud-sdk/path.fish.inc'
-end
-
-# Added by Antigravity
-fish_add_path /Users/simorgh3196/.antigravity/antigravity/bin

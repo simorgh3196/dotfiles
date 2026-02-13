@@ -9,7 +9,7 @@ test:
 
 .PHONY: install install/*
 
-install: install/brew install/asdf install/python install/nvim install/fish install/git install/tmux
+install: install/brew install/asdf install/python install/nvim install/fish install/git install/tmux install/claude
 
 install/brew:
 	which brew || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -48,6 +48,11 @@ install/tmux:
 install/git:
 	ln -siv $(PWD)/git/gitconfig ~/.gitconfig
 	ln -siv $(PWD)/git/gitignore_global ~/.gitignore_global
+
+install/claude:
+	mkdir -p ~/.claude
+	ln -siv $(PWD)/claude/settings.json ~/.claude/settings.json
+	ln -siv $(PWD)/claude/statusline.sh ~/.claude/statusline.sh
 
 #
 # Export
