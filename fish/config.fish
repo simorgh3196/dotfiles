@@ -14,8 +14,8 @@ function fish_user_key_bindings
     for mode in insert default visual
         fish_default_key_bindings -M $mode
 
-        bind -M $mode \cr peco_select_ghq_repository
-        bind -M $mode \cg peco_open_gh_repository
+        bind -M $mode \cr fzf_select_ghq_repository
+        bind -M $mode \cg fzf_open_gh_repository
         bind -M $mode \cf nextd-or-forward-word
         bind -M $mode \ce accept-autosuggestion
     end
@@ -165,9 +165,6 @@ set -gx GRPC_PYTHON_BUILD_SYSTEM_ZLIB 1
 
 # for 1Password CLI (tokens)
 source $HOME/.config/op/plugins.sh
-if command -q op
-    set -gx GITHUB_TOKEN (op read "op://Personal/GitHub PAT - MCP/credential" --no-newline 2>/dev/null)
-end
 
 # for Rust
 fish_add_path $HOME/.cargo/bin

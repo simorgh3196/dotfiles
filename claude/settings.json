@@ -1,100 +1,104 @@
 {
-	"env": {
-		"CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
-	},
-	"permissions": {
-		"allow": []
-	},
-	"hooks": {},
-	"statusLine": {
-		"type": "command",
-		"command": "bash ~/.claude/statusline.sh"
-	},
-	"enabledPlugins": {
-		"document-skills@anthropic-agent-skills": true,
-		"code-review@claude-code-plugins": true,
-		"commit-commands@claude-plugins-official": true,
-		"figma@claude-plugins-official": false,
-		"frontend-design@claude-plugins-official": true,
-		"typescript-lsp@claude-plugins-official": true,
-		"security-guidance@claude-plugins-official": true,
-		"Notion@claude-plugins-official": true,
-		"swift-lsp@claude-plugins-official": false,
-		"context7@claude-plugins-official": true,
-		"code-simplifier@claude-plugins-official": true,
-		"pr-review-toolkit@claude-code-plugins": true,
-		"ralph-loop@claude-plugins-official": true,
-		"plugin-dev@claude-plugins-official": true,
-		"coderabbit@claude-plugins-official": true
-	},
-	"language": "Japanese",
-	"mcpServers": {
-		"Context7": {
-			"command": "npx",
-			"args": ["-y", "@upstash/context7-mcp"]
-		},
-		"Figma": {
-			"url": "http://127.0.0.1:3845/sse"
-		},
-		"github": {
-			"command": "npx",
-			"args": ["@modelcontextprotocol/server-github"],
-			"env": {
-				"GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
-			}
-		},
-		"playwright": {
-			"command": "npx",
-			"args": ["@modelcontextprotocol/server-playwright"]
-		},
-		"sequential-thinking": {
-			"command": "npx",
-			"args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
-		},
-		"xcode-build": {
-			"command": "npx",
-			"args": ["@modelcontextprotocol/server-xcode-build"]
-		},
-		"permissions": {
-			"allow": [
-				"Skill(agent-browser:*)",
-				"mcp__plugin_context7_context7__*",
-				"mcp__plugin_Notion_notion__*",
-				"Bash(agent-browser:*)",
-				"Bash(cd:*)",
-				"Bash(echo:*)",
-				"Bash(ls:*)",
-				"Bash(mkdir:*)",
-				"Bash(mv:*)",
-				"Bash(pwd:*)",
-				"Bash(grep:*)",
-				"Bash(rg:*)",
-				"Bash(head:*)",
-				"Bash(tail:*)",
-				"Bash(sed:*)",
-				"Bash(find:*)",
-				"Bash(fd:*)",
-				"Bash(ni:*)",
-				"Bash(nr:*)",
-				"Bash(nup:*)",
-				"Bash(nun:*)",
-				"Bash(nci:*)",
-				"Bash(nd:*)",
-				"Bash(na:*)",
-				"Bash(nlx:*)",
-				"Bash(xcodebuild:*)"
-			],
-			"deny": [
-				"Read(.env.*)",
-				"Write(.env*)",
-				"Read(~/.ssh/*)",
-				"Write(~/.ssh/*)",
-				"Write(**/secrets/**)",
-				"Bash(sudo:*)",
-				"Bash(rm:*)",
-				"Bash(rm -rf:*)",
-				"Bash(nc:*)"
-			]
-		}
-	}
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "allow": []
+  },
+  "hooks": {},
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "document-skills@anthropic-agent-skills": true,
+    "code-review@claude-code-plugins": true,
+    "commit-commands@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "Notion@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": false,
+    "context7@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "pr-review-toolkit@claude-code-plugins": true,
+    "ralph-loop@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "coderabbit@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true
+  },
+  "language": "Japanese",
+  "mcpServers": {
+    "Context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ]
+    },
+    "Figma": {
+      "url": "http://127.0.0.1:3845/sse"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-playwright"
+      ]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "xcode-build": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-xcode-build"
+      ]
+    },
+    "permissions": {
+      "allow": [
+        "Skill(agent-browser:*)",
+        "mcp__plugin_context7_context7__*",
+        "mcp__plugin_Notion_notion__*",
+        "Bash(agent-browser:*)",
+        "Bash(cd:*)",
+        "Bash(echo:*)",
+        "Bash(ls:*)",
+        "Bash(mkdir:*)",
+        "Bash(mv:*)",
+        "Bash(pwd:*)",
+        "Bash(grep:*)",
+        "Bash(rg:*)",
+        "Bash(head:*)",
+        "Bash(tail:*)",
+        "Bash(sed:*)",
+        "Bash(find:*)",
+        "Bash(fd:*)",
+        "Bash(ni:*)",
+        "Bash(nr:*)",
+        "Bash(nup:*)",
+        "Bash(nun:*)",
+        "Bash(nci:*)",
+        "Bash(nd:*)",
+        "Bash(na:*)",
+        "Bash(nlx:*)",
+        "Bash(xcodebuild:*)"
+      ],
+      "deny": [
+        "Read(.env.*)",
+        "Write(.env*)",
+        "Read(~/.ssh/*)",
+        "Write(~/.ssh/*)",
+        "Write(**/secrets/**)",
+        "Bash(sudo:*)",
+        "Bash(rm:*)",
+        "Bash(rm -rf:*)",
+        "Bash(nc:*)"
+      ]
+    }
+  }
 }
