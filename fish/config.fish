@@ -2,7 +2,7 @@
 # Auto-start tmux
 # ====================
 
-if status is-interactive; and not set -q TMUX; and test "$TERM_PROGRAM" = ghostty
+if status is-interactive; and not set -q TMUX; and test "$TERM_PROGRAM" = ghostty; and not set -q CMUX_PANEL_ID
     tmux new-session -A -s main
 end
 
@@ -166,6 +166,15 @@ set -gx GRPC_PYTHON_BUILD_SYSTEM_ZLIB 1
 
 # for 1Password CLI (tokens)
 source $HOME/.config/op/plugins.sh
+
+# GitHub token from 1Password (cached 8h to avoid repeated auth)
+# set -l _gh_cache (path normalize $TMPDIR/.op_cache_github)
+# if not test -f $_gh_cache; or test -n (find $_gh_cache -mmin +480 2>/dev/null)
+#     op read "op://Personal/GitHub Personal Access Token/token" > $_gh_cache
+#     chmod 600 $_gh_cache
+# end
+# set -gx GH_TOKEN (cat $_gh_cache)
+# set -gx GITHUB_TOKEN $GH_TOKEN
 
 # for Rust
 fish_add_path $HOME/.cargo/bin

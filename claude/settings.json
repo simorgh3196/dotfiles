@@ -29,7 +29,9 @@
     "ralph-loop@claude-plugins-official": true,
     "plugin-dev@claude-plugins-official": true,
     "coderabbit@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true
+    "gopls-lsp@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "language": "Japanese",
   "mcpServers": {
@@ -103,6 +105,5 @@
         "Bash(nc:*)"
       ]
     }
-  },
-  "model": "sonnet"
+  }
 }

@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 # Claude Code with GLM (Z.AI) backend
-export ANTHROPIC_AUTH_TOKEN=$(op read "op://taskey/Z.AI GLM API Key/credential")
+
+# Cache the API key in a temp file (8h TTL) to avoid repeated 1Password auth
+CACHE_FILE="${TMPDIR:-/tmp}/.glm_api_key_cache"
+if [[ ! -f "$CACHE_FILE" ]] || [[ -n "$(find "$CACHE_FILE" -mmin +480 2>/dev/null)" ]]; then
+  op read "op://taskey/Z.AI GLM API Key/credential" > "$CACHE_FILE"
+  chmod 600 "$CACHE_FILE"
+fi
+export ANTHROPIC_AUTH_TOKEN=$(cat "$CACHE_FILE")
 export ANTHROPIC_BASE_URL=https://api.z.ai/api/anthropic
 export API_TIMEOUT_MS=3000000
 export ANTHROPIC_DEFAULT_HAIKU_MODEL=glm-4.7
