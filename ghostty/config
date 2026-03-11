@@ -1,5 +1,7 @@
 theme = TokyoNight Storm
 
+font-family = FiraCode Nerd Font
+
 shell-integration-features = no-cursor
 cursor-style = underline
 cursor-style-blink = false
@@ -12,3 +14,5 @@ clipboard-paste-protection = true
 
 auto-update = check
 keybind = shift+enter=text:\n
+
+macos-option-as-alt = left

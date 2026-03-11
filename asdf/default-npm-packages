@@ -1,5 +1,6 @@
 @antfu/ni
 @google/gemini-cli
+@googleworkspace/cli
 @kilocode/cli
 agent-browser
 firebase-tools
