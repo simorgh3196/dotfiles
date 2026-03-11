@@ -14,8 +14,8 @@ function fish_user_key_bindings
     for mode in insert default visual
         fish_default_key_bindings -M $mode
 
-        bind -M $mode \cr fzf_select_ghq_repository
-        bind -M $mode \cg fzf_open_gh_repository
+        bind -M $mode \cr sk_select_ghq_repository
+        bind -M $mode \cg sk_open_gh_repository
         bind -M $mode \cf nextd-or-forward-word
         bind -M $mode \ce accept-autosuggestion
     end
@@ -31,17 +31,19 @@ end
 abbr mv "mv -iv"
 abbr cp "cp -riv"
 abbr mkdir "mkdir -vp"
-abbr grep rg
+alias grep rg
 alias ls="eza --git --color=always --icons --group-directories-first"
 alias la="eza -a --git --color=always --icons --group-directories-first"
 alias ll="eza -hla --git --color=always --icons --group-directories-first"
 abbr l ll
+abbr be "bundle exec"
 
 # Editor
-abbr vim nvim
-abbr vi nvim
-abbr v nvim
 abbr n nvim
+abbr nv nvim
+
+# Custom
+abbr claude "claude --enable-auto-mode"
 
 # ====================
 # Config
@@ -182,6 +184,9 @@ fish_add_path $HOME/.cargo/bin
 # for flutter
 fish_add_path $HOME/fvm/default/bin
 set -gx FLUTTER_ROOT $(which flutter)
+
+# for Godot
+fish_add_path /Applications/Godot.app/Contents/MacOS
 
 # zoxide
 zoxide init fish | source
