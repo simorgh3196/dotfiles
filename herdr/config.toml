@@ -1,14 +1,21 @@
 [theme]
 name = "tokyo-night"
-auto_switch = false
+# auto_switch = false
 
 [ui.toast]
 delivery = "system"
 
 [terminal]
-default_shell = "fish"
+# fish自体は絶対パスで指定すること。herdr serverプロセスのPATHには
+# /opt/homebrew/binが含まれないため、"fish"という名前だけだとexecに失敗し、
+# 新規ペイン(split/new_tabなど)の起動が無言で全滅する。
+default_shell = "/opt/homebrew/bin/fish"
 shell_mode = "auto"
 
 [keys]
 prefix = "ctrl+;"
-# split_vertical = "prefix+|"
+split_vertical = "prefix+|"
+
+[ui]
+show_agent_labels_on_pane_borders = false
+agent_panel_sort = "spaces"
