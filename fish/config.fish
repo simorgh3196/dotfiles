@@ -1,9 +1,13 @@
 # ====================
-# Auto-start tmux
+# Auto-start herdr
 # ====================
 
-if status is-interactive; and not set -q TMUX; and test "$TERM_PROGRAM" = ghostty; and not set -q CMUX_PANEL_ID
-    tmux new-session -A -s main
+if status is-interactive; and not set -q HERDR_SESSION; and not set -q HERDR_PANE_ID; and not set -q TMUX; and test "$TERM_PROGRAM" = ghostty; and not set -q CMUX_PANEL_ID
+    if type -q herdr
+        herdr
+    else if test -x $HOME/.local/bin/herdr
+        $HOME/.local/bin/herdr
+    end
 end
 
 # ====================
