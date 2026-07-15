@@ -30,7 +30,6 @@ Temporary Items
 # End of https://www.gitignore.io/api/osx
 
 fish/fishd.*
-tmux/tmux/plugins/*
 brew/Brewfile.lock.json
 
 # Machine-local state (may contain secrets and machine-specific paths)
