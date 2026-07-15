@@ -5,6 +5,7 @@ function fish_user_key_bindings
 
     bind -M $mode \cr sk_select_ghq_repository
     bind -M $mode \cg sk_open_gh_repository
+    bind -M $mode \ct sk_history_search
 
     bind -M $mode \cf nextd-or-forward-word
     bind -M $mode \ce complete
