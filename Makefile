@@ -1,5 +1,9 @@
 PWD:=$(shell pwd)
 
+# Fresh macOS has no brew on PATH until shellenv is applied; make every
+# recipe (brew bundle, asdf, uv, ...) work right after the installer runs.
+export PATH := /opt/homebrew/bin:/opt/homebrew/sbin:$(PATH)
+
 #
 # Install
 #
@@ -12,7 +16,7 @@ test:
 install: install/brew install/asdf install/python install/nvim install/fish install/git install/tmux install/ghostty install/claude install/vscode
 
 install/brew:
-	which brew || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	command -v brew >/dev/null 2>&1 || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew bundle --file=$(PWD)/brew/Brewfile
 
 install/asdf:
