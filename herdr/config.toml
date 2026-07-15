@@ -1,0 +1,17 @@
+[theme]
+name = "tokyo-night"
+
+[ui.toast]
+delivery = "system"
+
+[terminal]
+default_shell = "/opt/homebrew/bin/fish"
+shell_mode = "auto"
+
+[keys]
+prefix = "ctrl+;"
+split_vertical = "prefix+|"
+
+[ui]
+show_agent_labels_on_pane_borders = false
+agent_panel_sort = "spaces"

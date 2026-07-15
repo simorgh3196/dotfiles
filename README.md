@@ -20,6 +20,7 @@ make install/nvim   # 個別インストール
 | `asdf` | ランタイムのバージョン管理（.tool-versions） |
 | `fish` | fish shell の設定・関数・補完 |
 | `ghostty` | Ghostty ターミナル設定 |
+| `herdr` | herdr（ターミナルワークスペースマネージャー）設定 |
 | `nvim` | Neovim（LazyVim ベース） |
 | `git` | gitconfig / gitignore_global |
 | `claude` | Claude Code 設定・フック・ステータスライン |
