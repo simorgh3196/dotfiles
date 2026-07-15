@@ -1,4 +1,4 @@
--- Dim background on tmux pane focus lost
+-- Dim background on window focus lost
 vim.api.nvim_create_autocmd("FocusLost", {
   callback = function()
     vim.cmd("hi Normal guibg=#1f2335")

@@ -9,7 +9,7 @@ test:
 
 .PHONY: install install/*
 
-install: install/brew install/asdf install/python install/nvim install/fish install/git install/tmux install/ghostty install/claude install/vscode
+install: install/brew install/asdf install/python install/nvim install/fish install/git install/ghostty install/claude install/vscode
 
 install/brew:
 	which brew || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -36,14 +36,6 @@ install/fish:
 install/ghostty:
 	mkdir -p ~/.config/ghostty/
 	ln -siv $(PWD)/ghostty/config ~/.config/ghostty/config
-
-install/tmux:
-	ln -siv $(PWD)/tmux/tmux.conf ~/.tmux.conf
-	mkdir -p ~/.config/tmuxinator
-	ln -siv $(PWD)/tmux/tmuxinator/dev.yml ~/.config/tmuxinator/dev.yml
-	if [ ! -d ~/.tmux/plugins/tpm ]; then \
-		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm; \
-	fi
 
 install/git:
 	ln -siv $(PWD)/git/gitconfig ~/.gitconfig

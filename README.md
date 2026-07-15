@@ -19,7 +19,6 @@ make install/nvim   # 個別インストール
 | `brew` | Homebrew パッケージ（Brewfile） |
 | `asdf` | ランタイムのバージョン管理（.tool-versions） |
 | `fish` | fish shell の設定・関数・補完 |
-| `tmux` | tmux 設定（TPM プラグイン / Tokyo Night テーマ） |
 | `ghostty` | Ghostty ターミナル設定 |
 | `nvim` | Neovim（LazyVim ベース） |
 | `git` | gitconfig / gitignore_global |
