@@ -6,7 +6,9 @@ auto_switch = false
 delivery = "system"
 
 [terminal]
+default_shell = "fish"
 shell_mode = "auto"
 
 [keys]
-split_vertical = "prefix+|"
+prefix = "ctrl+;"
+# split_vertical = "prefix+|"
