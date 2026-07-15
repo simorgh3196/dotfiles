@@ -1,0 +1,12 @@
+[theme]
+name = "tokyo-night"
+auto_switch = false
+
+[ui.toast]
+delivery = "system"
+
+[terminal]
+shell_mode = "auto"
+
+[keys]
+split_vertical = "prefix+|"

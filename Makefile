@@ -9,7 +9,7 @@ test:
 
 .PHONY: install install/*
 
-install: install/brew install/asdf install/python install/nvim install/fish install/git install/tmux install/ghostty install/claude install/vscode
+install: install/brew install/asdf install/python install/nvim install/fish install/git install/tmux install/ghostty install/herdr install/claude install/vscode
 
 install/brew:
 	which brew || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -36,6 +36,10 @@ install/fish:
 install/ghostty:
 	mkdir -p ~/.config/ghostty/
 	ln -siv $(PWD)/ghostty/config ~/.config/ghostty/config
+
+install/herdr:
+	mkdir -p ~/.config/herdr
+	ln -siv $(PWD)/herdr/config.toml ~/.config/herdr/config.toml
 
 install/tmux:
 	ln -siv $(PWD)/tmux/tmux.conf ~/.tmux.conf
