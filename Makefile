@@ -21,7 +21,7 @@ install/mise:
 	mise install
 
 install/python:
-	uv pip install --python "$$(mise which python)" --system -r $(PWD)/python/requirements.txt
+	mise exec -- uv pip install --python "$$(mise which python)" --system -r $(PWD)/python/requirements.txt
 
 install/nvim:
 	mkdir -p ~/.config/
@@ -73,7 +73,7 @@ export/brew:
 	brew bundle dump --force --no-vscode --file=$(PWD)/brew/Brewfile
 
 export/python:
-	uv pip freeze --python "$$(mise which python)" > $(PWD)/python/requirements.txt
+	mise exec -- uv pip freeze --python "$$(mise which python)" > $(PWD)/python/requirements.txt
 
 export/vscode:
 	code --list-extensions > $(PWD)/vscode/list-extensions
