@@ -21,7 +21,6 @@ antigravity-cli = "latest"
 "npm:opencode-ai" = "latest"
 
 "gem:ruby-lsp" = "latest"
-"gem:tmuxinator" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "python", "go", "lua", "pnpm", "ruby", "ni"]

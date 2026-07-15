@@ -19,8 +19,8 @@ make install/nvim   # 個別インストール
 | `brew` | Homebrew パッケージ（Brewfile） |
 | `mise` | ランタイムのバージョン管理（mise/config.toml） |
 | `fish` | fish shell の設定・関数・補完 |
-| `tmux` | tmux 設定（TPM プラグイン / Tokyo Night テーマ） |
 | `ghostty` | Ghostty ターミナル設定 |
+| `herdr` | herdr（ターミナルワークスペースマネージャー）設定 |
 | `nvim` | Neovim（LazyVim ベース） |
 | `git` | gitconfig / gitignore_global |
 | `claude` | Claude Code 設定・フック・ステータスライン |
