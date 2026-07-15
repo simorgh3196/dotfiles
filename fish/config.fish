@@ -16,6 +16,7 @@ function fish_user_key_bindings
 
         bind -M $mode \cr sk_select_ghq_repository
         bind -M $mode \cg sk_open_gh_repository
+        bind -M $mode \ct sk_history_search
         bind -M $mode \cf nextd-or-forward-word
         bind -M $mode \ce accept-autosuggestion
     end
@@ -43,7 +44,8 @@ abbr n nvim
 abbr nv nvim
 
 # Custom
-abbr claude "claude --enable-auto-mode"
+abbr gg "ghq get"
+abbr c cmux claude-teams
 
 # ====================
 # Config
@@ -83,17 +85,19 @@ fish_add_path $HOME/.swiftpm/bin
 fish_add_path $HOME/.config/swiftpm/bin
 
 # for Golang
-fish_add_path $GOPATH/bin
 set -gx GOPATH $HOME/go
+fish_add_path $GOPATH/bin
 
 # for Rust
 fish_add_path $HOME/.cargo/bin
 
 # for AndroidSDK
-fish_add_path $ANDROID_HOME/platform-tools
 set -gx JAVA_HOME /Applications/Android\ Studio.app/Contents/jbr/Contents/Home
 set -gx ANDROID_HOME $HOME/Library/Android/sdk
-set -gx NDK_HOME $ANDROID_HOME/ndk/(ls -1 $ANDROID_HOME/ndk)
+fish_add_path $ANDROID_HOME/platform-tools
+if test -d $ANDROID_HOME/ndk
+    set -gx NDK_HOME $ANDROID_HOME/ndk/(ls -1 $ANDROID_HOME/ndk | tail -n1)
+end
 
 # for Flutter
 fish_add_path $HOME/flutter/bin
@@ -128,7 +132,8 @@ if not contains $_asdf_shims $PATH
     set -gx --prepend PATH $_asdf_shims
 end
 set --erase _asdf_shims
-source (brew --prefix asdf)/libexec/asdf.fish
+# source (brew --prefix asdf)/libexec/asdf.fish
+source (brew --prefix asdf)/share/fish/vendor_completions.d/asdf.fish
 
 # for homebrew at M1
 fish_add_path /opt/homebrew/bin
@@ -167,7 +172,9 @@ set -gx GRPC_PYTHON_BUILD_SYSTEM_OPENSSL 1
 set -gx GRPC_PYTHON_BUILD_SYSTEM_ZLIB 1
 
 # for 1Password CLI (tokens)
-source $HOME/.config/op/plugins.sh
+if test -f $HOME/.config/op/plugins.sh
+    source $HOME/.config/op/plugins.sh
+end
 
 # GitHub token from 1Password (cached 8h to avoid repeated auth)
 # set -l _gh_cache (path normalize $TMPDIR/.op_cache_github)
@@ -178,9 +185,6 @@ source $HOME/.config/op/plugins.sh
 # set -gx GH_TOKEN (cat $_gh_cache)
 # set -gx GITHUB_TOKEN $GH_TOKEN
 
-# for Rust
-fish_add_path $HOME/.cargo/bin
-
 # for flutter
 fish_add_path $HOME/fvm/default/bin
 set -gx FLUTTER_ROOT $(which flutter)
@@ -189,10 +193,26 @@ set -gx FLUTTER_ROOT $(which flutter)
 fish_add_path /Applications/Godot.app/Contents/MacOS
 
 # zoxide
-zoxide init fish | source
+zoxide init fish --cmd j | source
 
 # Added by Antigravity
 fish_add_path $HOME/.antigravity/antigravity/bin
+
+# ====================
+# Auto generated settings
+# ====================
+
+# The next line updates PATH for the Google Cloud SDK.
+if test -f $HOME/google-cloud-sdk/path.fish.inc
+    source $HOME/google-cloud-sdk/path.fish.inc
+end
+
+# Added by Antigravity IDE
+fish_add_path "$HOME/.antigravity-ide/antigravity-ide/bin"
+
+# pnpm
+set -gx PNPM_HOME "$HOME/Library/pnpm"
+fish_add_path $PNPM_HOME/bin
 
 # Remove duplicate PATH (preserving order)
 set -l unique_path
@@ -202,12 +222,3 @@ for p in $PATH
     end
 end
 set -gx PATH $unique_path
-
-# ====================
-# Auto generated settings
-# ====================
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/google-cloud-sdk/path.fish.inc' ]
-    . '$HOME/google-cloud-sdk/path.fish.inc'
-end

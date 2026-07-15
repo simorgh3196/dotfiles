@@ -3,9 +3,12 @@
 
 # Cache the API key in a temp file (8h TTL) to avoid repeated 1Password auth
 CACHE_FILE="${TMPDIR:-/tmp}/.glm_api_key_cache"
-if [[ ! -f "$CACHE_FILE" ]] || [[ -n "$(find "$CACHE_FILE" -mmin +480 2>/dev/null)" ]]; then
-  op read "op://taskey/Z.AI GLM API Key/credential" > "$CACHE_FILE"
-  chmod 600 "$CACHE_FILE"
+if [[ ! -s "$CACHE_FILE" ]] || [[ -n "$(find "$CACHE_FILE" -mmin +480 2>/dev/null)" ]]; then
+  key=$(op read "op://taskey/Z.AI GLM API Key/credential") || {
+    echo "claude-glm: failed to read API key from 1Password" >&2
+    exit 1
+  }
+  (umask 077 && printf '%s' "$key" > "$CACHE_FILE")
 fi
 export ANTHROPIC_AUTH_TOKEN=$(cat "$CACHE_FILE")
 export ANTHROPIC_BASE_URL=https://api.z.ai/api/anthropic
