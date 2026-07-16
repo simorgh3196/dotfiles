@@ -259,5 +259,7 @@
     "https://json-schema.org/": true,
     "https://developer.microsoft.com/json-schemas/": true,
     "https://biomejs.dev": true
-  }
+  },
+  "cursor.composer.shouldChimeAfterChatFinishes": true,
+  "cursor.general.glassShowWarningNotifications": true
 }

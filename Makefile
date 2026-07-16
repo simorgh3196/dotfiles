@@ -17,8 +17,14 @@ install/brew:
 
 install/mise:
 	mkdir -p ~/.config/mise
-	ln -siv $(PWD)/mise/config.toml ~/.config/mise/config.toml
+	ln -sfv $(PWD)/mise/config.toml ~/.config/mise/config.toml
 	mise install
+	@# Create global symlinks for GUI editor support
+	sudo ln -sfv "$(HOME)/.local/share/mise/shims/node" /usr/local/bin/node
+	sudo ln -sfv "$(HOME)/.local/share/mise/shims/npm" /usr/local/bin/npm
+	sudo ln -sfv "$(HOME)/.local/share/mise/shims/pnpm" /usr/local/bin/pnpm
+	sudo ln -sfv "$(HOME)/.local/share/mise/shims/yarn" /usr/local/bin/yarn
+	sudo ln -sfv "$(HOME)/.local/share/mise/shims/bun" /usr/local/bin/bun
 
 install/python:
 	mise exec -- uv pip install --python "$$(mise which python)" --system -r $(PWD)/python/requirements.txt
@@ -51,8 +57,18 @@ install/claude:
 	ln -siv $(PWD)/claude/hooks/guard-cursor-agent.sh ~/.claude/hooks/guard-cursor-agent.sh
 
 install/vscode:
-	ln -siv $(PWD)/vscode/settings.json "$(HOME)/Library/Application Support/Code/User/settings.json"
-	xargs -L1 code --install-extension < $(PWD)/vscode/list-extensions
+	@# VS Code
+	mkdir -p "$(HOME)/Library/Application Support/Code/User"
+	ln -sfv $(PWD)/vscode/settings.json "$(HOME)/Library/Application Support/Code/User/settings.json"
+	@# Cursor
+	mkdir -p "$(HOME)/Library/Application Support/Cursor/User"
+	ln -sfv $(PWD)/vscode/settings.json "$(HOME)/Library/Application Support/Cursor/User/settings.json"
+	@# AntigravityIDE
+	mkdir -p "$(HOME)/Library/Application Support/AntigravityIDE/User"
+	ln -sfv $(PWD)/vscode/settings.json "$(HOME)/Library/Application Support/AntigravityIDE/User/settings.json"
+	mkdir -p "$(HOME)/Library/Application Support/Antigravity/User"
+	ln -sfv $(PWD)/vscode/settings.json "$(HOME)/Library/Application Support/Antigravity/User/settings.json"
+	xargs -L1 code --install-extension < $(PWD)/vscode/list-extensions || true
 
 #
 # Export
