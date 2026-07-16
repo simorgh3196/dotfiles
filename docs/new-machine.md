@@ -7,8 +7,10 @@
 | リポジトリ | 内容 |
 | --- | --- |
 | [dotfiles](https://github.com/simorgh3196/dotfiles)（公開） | fish / tmux / nvim / git / ghostty / vscode / Brewfile / .tool-versions |
-| [skills](https://github.com/simorgh3196/skills)（公開） | 自作の Agent Skills（codex-imagegen / tech-article-writing） |
-| `dotfiles-private`（非公開） | Claude Code 一式（settings / CLAUDE.md / サブエージェント / フック）、`~/.agents` の third-party スキルのスナップショット、自作スクリプト（claude-glm 等） |
+| [skills](https://github.com/simorgh3196/skills)（公開） | 自作の Agent Skills（codex-imagegen） |
+| `dotfiles-private`（非公開） | Claude Code 一式（settings / CLAUDE.md / サブエージェント / フック）、再取得できない拾い物スキルのバックアップ、自作スクリプト（claude-glm 等） |
+
+third-party スキルはソースリポジトリから復元する: `cd ~/dotfiles && make install/skills`（[vercel の skills](https://github.com/vercel-labs/skills) で `npx skills add <repo> -g`）。
 
 ## 2. 手でコピーが必要なもの（最重要）
 
@@ -83,6 +85,7 @@ git clone https://github.com/simorgh3196/skills.git ~/skills
 cd ~/skills && make install
 git clone git@github.com:simorgh3196/dotfiles-private.git ~/dotfiles-private
 cd ~/dotfiles-private && make install
+cd ~/dotfiles && make install/skills   # third-party スキルを npx skills で再取得
 claude   # ログイン
 tar xzf ~/claude-memory.tgz -C ~/.claude/projects
 set -Ux CURSOR_API_KEY (op read "op://...")   # cursor 系エージェント用

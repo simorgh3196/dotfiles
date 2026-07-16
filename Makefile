@@ -58,6 +58,15 @@ install/vscode:
 	ln -siv $(PWD)/vscode/settings.json "$(HOME)/Library/Application Support/Code/User/settings.json"
 	xargs -L1 code --install-extension < $(PWD)/vscode/list-extensions
 
+# Third-party agent skills, restored from their source repos with
+# vercel-labs skills (https://github.com/vercel-labs/skills).
+# Not part of 'install': review what each repo ships before running.
+install/skills:
+	npx -y skills add vercel-labs/agent-browser -g -a claude-code -y
+	npx -y skills add firecrawl/cli -g -a claude-code -y
+	npx -y skills add vercel-labs/skills -g -a claude-code -y
+	npx -y skills add emilkowalski/skills -g -a claude-code -y
+
 #
 # Export
 #
