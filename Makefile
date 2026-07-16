@@ -9,21 +9,19 @@ test:
 
 .PHONY: install install/*
 
-install: install/brew install/asdf install/python install/nvim install/fish install/git install/ghostty install/herdr install/claude install/vscode
+install: install/brew install/mise install/python install/nvim install/fish install/git install/ghostty install/herdr install/claude install/vscode
 
 install/brew:
 	which brew || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew bundle --file=$(PWD)/brew/Brewfile
 
-install/asdf:
-	ln -siv $(PWD)/asdf/tool-versions ~/.tool-versions
-	ln -siv $(PWD)/asdf/asdfrc ~/.asdfrc
-	ln -siv $(PWD)/asdf/default-npm-packages ~/.default-npm-packages
-	ln -siv $(PWD)/asdf/default-gems ~/.default-gems
-	asdf install
+install/mise:
+	mkdir -p ~/.config/mise
+	ln -siv $(PWD)/mise/config.toml ~/.config/mise/config.toml
+	mise install
 
 install/python:
-	uv pip install --python "$$(asdf which python)" --system -r $(PWD)/python/requirements.txt
+	mise exec -- uv pip install --python "$$(mise which python)" --system -r $(PWD)/python/requirements.txt
 
 install/nvim:
 	mkdir -p ~/.config/
@@ -62,19 +60,16 @@ install/vscode:
 
 .PHONY: export export/brew
 
-export: export/brew export/asdf export/python export/vscode
+export: export/brew export/mise export/python export/vscode
 
-export/asdf:
-	cp ~/.tool-versions $(PWD)/asdf/tool-versions
-	cp ~/.asdfrc $(PWD)/asdf/asdfrc
-	cp ~/.default-npm-packages $(PWD)/asdf/default-npm-packages
-	cp ~/.default-gems $(PWD)/asdf/default-gems
+export/mise:
+	cp ~/.config/mise/config.toml $(PWD)/mise/config.toml
 
 export/brew:
 	brew bundle dump --force --no-vscode --file=$(PWD)/brew/Brewfile
 
 export/python:
-	uv pip freeze --python "$$(asdf which python)" > $(PWD)/python/requirements.txt
+	mise exec -- uv pip freeze --python "$$(mise which python)" > $(PWD)/python/requirements.txt
 
 export/vscode:
 	code --list-extensions > $(PWD)/vscode/list-extensions

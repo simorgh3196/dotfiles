@@ -17,7 +17,7 @@ make install/nvim   # 個別インストール
 | ディレクトリ | 内容 |
 | --- | --- |
 | `brew` | Homebrew パッケージ（Brewfile） |
-| `asdf` | ランタイムのバージョン管理（.tool-versions） |
+| `mise` | ランタイムのバージョン管理（mise/config.toml） |
 | `fish` | fish shell の設定・関数・補完 |
 | `ghostty` | Ghostty ターミナル設定 |
 | `herdr` | herdr（ターミナルワークスペースマネージャー）設定 |
@@ -33,7 +33,7 @@ make install/nvim   # 個別インストール
 ローカルの現状をリポジトリに反映してからコミットする。
 
 ```shell
-make export   # brew / asdf / python / vscode を書き出し
+make export   # brew / mise / python / vscode を書き出し
 ```
 
 ## シークレットの扱い

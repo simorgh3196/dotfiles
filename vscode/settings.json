@@ -202,12 +202,11 @@
   "prettier.jsxSingleQuote": true,
   "prettier.prettierPath": "./node_modules/prettier",
   "projectManager.git.baseFolders": ["~/go/src/github.com"],
-  "rdbg.rubyVersionManager": "asdf",
   "redhat.telemetry.enabled": false,
-  "rubyLsp.customRubyCommand": "~/.asdf/shims/ruby",
-  "rubyLsp.rubyExecutablePath": "~/.asdf/shims/ruby",
+  "rubyLsp.customRubyCommand": "~/.local/share/mise/shims/ruby",
+  "rubyLsp.rubyExecutablePath": "~/.local/share/mise/shims/ruby",
   "rubyLsp.rubyVersionManager": {
-    "identifier": "asdf"
+    "identifier": "mise"
   },
   "security.workspace.trust.untrustedFiles": "open",
   "sweetpad.xcodegen.autogenerate": true,
@@ -217,7 +216,7 @@
   "terminal.integrated.windowsEnableConpty": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "vite.browserType": "system",
-  "vitest.nodeExecutable": "~/.asdf/shims/node",
+  "vitest.nodeExecutable": "~/.local/share/mise/shims/node",
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/init.lua",
   "vscode-neovim.neovimWidth": 500,
