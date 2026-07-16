@@ -1,2 +1,3 @@
 theme = "tokyo-night"
 watch = true
+transparent_background = true
