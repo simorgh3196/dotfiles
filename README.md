@@ -12,6 +12,8 @@ make install        # すべてインストール
 make install/nvim   # 個別インストール
 ```
 
+新しい Mac へ移行する場合は [docs/new-machine.md](docs/new-machine.md) も参照（Claude Code の memory など、`make install` では復元されないものがある）。
+
 ## 構成
 
 | ディレクトリ | 内容 |
@@ -23,10 +25,10 @@ make install/nvim   # 個別インストール
 | `ghostty` | Ghostty ターミナル設定 |
 | `nvim` | Neovim（LazyVim ベース） |
 | `git` | gitconfig / gitignore_global |
-| `claude` | Claude Code 設定・フック・ステータスライン |
 | `vscode` | VS Code 設定・拡張機能リスト |
-| `bin` | 自作スクリプト |
 | `python` | グローバル Python パッケージ（requirements.txt） |
+
+Claude Code などの AI ツール設定と自作スクリプトは、公開する必要がないため private リポジトリ（`dotfiles-private`）で管理する。
 
 ## ローカル設定の書き出し
 

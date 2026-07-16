@@ -13,7 +13,8 @@ test:
 
 .PHONY: install install/*
 
-install: install/brew install/asdf install/python install/nvim install/fish install/git install/tmux install/ghostty install/claude install/vscode
+# Claude Code / AI config lives in the private dotfiles-private repo; see README.
+install: install/brew install/asdf install/python install/nvim install/fish install/git install/tmux install/ghostty install/vscode
 
 install/brew:
 	command -v brew >/dev/null 2>&1 || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -52,13 +53,6 @@ install/tmux:
 install/git:
 	ln -siv $(PWD)/git/gitconfig ~/.gitconfig
 	ln -siv $(PWD)/git/gitignore_global ~/.gitignore_global
-
-install/claude:
-	mkdir -p ~/.claude/hooks
-	ln -siv $(PWD)/claude/settings.json ~/.claude/settings.json
-	ln -siv $(PWD)/claude/statusline.sh ~/.claude/statusline.sh
-	ln -siv $(PWD)/claude/hooks/prefer-rg.sh ~/.claude/hooks/prefer-rg.sh
-	ln -siv $(PWD)/claude/hooks/guard-cursor-agent.sh ~/.claude/hooks/guard-cursor-agent.sh
 
 install/vscode:
 	ln -siv $(PWD)/vscode/settings.json "$(HOME)/Library/Application Support/Code/User/settings.json"
