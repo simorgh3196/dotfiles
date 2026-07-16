@@ -1,3 +1,3 @@
 return {
-  { "folke/tokyonight.nvim", opts = { style = "storm" } },
+  { "folke/tokyonight.nvim", opts = { style = "storm", transparent = true } },
 }
