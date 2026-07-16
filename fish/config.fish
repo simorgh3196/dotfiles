@@ -49,7 +49,6 @@ abbr nv nvim
 
 # Custom
 abbr gg "ghq get"
-abbr c cmux claude-teams
 
 # ====================
 # Config
@@ -213,3 +212,7 @@ for p in $PATH
     end
 end
 set -gx PATH $unique_path
+
+
+# Added by Antigravity CLI installer
+set -gx PATH "/Users/simorgh3196/.local/bin" $PATH

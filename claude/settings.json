@@ -34,10 +34,6 @@
       "Bash(nlx:*)",
       "Bash(xcodebuild:*)"
     ],
-    "ask": [
-      "Bash(rm *)",
-      "Bash(rm -rf *)"
-    ],
     "deny": [
       "Read(.env.*)",
       "Write(.env*)",
@@ -47,9 +43,13 @@
       "Bash(sudo:*)",
       "Bash(nc:*)"
     ],
+    "ask": [
+      "Bash(rm *)",
+      "Bash(rm -rf *)"
+    ],
     "defaultMode": "auto"
   },
-  "model": "claude-fable-5[1m]",
+  "model": "sonnet",
   "hooks": {
     "PreToolUse": [
       {
@@ -109,6 +109,6 @@
   },
   "language": "Japanese",
   "effortLevel": "xhigh",
-  "editorMode": "vim",
-  "advisorModel": "fable"
+  "advisorModel": "fable",
+  "editorMode": "vim"
 }

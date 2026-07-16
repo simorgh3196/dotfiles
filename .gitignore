@@ -35,3 +35,4 @@ brew/Brewfile.lock.json
 # Machine-local state (may contain secrets and machine-specific paths)
 fish/fish_variables
 *.backup
+nvim/lazy-lock.json

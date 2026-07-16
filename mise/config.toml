@@ -18,9 +18,16 @@ antigravity-cli = "latest"
 "npm:firebase-tools" = "latest"
 "npm:firecrawl-cli" = "latest"
 "npm:markdownlint-cli2" = "latest"
-"npm:opencode-ai" = "latest"
 
 "gem:ruby-lsp" = "latest"
 
 [settings]
-idiomatic_version_file_enable_tools = ["node", "python", "go", "lua", "pnpm", "ruby", "ni"]
+idiomatic_version_file_enable_tools = [
+  "node",
+  "python",
+  "go",
+  "lua",
+  "pnpm",
+  "ruby",
+  "ni",
+]

@@ -1,107 +1,96 @@
-tap "artemnovichkov/projects"
-tap "atlassian/acli"
-tap "daipeihust/tap"
-tap "danger/tap"
-tap "dart-lang/dart"
-tap "facebook/fb"
-tap "git-chglog/git-chglog"
-tap "github/gh"
-tap "homebrew-ffmpeg/ffmpeg"
-tap "jesseduffield/lazygit"
-tap "kyoshidajp/ghkw"
-tap "laishulu/homebrew"
-tap "leoafarias/fvm"
-tap "peripheryapp/periphery"
-tap "simonbs/dependency-graph", "https://github.com/simonbs/dependency-graph.git"
-tap "swiftdocorg/formulae"
-tap "tidwall/jj"
-tap "tmspzz/tap", "https://github.com/tmspzz/homebrew-tap.git"
-tap "woshiccm/tap"
-tap "zaquestion/tap"
-brew "git"
-brew "ripgrep"
-brew "mise"
-brew "bat"
-brew "clang-format"
-brew "cloc"
-brew "cmake"
-brew "codex"
-brew "coreutils"
-brew "curl"
-brew "deno"
-brew "epubcheck"
-brew "eza"
-brew "fb303"
-brew "fd"
-brew "ffmpeg@6"
-brew "fish"
-brew "freetds"
-brew "fzf"
-brew "gh"
-brew "ghq"
-brew "gibo"
-brew "graphviz"
-brew "herdr"
-brew "hub"
-brew "icu4c@76"
-brew "ideviceinstaller"
-brew "ios-deploy"
-brew "jq"
-brew "kdoctor"
-brew "lazygit"
-brew "libffi"
-brew "mas"
-brew "mcp-toolbox"
-brew "mint"
-brew "mysql-client@8.0"
-brew "mysql@8.0", restart_service: :changed
-brew "neovim"
-brew "oauth2l"
-brew "openapi-generator"
-brew "qt"
-brew "ruby-build"
-brew "sevenzip"
-brew "starship"
-brew "vips"
-brew "websocat"
-brew "wget"
-brew "xcbeautify"
-brew "xcode-build-server"
-brew "xpdf", link: false
-brew "yq"
-brew "zoxide"
-brew "atlassian/acli/acli"
-brew "daipeihust/tap/im-select"
-brew "kyoshidajp/ghkw/ghkw"
-brew "laishulu/homebrew/macism"
-brew "leoafarias/fvm/fvm"
-brew "simonbs/dependency-graph/dependency-graph"
-brew "tidwall/jj/jj"
-cask "1password"
-cask "alt-tab"
-cask "android-studio"
-cask "coteditor"
-cask "discord"
-cask "docker-desktop"
-cask "figma"
-cask "font-fira-code"
-cask "font-fira-code-nerd-font"
-cask "font-hack-nerd-font"
-cask "font-hackgen"
-cask "font-hackgen-nerd"
-cask "font-lato"
-cask "font-monaspace"
-cask "ghostty"
-cask "git-credential-manager"
-cask "ngrok"
-cask "notion"
-cask "peripheryapp/periphery/periphery"
-cask "postman"
-cask "powershell"
-cask "qlmarkdown"
-cask "rectangle"
-cask "sequel-ace"
-cask "slack"
-cask "visual-studio-code"
-cask "xcodes-app"
-cask "zoom"
+tap 'atlassian/acli', trusted: true
+tap 'daipeihust/tap', trusted: true
+tap 'dart-lang/dart', trusted: true
+tap 'facebook/fb', trusted: true
+tap 'git-chglog/git-chglog', trusted: true
+tap 'github/gh', trusted: true
+tap 'homebrew-ffmpeg/ffmpeg', trusted: true
+tap 'jesseduffield/lazygit', trusted: true
+tap 'kyoshidajp/ghkw', trusted: true
+tap 'laishulu/homebrew', trusted: true
+tap 'leoafarias/fvm', trusted: true
+tap 'oven-sh/bun', trusted: true
+tap 'rbenv/tap', trusted: true
+tap 'simonbs/dependency-graph', 'https://github.com/simonbs/dependency-graph.git', trusted: true
+tap 'swiftdocorg/formulae', trusted: true
+tap 'tidwall/jj', trusted: true
+tap 'tmspzz/tap', 'https://github.com/tmspzz/homebrew-tap.git', trusted: true
+tap 'woshiccm/tap', trusted: true
+tap 'zaquestion/tap', trusted: true
+brew 'git'
+brew 'ripgrep'
+brew 'mise'
+brew 'bat'
+brew 'clang-format'
+brew 'cloc'
+brew 'cmake'
+brew 'coreutils'
+brew 'curl'
+brew 'deno'
+brew 'epubcheck'
+brew 'eza'
+brew 'fb303'
+brew 'fd'
+brew 'ffmpeg@6'
+brew 'fish'
+brew 'freetds'
+brew 'fzf'
+brew 'gh'
+brew 'ghq'
+brew 'gibo'
+brew 'graphviz'
+brew 'herdr'
+brew 'hub'
+brew 'icu4c@76'
+brew 'ideviceinstaller'
+brew 'ios-deploy'
+brew 'jq'
+brew 'kdoctor'
+brew 'lazygit'
+brew 'libffi'
+brew 'mas'
+brew 'mcp-toolbox'
+brew 'mint'
+brew 'mysql-client@8.0'
+brew 'mysql@8.0', restart_service: :changed
+brew 'neovim'
+brew 'oauth2l'
+brew 'openapi-generator'
+brew 'qt'
+brew 'ruby-build'
+brew 'sevenzip'
+brew 'starship'
+brew 'vips'
+brew 'websocat'
+brew 'wget'
+brew 'xcbeautify'
+brew 'xcode-build-server'
+brew 'xpdf', link: false
+brew 'yq'
+brew 'zoxide'
+brew 'atlassian/acli/acli'
+brew 'daipeihust/tap/im-select'
+brew 'kyoshidajp/ghkw/ghkw'
+brew 'laishulu/homebrew/macism'
+brew 'leoafarias/fvm/fvm'
+brew 'simonbs/dependency-graph/dependency-graph'
+cask '1password'
+cask 'coteditor'
+cask 'docker-desktop'
+cask 'figma'
+cask 'font-fira-code'
+cask 'font-fira-code-nerd-font'
+cask 'font-hack-nerd-font'
+cask 'font-hackgen'
+cask 'font-hackgen-nerd'
+cask 'font-lato'
+cask 'font-monaspace'
+cask 'ghostty'
+cask 'git-credential-manager'
+cask 'notion'
+cask 'qlmarkdown'
+cask 'rectangle'
+cask 'slack'
+cask 'visual-studio-code'
+cask 'xcodes-app'
+cask 'zoom'
