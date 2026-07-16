@@ -201,7 +201,7 @@
   "playwright.showTrace": true,
   "prettier.jsxSingleQuote": true,
   "prettier.prettierPath": "./node_modules/prettier",
-  "projectManager.git.baseFolders": ["~/go/src/github.com"],
+  "projectManager.git.baseFolders": ["~/src/github.com"],
   "redhat.telemetry.enabled": false,
   "rubyLsp.customRubyCommand": "~/.local/share/mise/shims/ruby",
   "rubyLsp.rubyExecutablePath": "~/.local/share/mise/shims/ruby",

@@ -81,7 +81,7 @@ set -gx SDKROOT $(xcrun --show-sdk-path)
 set -gx XDG_CONFIG_HOME $HOME/.config
 
 # for ghq
-set -gx GHQ_ROOT $HOME/go/src
+set -gx GHQ_ROOT $HOME/src
 
 # for swift
 fish_add_path $HOME/.swiftpm/bin
@@ -212,7 +212,6 @@ for p in $PATH
     end
 end
 set -gx PATH $unique_path
-
 
 # Added by Antigravity CLI installer
 set -gx PATH "/Users/simorgh3196/.local/bin" $PATH
