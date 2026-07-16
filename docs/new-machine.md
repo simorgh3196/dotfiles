@@ -1,13 +1,14 @@
 # 新しい Mac への移行
 
-2つのリポジトリと、**手でコピーしないと永久に失われるもの**に分かれる。
+3つのリポジトリと、**手でコピーしないと永久に失われるもの**に分かれる。
 
 ## 1. リポジトリで再現されるもの（clone → make install）
 
 | リポジトリ | 内容 |
 | --- | --- |
 | [dotfiles](https://github.com/simorgh3196/dotfiles)（公開） | fish / tmux / nvim / git / ghostty / vscode / Brewfile / .tool-versions |
-| `dotfiles-private`（非公開） | Claude Code 一式（settings / CLAUDE.md / サブエージェント / スキル / フック）、`~/.agents` の third-party スキル、自作スクリプト（claude-glm 等） |
+| [skills](https://github.com/simorgh3196/skills)（公開） | 自作の Agent Skills（codex-imagegen / tech-article-writing） |
+| `dotfiles-private`（非公開） | Claude Code 一式（settings / CLAUDE.md / サブエージェント / フック）、`~/.agents` の third-party スキルのスナップショット、自作スクリプト（claude-glm 等） |
 
 ## 2. 手でコピーが必要なもの（最重要）
 
@@ -78,6 +79,8 @@ cd ~/.claude/projects && tar czf ~/claude-memory.tgz */memory
 xcode-select --install
 git clone https://github.com/simorgh3196/dotfiles.git ~/dotfiles
 cd ~/dotfiles && make install
+git clone https://github.com/simorgh3196/skills.git ~/skills
+cd ~/skills && make install
 git clone git@github.com:simorgh3196/dotfiles-private.git ~/dotfiles-private
 cd ~/dotfiles-private && make install
 claude   # ログイン
