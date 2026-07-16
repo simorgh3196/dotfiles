@@ -1,6 +1,9 @@
 [theme]
 name = "tokyo-night"
 
+[theme.custom]
+panel_bg = "reset"
+
 [ui.toast]
 delivery = "system"
 
