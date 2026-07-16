@@ -9,7 +9,7 @@ test:
 
 .PHONY: install install/*
 
-install: install/brew install/mise install/python install/nvim install/fish install/git install/ghostty install/herdr install/claude install/vscode
+install: install/brew install/mise install/python install/nvim install/fish install/git install/ghostty install/herdr install/claude install/vscode install/hunk
 
 install/brew:
 	which brew || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -69,6 +69,10 @@ install/vscode:
 	mkdir -p "$(HOME)/Library/Application Support/Antigravity/User"
 	ln -sfv $(PWD)/vscode/settings.json "$(HOME)/Library/Application Support/Antigravity/User/settings.json"
 	xargs -L1 code --install-extension < $(PWD)/vscode/list-extensions || true
+
+install/hunk:
+	mkdir -p ~/.config/hunk
+	ln -sfv $(PWD)/hunk/config.toml ~/.config/hunk/config.toml
 
 #
 # Export
