@@ -1,5 +1,9 @@
 PWD:=$(shell pwd)
 
+# Fresh macOS has no brew on PATH until shellenv is applied; make every
+# recipe (brew bundle, asdf, uv, ...) work right after the installer runs.
+export PATH := /opt/homebrew/bin:/opt/homebrew/sbin:$(PATH)
+
 #
 # Install
 #
@@ -12,7 +16,7 @@ test:
 install: install/brew install/mise install/python install/nvim install/fish install/git install/ghostty install/herdr install/claude install/vscode install/hunk
 
 install/brew:
-	which brew || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	command -v brew >/dev/null 2>&1 || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew bundle --file=$(PWD)/brew/Brewfile
 
 install/mise:
@@ -49,12 +53,17 @@ install/git:
 	ln -siv $(PWD)/git/gitconfig ~/.gitconfig
 	ln -siv $(PWD)/git/gitignore_global ~/.gitignore_global
 
+# Link per file, not per directory: ~/.claude/agents and friends already
+# exist on a used machine, and `ln -s dir ~/.claude/agents` would nest the
+# link inside it instead of replacing it.
 install/claude:
-	mkdir -p ~/.claude/hooks
+	mkdir -p ~/.claude/hooks ~/.claude/agents ~/.claude/rules
 	ln -siv $(PWD)/claude/settings.json ~/.claude/settings.json
 	ln -siv $(PWD)/claude/statusline.sh ~/.claude/statusline.sh
-	ln -siv $(PWD)/claude/hooks/prefer-rg.sh ~/.claude/hooks/prefer-rg.sh
-	ln -siv $(PWD)/claude/hooks/guard-cursor-agent.sh ~/.claude/hooks/guard-cursor-agent.sh
+	ln -siv $(PWD)/claude/CLAUDE.md ~/.claude/CLAUDE.md
+	ln -siv $(PWD)/claude/hooks/*.sh ~/.claude/hooks/
+	ln -siv $(PWD)/claude/agents/*.md ~/.claude/agents/
+	ln -siv $(PWD)/claude/rules/*.md ~/.claude/rules/
 
 install/vscode:
 	@# VS Code
@@ -73,6 +82,18 @@ install/vscode:
 install/hunk:
 	mkdir -p ~/.config/hunk
 	ln -sfv $(PWD)/hunk/config.toml ~/.config/hunk/config.toml
+
+# Third-party agent skills, restored from their source repos with
+# vercel-labs skills (https://github.com/vercel-labs/skills).
+# Installs into Claude Code (~/.claude/skills) and the universal
+# ~/.agents/skills that Cursor, Codex, and other agents read.
+# Not part of 'install': review what each repo ships before running.
+install/skills:
+	npx -y skills add simorgh3196/skills -g -a claude-code universal -y
+	npx -y skills add vercel-labs/agent-browser -g -a claude-code universal -y
+	npx -y skills add firecrawl/cli -g -a claude-code universal -y
+	npx -y skills add vercel-labs/skills -g -a claude-code universal -y
+	npx -y skills add emilkowalski/skills -g -a claude-code universal -y
 
 #
 # Export

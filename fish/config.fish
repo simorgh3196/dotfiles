@@ -72,7 +72,6 @@ end
 # ====================
 
 fish_add_path $HOME/.local/bin
-fish_add_path $HOME/dotfiles/bin
 
 # set command-line-tools path
 set -gx SDKROOT $(xcrun --show-sdk-path)

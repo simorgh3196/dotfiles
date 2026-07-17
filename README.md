@@ -12,6 +12,8 @@ make install        # すべてインストール
 make install/nvim   # 個別インストール
 ```
 
+新しい Mac へ移行する場合は [docs/new-machine.md](docs/new-machine.md) も参照（Claude Code の memory など、`make install` では復元されないものがある）。
+
 ## 構成
 
 | ディレクトリ | 内容 |
@@ -23,10 +25,11 @@ make install/nvim   # 個別インストール
 | `herdr` | herdr（ターミナルワークスペースマネージャー）設定 |
 | `nvim` | Neovim（LazyVim ベース） |
 | `git` | gitconfig / gitignore_global |
-| `claude` | Claude Code 設定・フック・ステータスライン |
+| `claude` | Claude Code 設定・CLAUDE.md・サブエージェント・フック |
 | `vscode` | VS Code 設定・拡張機能リスト |
-| `bin` | 自作スクリプト |
 | `python` | グローバル Python パッケージ（requirements.txt） |
+
+Agent Skills（自作の [skills リポジトリ](https://github.com/simorgh3196/skills) も third-party も）は `make install/skills`（[vercel の skills](https://github.com/vercel-labs/skills) 経由）でまとめて導入する。
 
 ## ローカル設定の書き出し
 
