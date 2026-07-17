@@ -7,9 +7,9 @@
 | リポジトリ | 内容 |
 | --- | --- |
 | [dotfiles](https://github.com/simorgh3196/dotfiles)（公開） | fish / tmux / nvim / git / ghostty / vscode / Brewfile / .tool-versions / Claude Code 一式（settings / CLAUDE.md / サブエージェント / フック） |
-| [skills](https://github.com/simorgh3196/skills)（公開） | 自作の Agent Skills（codex-imagegen） |
+| [skills](https://github.com/simorgh3196/skills)（公開） | 自作の Agent Skills（codex-imagegen）。clone せず `make install/skills` で入れる |
 
-third-party スキルはソースリポジトリから復元する: `cd ~/dotfiles && make install/skills`（[vercel の skills](https://github.com/vercel-labs/skills) で `npx skills add <repo> -g -a claude-code universal`。Claude Code の `~/.claude/skills` と、Cursor / Codex などが読む汎用の `~/.agents/skills` の両方に入る）。
+スキルはすべて `cd ~/dotfiles && make install/skills` で復元する（自作の simorgh3196/skills も third-party もまとめて [vercel の skills](https://github.com/vercel-labs/skills) の `npx skills add <repo> -g -a claude-code universal` で導入。Claude Code の `~/.claude/skills` と、Cursor / Codex などが読む汎用の `~/.agents/skills` の両方に入る）。
 
 ## 2. 手でコピーが必要なもの（最重要）
 
@@ -90,9 +90,7 @@ tar czf ~/skill-backup.tgz -C ~/.claude/skills tech-article-writing
 xcode-select --install
 git clone https://github.com/simorgh3196/dotfiles.git ~/dotfiles
 cd ~/dotfiles && make install
-git clone https://github.com/simorgh3196/skills.git ~/skills
-cd ~/skills && make install
-cd ~/dotfiles && make install/skills   # third-party スキルを npx skills で再取得
+make install/skills   # 自作 + third-party スキルを npx skills で導入
 claude   # ログイン
 tar xzf ~/claude-memory.tgz -C ~/.claude/projects
 tar xzf ~/skill-backup.tgz -C ~/.claude/skills

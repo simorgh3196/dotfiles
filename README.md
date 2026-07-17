@@ -29,7 +29,7 @@ make install/nvim   # 個別インストール
 | `vscode` | VS Code 設定・拡張機能リスト |
 | `python` | グローバル Python パッケージ（requirements.txt） |
 
-自作の Agent Skills は [skills リポジトリ](https://github.com/simorgh3196/skills)、third-party スキルは `make install/skills`（[vercel の skills](https://github.com/vercel-labs/skills) 経由）で管理する。
+Agent Skills（自作の [skills リポジトリ](https://github.com/simorgh3196/skills) も third-party も）は `make install/skills`（[vercel の skills](https://github.com/vercel-labs/skills) 経由）でまとめて導入する。
 
 ## ローカル設定の書き出し
 

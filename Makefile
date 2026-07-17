@@ -75,6 +75,7 @@ install/vscode:
 # ~/.agents/skills that Cursor, Codex, and other agents read.
 # Not part of 'install': review what each repo ships before running.
 install/skills:
+	npx -y skills add simorgh3196/skills -g -a claude-code universal -y
 	npx -y skills add vercel-labs/agent-browser -g -a claude-code universal -y
 	npx -y skills add firecrawl/cli -g -a claude-code universal -y
 	npx -y skills add vercel-labs/skills -g -a claude-code universal -y
