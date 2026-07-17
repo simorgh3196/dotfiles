@@ -25,10 +25,11 @@ make install/nvim   # 個別インストール
 | `ghostty` | Ghostty ターミナル設定 |
 | `nvim` | Neovim（LazyVim ベース） |
 | `git` | gitconfig / gitignore_global |
+| `claude` | Claude Code 設定・CLAUDE.md・サブエージェント・フック |
 | `vscode` | VS Code 設定・拡張機能リスト |
 | `python` | グローバル Python パッケージ（requirements.txt） |
 
-Claude Code などの AI ツール設定と自作スクリプトは、公開する必要がないため private リポジトリ（`dotfiles-private`）で管理する。
+自作の Agent Skills は [skills リポジトリ](https://github.com/simorgh3196/skills)、third-party スキルは `make install/skills`（[vercel の skills](https://github.com/vercel-labs/skills) 経由）で管理する。
 
 ## ローカル設定の書き出し
 

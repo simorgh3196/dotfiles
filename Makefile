@@ -13,8 +13,7 @@ test:
 
 .PHONY: install install/*
 
-# Claude Code / AI config lives in the private dotfiles-private repo; see README.
-install: install/brew install/asdf install/python install/nvim install/fish install/git install/tmux install/ghostty install/vscode
+install: install/brew install/asdf install/python install/nvim install/fish install/git install/tmux install/ghostty install/claude install/vscode
 
 install/brew:
 	command -v brew >/dev/null 2>&1 || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -54,18 +53,32 @@ install/git:
 	ln -siv $(PWD)/git/gitconfig ~/.gitconfig
 	ln -siv $(PWD)/git/gitignore_global ~/.gitignore_global
 
+# Link per file, not per directory: ~/.claude/agents and friends already
+# exist on a used machine, and `ln -s dir ~/.claude/agents` would nest the
+# link inside it instead of replacing it.
+install/claude:
+	mkdir -p ~/.claude/hooks ~/.claude/agents ~/.claude/rules
+	ln -siv $(PWD)/claude/settings.json ~/.claude/settings.json
+	ln -siv $(PWD)/claude/statusline.sh ~/.claude/statusline.sh
+	ln -siv $(PWD)/claude/CLAUDE.md ~/.claude/CLAUDE.md
+	ln -siv $(PWD)/claude/hooks/*.sh ~/.claude/hooks/
+	ln -siv $(PWD)/claude/agents/*.md ~/.claude/agents/
+	ln -siv $(PWD)/claude/rules/*.md ~/.claude/rules/
+
 install/vscode:
 	ln -siv $(PWD)/vscode/settings.json "$(HOME)/Library/Application Support/Code/User/settings.json"
 	xargs -L1 code --install-extension < $(PWD)/vscode/list-extensions
 
 # Third-party agent skills, restored from their source repos with
 # vercel-labs skills (https://github.com/vercel-labs/skills).
+# Installs into Claude Code (~/.claude/skills) and the universal
+# ~/.agents/skills that Cursor, Codex, and other agents read.
 # Not part of 'install': review what each repo ships before running.
 install/skills:
-	npx -y skills add vercel-labs/agent-browser -g -a claude-code -y
-	npx -y skills add firecrawl/cli -g -a claude-code -y
-	npx -y skills add vercel-labs/skills -g -a claude-code -y
-	npx -y skills add emilkowalski/skills -g -a claude-code -y
+	npx -y skills add vercel-labs/agent-browser -g -a claude-code universal -y
+	npx -y skills add firecrawl/cli -g -a claude-code universal -y
+	npx -y skills add vercel-labs/skills -g -a claude-code universal -y
+	npx -y skills add emilkowalski/skills -g -a claude-code universal -y
 
 #
 # Export
