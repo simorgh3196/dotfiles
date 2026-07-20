@@ -1,0 +1,42 @@
+{
+  "artifactReviewPolicy": "agent-decides",
+  "colorScheme": "tokyo night",
+  "editor": "vim",
+  "enableTelemetry": false,
+  "model": "Gemini 3.5 Flash (High)",
+  "notifications": true,
+  "permissions": {
+    "allow": [
+      "command(ls)",
+      "command(ghq)",
+      "command(echo)",
+      "command(git status)",
+      "command(git add)",
+      "command(git commit)",
+      "command(grep)",
+      "command(find)",
+      "command(which)",
+      "command(/Users/simorgh3196/.local/share/mise/installs/antigravity-cli/latest/agy)",
+      "command(env)",
+      "command(ps)",
+      "command(pwd)",
+      "command(mise)",
+      "command(gh)",
+      "command(git branch)",
+      "command(cat)",
+      "command(mkdir)",
+      "command(cp)"
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "/Users/simorgh3196/dotfiles/antigravity-cli/statusline.sh",
+    "enabled": true
+  },
+  "toolPermission": "proceed-in-sandbox",
+  "trustedWorkspaces": [
+    "/Users/simorgh3196/dotfiles",
+    "/Users/simorgh3196",
+    "/Users/simorgh3196/src/github.com/simorgh3196/tsuzulint"
+  ]
+}
