@@ -1,0 +1,70 @@
+# --- Homebrew ---
+if [ -d /opt/homebrew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    export LIBRARY_PATH="/opt/homebrew/lib${LIBRARY_PATH:+:${LIBRARY_PATH}}"
+    export CPATH="/opt/homebrew/include${CPATH:+:${CPATH}}"
+fi
+
+# --- Helper function to add to PATH ---
+add_to_path() {
+    if [ -d "$1" ]; then
+        case ":$PATH:" in
+            *:"$1":*) ;; # already in PATH
+            *) PATH="$PATH:$1" ;;
+        esac
+    fi
+}
+
+# --- General Paths ---
+add_to_path "$HOME/.local/bin"
+add_to_path "$HOME/.swiftpm/bin"
+add_to_path "$HOME/.config/swiftpm/bin"
+
+# --- Go ---
+export GOPATH="$HOME/go"
+add_to_path "$GOPATH/bin"
+
+# --- Rust ---
+add_to_path "$HOME/.cargo/bin"
+
+# --- Flutter / FVM ---
+add_to_path "$HOME/flutter/bin"
+add_to_path "$HOME/fvm/default/bin"
+
+# --- Other Developer Tools ---
+add_to_path "$HOME/google-cloud-sdk/bin"
+add_to_path "$HOME/.maestro/bin"
+add_to_path "/opt/podman/bin"
+add_to_path "$HOME/.antigravity/antigravity/bin"
+add_to_path "$HOME/.antigravity-ide/antigravity-ide/bin"
+
+if [ -d "$HOME/Library/pnpm" ]; then
+    export PNPM_HOME="$HOME/Library/pnpm"
+    add_to_path "$PNPM_HOME/bin"
+fi
+
+# --- Android SDK & Java ---
+export SDKROOT="$(xcrun --show-sdk-path 2>/dev/null)"
+export XDG_CONFIG_HOME="$HOME/.config"
+export GHQ_ROOT="$HOME/src"
+
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+add_to_path "$ANDROID_HOME/platform-tools"
+
+if [ -d "$ANDROID_HOME/ndk" ]; then
+    latest_ndk=$(ls -1 "$ANDROID_HOME/ndk" 2>/dev/null | tail -n1)
+    if [ -n "$latest_ndk" ]; then
+        export NDK_HOME="$ANDROID_HOME/ndk/$latest_ndk"
+    fi
+fi
+
+# --- Editor ---
+export EDITOR="nvim"
+export VISUAL="nvim"
+export SUDO_EDITOR="nvim"
+
+# --- mise (version manager) ---
+if command -v mise >/dev/null 2>&1; then
+    eval "$(mise activate bash)"
+fi

@@ -13,7 +13,7 @@ test:
 
 .PHONY: install install/*
 
-install: install/brew install/mise install/python install/nvim install/fish install/git install/ghostty install/herdr install/claude install/vscode install/hunk install/antigravity
+install: install/brew install/mise install/python install/nvim install/fish install/bash install/git install/ghostty install/herdr install/claude install/vscode install/hunk install/antigravity
 
 install/brew:
 	command -v brew >/dev/null 2>&1 || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -40,6 +40,10 @@ install/nvim:
 install/fish:
 	mkdir -p ~/.config/
 	ln -siv $(PWD)/fish ~/.config
+
+install/bash:
+	ln -siv $(PWD)/bash/bash_profile ~/.bash_profile
+	ln -siv $(PWD)/bash/bashrc ~/.bashrc
 
 install/ghostty:
 	mkdir -p ~/.config/ghostty/
@@ -85,8 +89,9 @@ install/hunk:
 
 install/antigravity:
 	mkdir -p ~/.gemini/antigravity-cli
-	ln -sfv $(PWD)/antigravity-cli/settings.json ~/.gemini/antigravity-cli/settings.json
+	test -f ~/.gemini/antigravity-cli/settings.json || cp -v $(PWD)/antigravity-cli/settings.json.example ~/.gemini/antigravity-cli/settings.json
 	ln -sfv $(PWD)/antigravity-cli/statusline.sh ~/.gemini/antigravity-cli/statusline.sh
+
 
 # Third-party agent skills, restored from their source repos with
 # vercel-labs skills (https://github.com/vercel-labs/skills).

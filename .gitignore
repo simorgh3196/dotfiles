@@ -36,3 +36,5 @@ brew/Brewfile.lock.json
 fish/fish_variables
 *.backup
 nvim/lazy-lock.json
+antigravity-cli/settings.json
+
