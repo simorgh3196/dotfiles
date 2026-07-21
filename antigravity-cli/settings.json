@@ -25,7 +25,14 @@
       "command(git branch)",
       "command(cat)",
       "command(mkdir)",
-      "command(cp)"
+      "command(cp)",
+      "command(diff)",
+      "command(git diff)",
+      "command(git ls-files)",
+      "command(git checkout)",
+      "command(git cherry-pick)",
+      "command(git log)",
+      "command(cargo nextest run --workspace)"
     ]
   },
   "statusLine": {
