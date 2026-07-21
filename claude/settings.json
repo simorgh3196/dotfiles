@@ -5,7 +5,6 @@
   },
   "permissions": {
     "allow": [
-      "mcp__pencil",
       "mcp__plugin_context7_context7__*",
       "mcp__plugin_Notion_notion__*",
       "Skill(agent-browser:*)",
@@ -49,7 +48,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "sonnet",
+  "model": "claude-fable-5[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -68,6 +67,9 @@
         ]
       }
     ]
+  },
+  "worktree": {
+    "baseRef": "fresh"
   },
   "statusLine": {
     "type": "command",
@@ -110,5 +112,8 @@
   "language": "Japanese",
   "effortLevel": "xhigh",
   "advisorModel": "fable",
-  "editorMode": "vim"
+  "askUserQuestionTimeout": "5m",
+  "editorMode": "vim",
+  "teammateMode": "auto",
+  "inputNeededNotifEnabled": true
 }
