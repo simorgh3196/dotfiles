@@ -22,6 +22,7 @@ antigravity-cli = "latest"
 
 "gem:ruby-lsp" = "latest"
 "npm:hunkdiff" = "latest"
+"pipx:podman-compose" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = [

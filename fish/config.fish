@@ -160,6 +160,10 @@ set -gx LIBRARY_PATH "$(brew --prefix zstd)/lib" $LIBRARY_PATH
 set -gx GRPC_PYTHON_BUILD_SYSTEM_OPENSSL 1
 set -gx GRPC_PYTHON_BUILD_SYSTEM_ZLIB 1
 
+# for podman
+fish_add_path /opt/podman/bin
+alias docker="podman"
+
 # for 1Password CLI (tokens)
 if test -f $HOME/.config/op/plugins.sh
     source $HOME/.config/op/plugins.sh

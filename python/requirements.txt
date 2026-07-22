@@ -1,3 +1,4 @@
-opencv-python
 PyQt6
+opencv-python
+podman-compose
 sip
